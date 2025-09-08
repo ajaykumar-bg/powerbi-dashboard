@@ -28,14 +28,14 @@ function App() {
 					py: 4,
 				}}
 			>
-				<Container maxWidth='xl'>
+				<Container maxWidth>
 					<Typography variant='h4' gutterBottom>
 						SAP App Dev Scorecard
 					</Typography>
 
 					<Grid container spacing={3}>
-						{/* Left Column */}
-						<Grid item xs={12} md={2}>
+						{/* Left Side - Three Small Widgets */}
+						<Grid item xs={12} md={3}>
 							<Grid container spacing={2}>
 								<Grid item xs={12}>
 									<TechDebtSection />
@@ -49,8 +49,8 @@ function App() {
 							</Grid>
 						</Grid>
 
-						{/* Center Column */}
-						<Grid item xs={12} md={7}>
+						{/* Middle Side - Large Sections */}
+						<Grid item xs={12} md={6}>
 							<Grid container spacing={3}>
 								<Grid item xs={12}>
 									<VulnerabilitiesSection />
@@ -64,13 +64,13 @@ function App() {
 							</Grid>
 						</Grid>
 
-						{/* Right Column */}
+						{/* Right Side */}
 						<Grid item xs={12} md={3}>
-							<Grid container spacing={3}>
-								<Grid item xs={12}>
+							<Grid container spacing={3} direction='column'>
+								<Grid item>
 									<OperationsMetricsSection />
 								</Grid>
-								<Grid item xs={12}>
+								<Grid item>
 									<ServiceRequestSection />
 								</Grid>
 							</Grid>

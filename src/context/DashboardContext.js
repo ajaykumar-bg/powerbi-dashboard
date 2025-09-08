@@ -22,7 +22,11 @@ export const DashboardProvider = ({ children }) => {
 	const [data, setData] = useState(generateDashboardData());
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-	const isLive = true;
+	const [isLive, setIsLive] = useState(true);
+
+	const toggleLive = () => {
+		setIsLive((prev) => !prev);
+	};
 
 	const updateData = useCallback(() => {
 		try {
@@ -64,6 +68,7 @@ export const DashboardProvider = ({ children }) => {
 				loading,
 				error,
 				isLive,
+				toggleLive,
 				updateData,
 			}}
 		>

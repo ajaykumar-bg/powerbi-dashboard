@@ -1,27 +1,22 @@
-import { ThemeProvider, CssBaseline, Container, Box } from '@mui/material';
-import { theme } from './theme';
+import { Container, CssBaseline } from '@mui/material';
 import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 import { DashboardProvider } from './context/DashboardContext';
+import { ThemeProvider } from './context/ThemeContext';
 
 import './App.css';
 
 function App() {
 	return (
-		<ThemeProvider theme={theme}>
-			<CssBaseline />
+		<ThemeProvider>
 			<DashboardProvider>
-				<Box
-					sx={{
-						backgroundColor: 'background.default',
-						minHeight: '100vh',
-					}}
-				>
+				<CssBaseline />
+				<div className='app'>
 					<Navbar />
 					<Container maxWidth='xl'>
 						<Dashboard />
 					</Container>
-				</Box>
+				</div>
 			</DashboardProvider>
 		</ThemeProvider>
 	);

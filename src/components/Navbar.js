@@ -1,31 +1,37 @@
-import { AppBar, Toolbar, Typography, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton, Box } from '@mui/material';
+import {
+	PlayArrow,
+	Pause,
+	Brightness4,
+	Brightness7,
+} from '@mui/icons-material';
+import { useDashboard } from '../context/DashboardContext';
+import { useThemeMode } from '../context/ThemeContext';
 
 const Navbar = () => {
+	const { isLive, toggleLive } = useDashboard();
+	const { mode, toggleTheme } = useThemeMode();
+
 	return (
-		<AppBar
-			position='static'
-			sx={{
-				backgroundColor: 'background.paper',
-				boxShadow: 'none',
-				borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-				mb: 3,
-				borderRadius: 0,
-				padding: '1rem',
-			}}
-		>
-			<Toolbar sx={{ justifyContent: 'space-between' }}>
-				<Typography variant='h4' component='h1' color='text.primary'>
+		<AppBar position='static' sx={{ mb: 2, borderRadius: 0 }}>
+			<Toolbar>
+				<Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
 					SAP App Dev Scorecard
 				</Typography>
-				<Box
-					component='img'
-					src='pepsico-logo.jpg'
-					alt='Pepsico Logo'
-					sx={{
-						height: '40px',
-						width: 'auto',
-					}}
-				/>
+				<Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+					<IconButton color='inherit' onClick={toggleTheme}>
+						{mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+					</IconButton>
+					<IconButton color='inherit' onClick={toggleLive}>
+						{isLive ? <Pause /> : <PlayArrow />}
+					</IconButton>
+					<Box
+						component='img'
+						src='pepsico-logo.jpg'
+						alt='Pepsico Logo'
+						sx={{ height: 40 }}
+					/>
+				</Box>
 			</Toolbar>
 		</AppBar>
 	);

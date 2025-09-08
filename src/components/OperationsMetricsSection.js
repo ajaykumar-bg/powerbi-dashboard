@@ -11,7 +11,7 @@ export const OperationsMetricsSection = () => {
 				Operations Metrics
 			</Typography>
 
-			<Grid container spacing={2}>
+			<Grid container spacing={2} justifyContent={'space-between'}>
 				<Grid item xs={6}>
 					<Box>
 						<Typography variant='h4' color='secondary'>

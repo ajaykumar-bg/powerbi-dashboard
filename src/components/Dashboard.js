@@ -14,7 +14,12 @@ function Dashboard() {
 		<Container maxWidth='xl'>
 			<Grid container spacing={3}>
 				{/* Left Side - Three Small Widgets */}
-				<Grid item xs={12} md={2}>
+				<Grid
+					item
+					xs={12}
+					md={2}
+					sx={{ width: { xs: '100%', md: '100%', lg: 'auto' } }}
+				>
 					<Grid container spacing={2} direction='column'>
 						<Grid item xs={12}>
 							<TechDebtSection />
@@ -29,7 +34,12 @@ function Dashboard() {
 				</Grid>
 
 				{/* Middle Side - Large Sections */}
-				<Grid item xs={12} md={7}>
+				<Grid
+					item
+					xs={12}
+					md={7}
+					sx={{ width: { xs: '100%', md: '100%', lg: 'auto' } }}
+				>
 					<Grid container spacing={3} direction='column'>
 						<Grid item xs={12}>
 							<VulnerabilitiesSection />
@@ -44,7 +54,12 @@ function Dashboard() {
 				</Grid>
 
 				{/* Right Side */}
-				<Grid item xs={12} md={3}>
+				<Grid
+					item
+					xs={12}
+					md={3}
+					sx={{ width: { xs: '100%', md: '100%', lg: 'auto' } }}
+				>
 					<Grid container spacing={3} direction='column'>
 						<Grid item xs={12}>
 							<OperationsMetricsSection />

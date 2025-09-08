@@ -11,7 +11,7 @@ export const VulnerabilitiesSection = () => {
 				Vulnerabilities
 			</Typography>
 
-			<Grid container spacing={2}>
+			<Grid container spacing={2} justifyContent={'space-between'}>
 				<Grid item xs={6}>
 					<Typography variant='body1' color='text.secondary'>
 						Custom Code Vulnerabilities

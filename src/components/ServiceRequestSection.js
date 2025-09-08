@@ -11,7 +11,7 @@ export const ServiceRequestSection = () => {
 				Service Now Request
 			</Typography>
 
-			<Grid container spacing={2}>
+			<Grid container spacing={2} justifyContent={'space-between'}>
 				<Grid item xs={4}>
 					<Typography variant='h4' color='warning.main'>
 						{serviceNowRequest?.processed}

@@ -1,0 +1,90 @@
+{
+	"techDebt": {
+		"reductionPercentage": 25
+	},
+	"appRat": {
+		"totalSavings": "220K",
+		"sapMobilePlatform": "120k",
+		"sapCE": "100k"
+	},
+	"aiIndex": {
+		"value": "0.4 MM",
+		"type": "Savings"
+	},
+	"vulnerabilities": {
+		"customCode": {
+			"analyzed": 11000,
+			"remediatedCount": 2000
+		},
+		"sapPortal": {
+			"detected": 125,
+			"remaining": 5
+		}
+	},
+	"operationsMetrics": {
+		"ricefs": 4000,
+		"fioriApps": 300,
+		"retrofits": 7000,
+		"liveCompare": {
+			"count": 8000,
+			"type": "Executions"
+		}
+	},
+	"sqlOptimization": {
+		"queries": {
+			"analyzed": 64,
+			"dispositioned": 38,
+			"inProgress": 26,
+			"optimized": 13
+		},
+		"performance": {
+			"memoryReduction": {
+				"value": "40 K",
+				"unit": "GB"
+			},
+			"executionTimeReduction": {
+				"value": "800 K",
+				"unit": "Seconds"
+			}
+		}
+	},
+	"serviceNowRequest": {
+		"processed": 9873,
+		"inProgress": 98,
+		"completionPercentage": 57
+	},
+	"productRoadmap": {
+		"items": [
+			{
+				"name": "Portal",
+				"year": "2027",
+				"type": "Re-Platform"
+			},
+			{
+				"name": "WM",
+				"year": "2027",
+				"type": "Re-Platform"
+			},
+			{
+				"name": "SolMan",
+				"year": "2027",
+				"type": "Re-Platform"
+			},
+			{
+				"name": "SAP Gateway/Fiori",
+				"year": "2027",
+				"type": "Re-Platform"
+			},
+			{
+				"name": "Live Compare",
+				"year": "2026",
+				"type": "Upgrade"
+			},
+			{
+				"name": "Data Masking",
+				"year": "2026",
+				"type": "Upgrade"
+			}
+		]
+	}
+}

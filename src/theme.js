@@ -36,11 +36,17 @@ export const theme = createTheme({
 		magenta: {
 			main: '#ff00ff',
 		},
+		blue: {
+			main: 'deepskyblue',
+		},
+		plum: {
+			main: '#dda0dd',
+		},
 	},
 	typography: {
 		fontFamily: '"Segoe UI", "Roboto", "Arial", sans-serif',
 		h4: {
-			color: '#00ffff',
+			color: '#ffffff',
 			fontWeight: 500,
 			fontSize: '1.75rem',
 		},
@@ -50,8 +56,8 @@ export const theme = createTheme({
 			fontSize: '1.5rem',
 		},
 		h6: {
-			color: '#00ffff',
-			fontWeight: 400,
+			color: '#ffffff',
+			fontWeight: 500,
 			fontSize: '1.25rem',
 		},
 		subtitle1: {

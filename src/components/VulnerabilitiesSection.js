@@ -1,6 +1,10 @@
 import { Box, Paper, Typography, Grid } from '@mui/material';
+import { useDashboard } from '../context/DashboardContext';
 
 export const VulnerabilitiesSection = () => {
+	const { data } = useDashboard();
+
+	const { vulnerabilities } = data;
 	return (
 		<Paper sx={{ p: 2, height: '100%' }}>
 			<Typography variant='h6' gutterBottom>
@@ -14,13 +18,13 @@ export const VulnerabilitiesSection = () => {
 					</Typography>
 					<Box sx={{ mt: 1 }}>
 						<Typography variant='h4' color='warning.main'>
-							11000
+							{vulnerabilities?.customCode?.analyzed}
 						</Typography>
 						<Typography variant='body2'>Analyzed</Typography>
 					</Box>
 					<Box sx={{ mt: 1 }}>
 						<Typography variant='h4' color='warning.main'>
-							2000
+							{vulnerabilities?.customCode?.remediatedCount}
 						</Typography>
 						<Typography variant='body2'>Disposition/Remediated</Typography>
 					</Box>
@@ -32,7 +36,7 @@ export const VulnerabilitiesSection = () => {
 					</Typography>
 					<Box sx={{ mt: 1 }}>
 						<Typography variant='h4' color='warning.main'>
-							125
+							{vulnerabilities?.sapPortal?.detected}
 						</Typography>
 						<Typography variant='body2'>
 							Detected (Critical, High, & Medium)
@@ -40,7 +44,7 @@ export const VulnerabilitiesSection = () => {
 					</Box>
 					<Box sx={{ mt: 1 }}>
 						<Typography variant='h4' color='warning.main'>
-							5
+							{vulnerabilities?.sapPortal?.remaining}
 						</Typography>
 						<Typography variant='body2'>Remaining (Low)</Typography>
 					</Box>

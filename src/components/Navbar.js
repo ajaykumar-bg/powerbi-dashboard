@@ -10,10 +10,11 @@ const Navbar = () => {
 				borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
 				mb: 3,
 				borderRadius: 0,
+				padding: '1rem',
 			}}
 		>
 			<Toolbar sx={{ justifyContent: 'space-between' }}>
-				<Typography variant='h4' component='h1' sx={{ color: 'primary.main' }}>
+				<Typography variant='h4' component='h1' color='text.primary'>
 					SAP App Dev Scorecard
 				</Typography>
 				<Box

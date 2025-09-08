@@ -1,14 +1,10 @@
 import { Paper, Typography, Grid } from '@mui/material';
+import { useDashboard } from '../context/DashboardContext';
 
 export const ProductRoadmapSection = () => {
-	const roadmapItems = [
-		{ name: 'Portal', year: '2027', type: 'Re-Platform' },
-		{ name: 'WM', year: '2027', type: 'Re-Platform' },
-		{ name: 'SolMan', year: '2027', type: 'Re-Platform' },
-		{ name: 'SAP Gateway/Fiori', year: '2027', type: 'Re-Platform' },
-		{ name: 'Live Compare', year: '2026', type: 'Upgrade' },
-		{ name: 'Data Masking', year: '2026', type: 'Upgrade' },
-	];
+	const { data } = useDashboard();
+
+	const { productRoadmap } = data;
 
 	return (
 		<Paper sx={{ p: 2, height: '100%' }}>
@@ -17,7 +13,7 @@ export const ProductRoadmapSection = () => {
 			</Typography>
 
 			<Grid container spacing={2}>
-				{roadmapItems.map((item, index) => (
+				{productRoadmap?.items?.map((item, index) => (
 					<Grid item xs={2} key={index}>
 						<Typography variant='body1'>{item.name}</Typography>
 						<Typography variant='h6' color='warning.main'>

@@ -11,9 +11,7 @@ export const SQLOptimizationSection = () => {
 				Expensive SQL Optimization
 			</Typography>
 
-			<Box
-				sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, gap: 2 }}
-			>
+			<Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 2 }}>
 				<Box>
 					<Typography variant='h4' color='blue'>
 						{sqlOptimization?.queries?.analyzed}
@@ -42,24 +40,27 @@ export const SQLOptimizationSection = () => {
 				</Box>
 			</Box>
 
-			<Box sx={{ mt: 2 }}>
-				<Typography variant='h4' color='blue'>
-					{sqlOptimization?.performance?.memoryReduction?.value}
-				</Typography>
-				<Typography variant='body2'>Memory Usage Reduction/day</Typography>
-				<Typography variant='body2' sx={{ color: 'gray' }}>
-					{sqlOptimization?.performance?.memoryReduction?.unit}
-				</Typography>
-			</Box>
-
-			<Box sx={{ mt: 2 }}>
-				<Typography variant='h4' color='blue'>
-					{sqlOptimization?.performance?.executionTimeReduction?.value}
-				</Typography>
-				<Typography variant='body2'>Execution Time Reduction/day</Typography>
-				<Typography variant='body2' sx={{ color: 'gray' }}>
-					{sqlOptimization?.performance?.executionTimeReduction?.unit}
-				</Typography>
+			<Box
+				sx={{ display: 'flex', justifyContent: 'space-between', gap: 2, mt: 3 }}
+			>
+				<Box>
+					<Typography variant='h4' color='blue'>
+						{sqlOptimization?.performance?.memoryReduction?.value}
+					</Typography>
+					<Typography variant='body2'>Memory Usage Reduction/day</Typography>
+					<Typography variant='body2' sx={{ color: 'gray' }}>
+						{sqlOptimization?.performance?.memoryReduction?.unit}
+					</Typography>
+				</Box>
+				<Box>
+					<Typography variant='h4' color='blue'>
+						{sqlOptimization?.performance?.executionTimeReduction?.value}
+					</Typography>
+					<Typography variant='body2'>Execution Time Reduction/day</Typography>
+					<Typography variant='body2' sx={{ color: 'gray' }}>
+						{sqlOptimization?.performance?.executionTimeReduction?.unit}
+					</Typography>
+				</Box>
 			</Box>
 		</Paper>
 	);

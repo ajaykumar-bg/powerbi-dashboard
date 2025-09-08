@@ -12,7 +12,7 @@ export const ProductRoadmapSection = () => {
 				Product EOL/Roadmap
 			</Typography>
 
-			<Grid container spacing={2}>
+			<Grid container spacing={2} justifyContent={'space-between'}>
 				{productRoadmap?.items?.map((item, index) => (
 					<Grid item xs={2} key={index}>
 						<Typography variant='body1'>{item.name}</Typography>

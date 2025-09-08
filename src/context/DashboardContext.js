@@ -22,7 +22,7 @@ export const DashboardProvider = ({ children }) => {
 	const [data, setData] = useState(generateDashboardData());
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-	const isLive = false;
+	const isLive = true;
 
 	const updateData = useCallback(() => {
 		try {

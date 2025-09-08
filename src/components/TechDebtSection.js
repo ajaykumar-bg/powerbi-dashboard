@@ -7,7 +7,7 @@ export const TechDebtSection = () => {
 	const { techDebt } = data;
 
 	return (
-		<Paper sx={{ p: 2, height: '100%' }}>
+		<Paper sx={{ px: 2, py: 5, height: '100%' }}>
 			<Typography variant='h6' gutterBottom>
 				Tech Debt Reduction
 			</Typography>

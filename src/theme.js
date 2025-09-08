@@ -83,7 +83,7 @@ export const getTheme = (mode) =>
 				styleOverrides: {
 					root: {
 						backgroundColor: '#1a1042',
-						borderRadius: 16,
+						borderRadius: 5,
 						padding: '1.5rem',
 					},
 				},

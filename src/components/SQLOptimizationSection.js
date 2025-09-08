@@ -7,7 +7,9 @@ export const SQLOptimizationSection = () => {
 				Expensive SQL Optimization
 			</Typography>
 
-			<Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
+			<Box
+				sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, gap: 2 }}
+			>
 				<Box>
 					<Typography variant='h4' color='primary'>
 						64

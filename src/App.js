@@ -34,34 +34,44 @@ function App() {
 					</Typography>
 
 					<Grid container spacing={3}>
+						{/* Left Column */}
 						<Grid item xs={12} md={2}>
 							<Grid container spacing={2}>
-								<TechDebtSection />
-								<AppRatWidget />
-								<AIIndexWidget />
+								<Grid item xs={12}>
+									<TechDebtSection />
+								</Grid>
+								<Grid item xs={12}>
+									<AppRatWidget />
+								</Grid>
+								<Grid item xs={12}>
+									<AIIndexWidget />
+								</Grid>
 							</Grid>
 						</Grid>
 
-						<Grid item xs={12} md={10}>
+						{/* Center Column */}
+						<Grid item xs={12} md={7}>
 							<Grid container spacing={3}>
 								<Grid item xs={12}>
 									<VulnerabilitiesSection />
 								</Grid>
-
-								<Grid item xs={12}>
-									<OperationsMetricsSection />
-								</Grid>
-
 								<Grid item xs={12}>
 									<SQLOptimizationSection />
 								</Grid>
-
-								<Grid item xs={12} md={4}>
-									<ServiceRequestSection />
-								</Grid>
-
-								<Grid item xs={12} md={8}>
+								<Grid item xs={12}>
 									<ProductRoadmapSection />
+								</Grid>
+							</Grid>
+						</Grid>
+
+						{/* Right Column */}
+						<Grid item xs={12} md={3}>
+							<Grid container spacing={3}>
+								<Grid item xs={12}>
+									<OperationsMetricsSection />
+								</Grid>
+								<Grid item xs={12}>
+									<ServiceRequestSection />
 								</Grid>
 							</Grid>
 						</Grid>

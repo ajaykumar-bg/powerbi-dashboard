@@ -1,4 +1,11 @@
-import { AppBar, Toolbar, Typography, IconButton, Box } from '@mui/material';
+import {
+	AppBar,
+	Toolbar,
+	Typography,
+	IconButton,
+	Box,
+	Tooltip,
+} from '@mui/material';
 import {
 	PlayArrow,
 	Pause,
@@ -19,12 +26,16 @@ const Navbar = () => {
 					SAP App Dev Scorecard
 				</Typography>
 				<Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-					<IconButton color='inherit' onClick={toggleTheme}>
-						{mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
-					</IconButton>
-					<IconButton color='inherit' onClick={toggleLive}>
-						{isLive ? <Pause /> : <PlayArrow />}
-					</IconButton>
+					<Tooltip title='Toggle Theme'>
+						<IconButton color='inherit' onClick={toggleTheme}>
+							{mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+						</IconButton>
+					</Tooltip>
+					<Tooltip title='Toggle Live Update'>
+						<IconButton color='inherit' onClick={toggleLive}>
+							{isLive ? <Pause /> : <PlayArrow />}
+						</IconButton>
+					</Tooltip>
 					<Box
 						component='img'
 						src='pepsico-logo.jpg'

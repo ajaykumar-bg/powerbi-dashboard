@@ -9,12 +9,9 @@ const formatNumber = (num) => {
 };
 
 export const generateDashboardData = () => {
-	// Generate random percentages for tech debt
-	const techDebtReduction = getRandomValue(15, 35);
-
 	return {
 		techDebt: {
-			reductionPercentage: techDebtReduction,
+			reductionPercentage: getRandomValue(15, 35),
 		},
 		appRat: {
 			totalSavings: formatNumber(getRandomValue(200000, 250000)),

@@ -1,7 +1,14 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import dashboardData from '../data/dashboardData.json';
+import {
+	createContext,
+	useContext,
+	useState,
+	useEffect,
+	useCallback,
+} from 'react';
+import { generateDashboardData } from '../utils/dataGenerator';
 
 const DashboardContext = createContext();
+const UPDATE_INTERVAL = 5000; // 5 seconds
 
 export const useDashboard = () => {
 	const context = useContext(DashboardContext);
@@ -12,36 +19,54 @@ export const useDashboard = () => {
 };
 
 export const DashboardProvider = ({ children }) => {
-	const [data, setData] = useState(dashboardData);
+	const [data, setData] = useState(generateDashboardData());
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const isLive = true;
 
-	// Simulate data fetching
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				// In a real application, you would fetch data from an API here
-				// For now, we'll just use the static data
-				setData(dashboardData);
-				setLoading(false);
-			} catch (err) {
-				setError(err.message);
-				setLoading(false);
-			}
-		};
-
-		fetchData();
+	const updateData = useCallback(() => {
+		try {
+			const newData = generateDashboardData();
+			setData(newData);
+			setLoading(false);
+		} catch (err) {
+			setError(err.message);
+			setLoading(false);
+		}
 	}, []);
 
-	const updateData = (section, newData) => {
-		setData((prevData) => ({
-			...prevData,
-			[section]: newData,
-		}));
-	};
+	// Initial data load
+	useEffect(() => {
+		updateData();
+	}, [updateData]);
+
+	// Set up real-time updates
+	useEffect(() => {
+		let intervalId;
+
+		if (isLive) {
+			intervalId = setInterval(() => {
+				updateData();
+			}, UPDATE_INTERVAL);
+		}
+
+		return () => {
+			if (intervalId) {
+				clearInterval(intervalId);
+			}
+		};
+	}, [isLive, updateData]);
 
 	return (
-		<DashboardContext.Provider value={{ data, loading, error, updateData }}>
+		<DashboardContext.Provider
+			value={{
+				data,
+				loading,
+				error,
+				isLive,
+				updateData,
+			}}
+		>
 			{children}
 		</DashboardContext.Provider>
 	);

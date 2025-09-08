@@ -3,6 +3,7 @@ import { theme } from './theme';
 import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 import { DashboardProvider } from './context/DashboardContext';
+
 import './App.css';
 
 function App() {

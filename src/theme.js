@@ -37,7 +37,7 @@ export const theme = createTheme({
 			main: '#ff00ff',
 		},
 		blue: {
-			main: 'deepskyblue',
+			main: '#00bfff',
 		},
 		plum: {
 			main: '#dda0dd',

@@ -11,7 +11,7 @@ import { ProductRoadmapSection } from './ProductRoadmapSection';
 
 function Dashboard() {
 	return (
-		<Container maxWidth>
+		<Container maxWidth='xl'>
 			<Grid container spacing={3}>
 				{/* Left Side - Three Small Widgets */}
 				<Grid item xs={12} md={2}>

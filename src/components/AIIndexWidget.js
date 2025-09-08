@@ -6,7 +6,7 @@ export const AIIndexWidget = () => {
 
 	const { aiIndex } = data;
 	return (
-		<Paper sx={{ p: 2 }}>
+		<Paper sx={{ p: 2, height: '100%' }}>
 			<Typography variant='h6' gutterBottom>
 				AI Index
 			</Typography>

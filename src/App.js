@@ -8,6 +8,8 @@ import {
 } from '@mui/material';
 import { theme } from './theme';
 import { TechDebtSection } from './components/TechDebtSection';
+import { AppRatWidget } from './components/AppRatWidget';
+import { AIIndexWidget } from './components/AIIndexWidget';
 import { VulnerabilitiesSection } from './components/VulnerabilitiesSection';
 import { SQLOptimizationSection } from './components/SQLOptimizationSection';
 import { OperationsMetricsSection } from './components/OperationsMetricsSection';
@@ -32,11 +34,15 @@ function App() {
 					</Typography>
 
 					<Grid container spacing={3}>
-						<Grid item xs={12} md={3}>
-							<TechDebtSection />
+						<Grid item xs={12} md={2}>
+							<Grid container spacing={2}>
+								<TechDebtSection />
+								<AppRatWidget />
+								<AIIndexWidget />
+							</Grid>
 						</Grid>
 
-						<Grid item xs={12} md={9}>
+						<Grid item xs={12} md={10}>
 							<Grid container spacing={3}>
 								<Grid item xs={12}>
 									<VulnerabilitiesSection />

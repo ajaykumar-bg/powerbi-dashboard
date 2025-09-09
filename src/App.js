@@ -7,19 +7,19 @@ import { ThemeProvider } from './context/ThemeContext';
 import './App.css';
 
 function App() {
-	return (
-		<ThemeProvider>
-			<DashboardProvider>
-				<CssBaseline />
-				<div className='app'>
-					<Navbar />
-					<Container maxWidth='xl'>
-						<Dashboard />
-					</Container>
-				</div>
-			</DashboardProvider>
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider>
+      <DashboardProvider>
+        <CssBaseline />
+        <div className="app">
+          <Navbar />
+          <Container maxWidth={false} sx={{ padding: 2 }}>
+            <Dashboard />
+          </Container>
+        </div>
+      </DashboardProvider>
+    </ThemeProvider>
+  );
 }
 
 export default App;

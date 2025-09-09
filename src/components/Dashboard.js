@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 
 import { TechDebtSection } from './TechDebtSection';
 import { AppRatWidget } from './AppRatWidget';
@@ -10,66 +10,45 @@ import { ServiceRequestSection } from './ServiceRequestSection';
 import { ProductRoadmapSection } from './ProductRoadmapSection';
 
 function Dashboard() {
-	return (
-		<Grid container spacing={3}>
-			{/* Left Side - Three Small Widgets */}
-			<Grid
-				item
-				xs={12}
-				md={2}
-				sx={{ width: { xs: '100%', md: '100%', lg: 'auto' } }}
-			>
-				<Grid container spacing={2} direction='column'>
-					<Grid item xs={12}>
-						<TechDebtSection />
-					</Grid>
-					<Grid item xs={12}>
-						<AppRatWidget />
-					</Grid>
-					<Grid item xs={12}>
-						<AIIndexWidget />
-					</Grid>
-				</Grid>
-			</Grid>
+  return (
+    <Grid container spacing={3} sx={{ width: '100%', px: 5, py: 3 }}>
+      {/* Left Side - Three Small Widgets */}
+      <Grid item size={{ xs: 12, sm: 6, md: 4, lg: 2 }}>
+        <Box mb={3}>
+          <TechDebtSection />
+        </Box>
+        <Box mb={3}>
+          <AppRatWidget />
+        </Box>
+        <Box mb={3}>
+          <AIIndexWidget />
+        </Box>
+      </Grid>
 
-			{/* Middle Side - Large Sections */}
-			<Grid
-				item
-				xs={12}
-				md={7}
-				sx={{ width: { xs: '100%', md: '100%', lg: 'auto' } }}
-			>
-				<Grid container spacing={3} direction='column'>
-					<Grid item xs={12}>
-						<VulnerabilitiesSection />
-					</Grid>
-					<Grid item xs={12}>
-						<SQLOptimizationSection />
-					</Grid>
-					<Grid item xs={12}>
-						<ProductRoadmapSection />
-					</Grid>
-				</Grid>
-			</Grid>
+      {/* Middle Side - Large Sections */}
+      <Grid item size={{ xs: 12, sm: 6, md: 4, lg: 7 }}>
+        <Box mb={3}>
+          <VulnerabilitiesSection />
+        </Box>
+        <Box mb={3}>
+          <SQLOptimizationSection />
+        </Box>
+        <Box mb={3}>
+          <ProductRoadmapSection />
+        </Box>
+      </Grid>
 
-			{/* Right Side */}
-			<Grid
-				item
-				xs={12}
-				md={3}
-				sx={{ width: { xs: '100%', md: '100%', lg: 'auto' } }}
-			>
-				<Grid container spacing={3} direction='column'>
-					<Grid item xs={12}>
-						<OperationsMetricsSection />
-					</Grid>
-					<Grid item xs={12}>
-						<ServiceRequestSection />
-					</Grid>
-				</Grid>
-			</Grid>
-		</Grid>
-	);
+      {/* Right Side */}
+      <Grid item size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+        <Box mb={3}>
+          <OperationsMetricsSection />
+        </Box>
+        <Box mb={3}>
+          <ServiceRequestSection />
+        </Box>
+      </Grid>
+    </Grid>
+  );
 }
 
 export default Dashboard;

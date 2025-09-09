@@ -10,7 +10,7 @@ export const AIIndexWidget = () => {
 			<Typography variant='h6' gutterBottom>
 				AI Index
 			</Typography>
-			<Typography variant='h4' color='plum' sx={{ mb: 1 }}>
+			<Typography variant='h4' color='secondary.main' sx={{ mb: 1 }}>
 				{aiIndex?.value}
 			</Typography>
 			<Typography variant='body2' color='success.main'>

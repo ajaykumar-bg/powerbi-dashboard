@@ -71,10 +71,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Screenshots
 
-## Light Mode
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c6b7d952-21dd-4f8c-a613-dc7ea86a0c10" />
-
 ## Dark Mode
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3f0a7200-1619-45a8-ab27-48e8526c749b" />
+<img width="1792" height="939" alt="DarkMode" src="https://github.com/user-attachments/assets/03417ff9-96a5-4a62-a1a3-4db60972f90c" />
+
+## Light Mode - With Colors
+
+<img width="1791" height="954" alt="LightMode_with_colors" src="https://github.com/user-attachments/assets/4eb6919c-efe0-4156-9d99-f576e6b416f5" />
+
+## Light Mode - Without Colors
+
+<img width="1789" height="893" alt="LightMode_without colors" src="https://github.com/user-attachments/assets/09975357-b9ac-4643-878a-306220c840d6" />

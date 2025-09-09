@@ -11,7 +11,7 @@ import { ProductRoadmapSection } from './ProductRoadmapSection';
 
 function Dashboard() {
   return (
-    <Grid container spacing={3} sx={{ width: '100%', px: 5, py: 3 }}>
+    <Grid container spacing={3} sx={{ width: '100%', lg: { px: 5, py: 3 } }}>
       {/* Left Side - Three Small Widgets */}
       <Grid item size={{ xs: 12, sm: 6, md: 4, lg: 2 }}>
         <Box mb={3}>

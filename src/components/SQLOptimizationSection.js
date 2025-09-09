@@ -1,4 +1,4 @@
-import { Grid, Box, Paper, Typography } from '@mui/material';
+import { Grid, Paper, Typography } from '@mui/material';
 import { useDashboard } from '../context/DashboardContext';
 
 export const SQLOptimizationSection = () => {

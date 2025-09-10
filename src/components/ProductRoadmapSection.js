@@ -16,10 +16,10 @@ export const ProductRoadmapSection = () => {
         {productRoadmap?.items?.map((item, index) => (
           <Grid item xs={2} key={index}>
             <Typography variant="body1">{item.name}</Typography>
-            <Typography variant="h6" color="warning.main">
+            <Typography variant="h6" color="warning">
               {item.year}
             </Typography>
-            <Typography variant="body2" color="success.main">
+            <Typography variant="body2" color="success">
               {item.type}
             </Typography>
           </Grid>

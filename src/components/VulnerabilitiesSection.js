@@ -1,4 +1,4 @@
-import { Box, Paper, Typography, Grid } from '@mui/material';
+import { Box, Paper, Typography, Grid, Divider } from '@mui/material';
 import { useDashboard } from '../context/DashboardContext';
 
 import { useMemo } from 'react';
@@ -31,18 +31,18 @@ export const VulnerabilitiesSection = () => {
           <Typography variant="body1" color="text.secondary">
             Custom Code Vulnerabilities
           </Typography>
-          {/* <Box sx={{ mt: 1 }}>
-            <Typography variant="h4" color="warning.main">
+          <Box sx={{ mt: 1 }}>
+            <Typography variant="h4" color="primary">
               {vulnerabilities?.customCode?.analyzed}
             </Typography>
             <Typography variant="body2">Analyzed</Typography>
           </Box>
           <Box sx={{ mt: 1 }}>
-            <Typography variant="h4" color="warning.main">
+            <Typography variant="h4" color="success">
               {vulnerabilities?.customCode?.remediatedCount}
             </Typography>
             <Typography variant="body2">Disposition/Remediated</Typography>
-          </Box> */}
+          </Box>
           <Box>
             <PieChart
               series={[
@@ -60,13 +60,14 @@ export const VulnerabilitiesSection = () => {
             />
           </Box>
         </Grid>
+        <Divider orientation="vertical" flexItem />
 
         <Grid item xs={6}>
           <Typography variant="body1" color="text.secondary">
             SAP Portal Vulnerabilities
           </Typography>
-          {/* <Box sx={{ mt: 1 }}>
-            <Typography variant="h4" color="warning.main">
+          <Box sx={{ mt: 1 }}>
+            <Typography variant="h4" color="error">
               {vulnerabilities?.sapPortal?.detected}
             </Typography>
             <Typography variant="body2">
@@ -74,11 +75,11 @@ export const VulnerabilitiesSection = () => {
             </Typography>
           </Box>
           <Box sx={{ mt: 1 }}>
-            <Typography variant="h4" color="warning.main">
+            <Typography variant="h4" color="warning">
               {vulnerabilities?.sapPortal?.remaining}
             </Typography>
             <Typography variant="body2">Remaining (Low)</Typography>
-          </Box> */}
+          </Box>
           <Box>
             <PieChart
               series={[

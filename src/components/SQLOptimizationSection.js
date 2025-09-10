@@ -1,4 +1,4 @@
-import { Box, Grid, Paper, Typography } from '@mui/material';
+import { Box, Divider, Grid, Paper, Typography } from '@mui/material';
 import { useDashboard } from '../context/DashboardContext';
 import { useMemo } from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
@@ -40,6 +40,8 @@ export const SQLOptimizationSection = () => {
         />
       </Box>
 
+      <Divider sx={{ my: 2 }} />
+
       {/* <Grid
         container
         sx={{ justifyContent: 'space-between', gap: 2 }}
@@ -79,7 +81,7 @@ export const SQLOptimizationSection = () => {
             {sqlOptimization?.performance?.memoryReduction?.value}
           </Typography>
           <Typography variant="body2">Memory Usage Reduction/day</Typography>
-          <Typography variant="body2" sx={{ color: 'gray' }}>
+          <Typography variant="body2" color="text.secondary">
             {sqlOptimization?.performance?.memoryReduction?.unit}
           </Typography>
         </Grid>
@@ -88,7 +90,7 @@ export const SQLOptimizationSection = () => {
             {sqlOptimization?.performance?.executionTimeReduction?.value}
           </Typography>
           <Typography variant="body2">Execution Time Reduction/day</Typography>
-          <Typography variant="body2" sx={{ color: 'gray' }}>
+          <Typography variant="body2" color="text.secondary">
             {sqlOptimization?.performance?.executionTimeReduction?.unit}
           </Typography>
         </Grid>

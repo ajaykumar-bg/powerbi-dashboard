@@ -16,7 +16,7 @@ export const AIIndexWidget = () => {
       >
         {aiIndex?.value}
       </Typography>
-      <Typography variant="body2" color="success.main">
+      <Typography variant="body2" color="success">
         {aiIndex?.type}
       </Typography>
       <Typography variant="body2">AI Index</Typography>

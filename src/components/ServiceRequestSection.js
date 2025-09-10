@@ -34,19 +34,19 @@ export const ServiceRequestSection = () => {
 
       <Grid container spacing={2} justifyContent={'space-between'}>
         <Grid item xs={4}>
-          <Typography variant="h4" color="warning.main">
+          <Typography variant="h4" color="primary">
             {serviceNowRequest?.processed}
           </Typography>
           <Typography variant="body2">Processed</Typography>
         </Grid>
         <Grid item xs={4}>
-          <Typography variant="h4" color="warning.main">
+          <Typography variant="h4" color="warning">
             {serviceNowRequest?.inProgress}
           </Typography>
           <Typography variant="body2">In-Progress</Typography>
         </Grid>
         <Grid item xs={4}>
-          <Typography variant="h4" color="warning.main">
+          <Typography variant="h4" color="success">
             {serviceNowRequest?.completed}
           </Typography>
           <Typography variant="body2">Completed</Typography>

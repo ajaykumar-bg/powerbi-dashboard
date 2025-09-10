@@ -61,7 +61,7 @@ export const OperationsMetricsSection = () => {
 							{operationsMetrics?.liveCompare?.count}
 						</Typography>
 						<Typography variant='body2'>Live Compare</Typography>
-						<Typography variant='body2' color='success.main'>
+						<Typography variant='body2' color='success'>
 							{operationsMetrics?.liveCompare?.type}
 						</Typography>
 					</Box>

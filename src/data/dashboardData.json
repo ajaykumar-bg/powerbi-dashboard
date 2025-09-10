@@ -51,6 +51,7 @@
 	"serviceNowRequest": {
 		"processed": 9873,
 		"inProgress": 98,
+		"completed": 5678,
 		"completionPercentage": 57
 	},
 	"productRoadmap": {

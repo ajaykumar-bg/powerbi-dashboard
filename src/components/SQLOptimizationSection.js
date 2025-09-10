@@ -1,17 +1,46 @@
-import { Grid, Paper, Typography } from '@mui/material';
+import { Box, Grid, Paper, Typography } from '@mui/material';
 import { useDashboard } from '../context/DashboardContext';
+import { useMemo } from 'react';
+import { PieChart } from '@mui/x-charts/PieChart';
+
+import { generateSQLQueryData } from '../utils/dataGenerator';
+
+const donutSettings = {
+  margin: { right: 5 },
+  width: 200,
+  height: 200,
+  // hideLegend: true,
+};
 
 export const SQLOptimizationSection = () => {
   const { data } = useDashboard();
 
   const { sqlOptimization } = data;
+
+  const queryData = useMemo(
+    () => generateSQLQueryData(sqlOptimization.queries),
+    [sqlOptimization.queries]
+  );
   return (
     <Paper sx={{ p: 2, height: '100%' }}>
       <Typography variant="h6" gutterBottom>
         Expensive SQL Optimization
       </Typography>
+      <Box>
+        <PieChart
+          series={[
+            {
+              innerRadius: 50,
+              outerRadius: 100,
+              data: queryData,
+              arcLabel: 'value',
+            },
+          ]}
+          {...donutSettings}
+        />
+      </Box>
 
-      <Grid
+      {/* <Grid
         container
         sx={{ justifyContent: 'space-between', gap: 2 }}
         size={{ md: 12 }}
@@ -42,7 +71,7 @@ export const SQLOptimizationSection = () => {
             High Memory/time Intensive queries optimized so far
           </Typography>
         </Grid>
-      </Grid>
+      </Grid> */}
 
       <Grid container sx={{ justifyContent: 'space-between', gap: 2, mt: 3 }}>
         <Grid item>

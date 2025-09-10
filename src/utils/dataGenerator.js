@@ -129,7 +129,7 @@ export const generateSQLQueryData = (data) => {
 		{
 			id: 3,
 			value: optimized,
-			label: 'High Memory/time Intensive queries optimized so far',
+			label: 'Queries Optimized',
 		},
 	];
 };
@@ -147,7 +147,7 @@ export const generateVulnerabilityData = (data) => {
 			{
 				id: 1,
 				value: customCode.remediatedCount,
-				label: 'Disposition/Remediated',
+				label: 'Remediated',
 				// color: '#00C49F',
 			},
 		],
@@ -155,13 +155,13 @@ export const generateVulnerabilityData = (data) => {
 			{
 				id: 0,
 				value: sapPortal.detected,
-				label: 'Detected (Critical, High, & Medium)',
+				label: 'Detected',
 				// color: '#fe000dff',
 			},
 			{
 				id: 1,
 				value: sapPortal.remaining,
-				label: 'Remaining (Low)',
+				label: 'Remaining',
 				// color: '#5cc400ff',
 			},
 		],

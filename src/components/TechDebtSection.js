@@ -12,17 +12,6 @@ export const TechDebtSection = () => {
 			<Typography variant='h6' gutterBottom>
 				Tech Debt Reduction
 			</Typography>
-			{/* <Typography
-				variant='h2'
-				sx={{
-					color: 'secondary.main',
-					fontWeight: 'bold',
-					textAlign: 'center',
-					my: 2,
-				}}
-			>
-				{techDebt?.reductionPercentage}%
-			</Typography> */}
 			<Box
 				sx={{
 					display: 'grid',

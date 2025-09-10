@@ -35,14 +35,13 @@ export const TechDebtSection = () => {
           width={150}
           height={150}
           value={techDebt?.reductionPercentage}
-          color="secondary"
           sx={(theme) => ({
             [`& .${gaugeClasses.valueText}`]: {
               color: theme.palette.text.secondary,
               fontSize: 40,
             },
             [`& .${gaugeClasses.valueArc}`]: {
-              fill: '#EB7B30',
+              fill: '#ffa726',
             },
             [`& .${gaugeClasses.referenceArc}`]: {
               fill: theme.palette.text.disabled,

@@ -75,7 +75,7 @@ export const SQLOptimizationSection = () => {
 
       <Grid container sx={{ justifyContent: 'space-between', gap: 2, mt: 3 }}>
         <Grid item>
-          <Typography variant="h4" color="blue">
+          <Typography variant="h4">
             {sqlOptimization?.performance?.memoryReduction?.value}
           </Typography>
           <Typography variant="body2">Memory Usage Reduction/day</Typography>
@@ -84,7 +84,7 @@ export const SQLOptimizationSection = () => {
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="h4" color="blue">
+          <Typography variant="h4">
             {sqlOptimization?.performance?.executionTimeReduction?.value}
           </Typography>
           <Typography variant="body2">Execution Time Reduction/day</Typography>

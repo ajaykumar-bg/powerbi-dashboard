@@ -110,33 +110,74 @@ export const generateServiceRequestData = (data) => {
   //   completed: (completed / (processed + inProgress + completed)) * 100,
   // };
   return [
-    { id: 0, value: processed, label: 'Processed', color: '#0088FE' },
-    { id: 1, value: inProgress, label: 'In-Progress', color: '#FFBB28' },
-    { id: 3, value: completed, label: 'Completed', color: '#00C49F' },
+    { id: 0, value: processed, label: 'Processed' },
+    { id: 1, value: inProgress, label: 'In-Progress' },
+    { id: 3, value: completed, label: 'Completed' },
   ];
 };
 
 export const generateSQLQueryData = (data) => {
   const { analyzed, dispositioned, inProgress, optimized } = data;
-  // const percentage = {
-  //   analyzed: (analyzed / (analyzed + dispositioned + inProgress + optimized)) * 100,
-  //   dispositioned: (dispositioned / (analyzed + dispositioned + inProgress + optimized)) * 100,
-  //   inProgress: (inProgress / (analyzed + dispositioned + inProgress + optimized)) * 100,
-  //   optimized: (optimized / (analyzed + dispositioned + inProgress + optimized)) * 100,
-  // };
   return [
-    { id: 0, value: analyzed, label: 'Queries Analyzed', color: '#0088FE' },
+    { id: 0, value: analyzed, label: 'Queries Analyzed' },
     {
       id: 1,
       value: dispositioned,
       label: 'Queries Dispositioned',
-      color: '#FFBB28',
     },
-    { id: 3, value: inProgress, label: 'In Progress', color: '#FF8042' },
+    { id: 3, value: inProgress, label: 'In Progress' },
     {
       id: 4,
       value: optimized,
       label: 'High Memory/time Intensive queries optimized so far',
+    },
+  ];
+};
+
+export const generateVulnerabilityData = (data) => {
+  const { customCode, sapPortal } = data;
+  return {
+    customCode: [
+      {
+        id: 0,
+        value: customCode.analyzed,
+        label: 'Analyzed',
+        // color: '#0088FE',
+      },
+      {
+        id: 0,
+        value: customCode.remediatedCount,
+        label: 'Disposition/Remediated',
+        // color: '#00C49F',
+      },
+    ],
+    sapPortal: [
+      {
+        id: 0,
+        value: sapPortal.detected,
+        label: 'Detected (Critical, High, & Medium)',
+        // color: '#fe000dff',
+      },
+      {
+        id: 0,
+        value: sapPortal.remaining,
+        label: 'Remaining (Low)',
+        // color: '#5cc400ff',
+      },
+    ],
+  };
+};
+
+export const generateOperationsData = (data) => {
+  const { ricefs, retrofits, fioriApps, liveCompare } = data;
+  return [
+    { id: 0, value: ricefs, label: 'RICEFs', color: '#0088FE' },
+    { id: 1, value: retrofits, label: 'Retrofits', color: '#FFBB28' },
+    { id: 3, value: fioriApps, label: 'Fiori Apps', color: '#FF8042' },
+    {
+      id: 4,
+      value: liveCompare.count,
+      label: 'Live Compare',
       color: '#00C49F',
     },
   ];

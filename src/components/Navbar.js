@@ -20,7 +20,7 @@ const Navbar = () => {
         <Typography
           variant="h2"
           component="div"
-          sx={{ flexGrow: 1, fontSize: 24, fontWeight: 'bold' }}
+          sx={{ flexGrow: 1, fontSize: 18, fontWeight: 'bold' }}
         >
           SAP App Dev Scorecard
         </Typography>

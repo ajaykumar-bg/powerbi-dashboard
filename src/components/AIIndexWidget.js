@@ -12,7 +12,7 @@ export const AIIndexWidget = () => {
       </Typography>
       <Typography
         variant="h4"
-        sx={{ mb: 1, fontWeight: 'bold', fontSize: '2.5rem' }}
+        sx={{ mb: 1, fontWeight: 'bold', fontSize: '1.5rem' }}
       >
         {aiIndex?.value}
       </Typography>

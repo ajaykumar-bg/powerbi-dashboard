@@ -33,51 +33,43 @@ export const getTheme = (mode) =>
       //   main: '#0096D6',
       // },
     },
-    // typography: {
-    //   fontFamily: '"Segoe UI", "Roboto", "Arial", sans-serif',
-    //   h2: {
-    //     color: '#ffffff',
-    //     fontWeight: 700,
-    //     fontSize: '3.5em',
-    //   },
-    //   h4: {
-    //     color: '#ffffff',
-    //     fontWeight: 500,
-    //     fontSize: '1.75rem',
-    //   },
-    //   h5: {
-    //     color: '#1a1042',
-    //     fontWeight: 500,
-    //     fontSize: '1.5rem',
-    //   },
-    //   h6: {
-    //     color: mode === 'dark' ? '#ffffff' : '#222222',
-    //     fontWeight: 500,
-    //     fontSize: '1.25rem',
-    //   },
-    //   subtitle1: {
-    //     color: '#ffffff',
-    //     fontSize: '1rem',
-    //   },
-    //   subtitle2: {
-    //     color: '#1a1042',
-    //     fontSize: '0.875rem',
-    //   },
-    //   body1: {
-    //     color: mode === 'dark' ? '#ffffff' : '#222222',
-    //   },
-    //   body2: {
-    //     color: mode === 'dark' ? '#ffffff' : '#222222',
-    //     fontSize: '0.875rem',
-    //   },
-    // },
+    typography: {
+      fontFamily: '"Segoe UI", "Roboto", "Arial", sans-serif',
+      h2: {
+        fontWeight: 700,
+        fontSize: '1.5rem',
+      },
+      h4: {
+        fontWeight: 500,
+        fontSize: '1.1rem',
+      },
+      h5: {
+        fontWeight: 500,
+        fontSize: '1rem',
+      },
+      h6: {
+        fontWeight: 500,
+        fontSize: '0.95rem',
+      },
+      subtitle1: {
+        fontSize: '0.95rem',
+      },
+      subtitle2: {
+        fontSize: '0.85rem',
+      },
+      body1: {
+        fontSize: '0.95rem',
+      },
+      body2: {
+        fontSize: '0.85rem',
+      },
+    },
     components: {
       MuiPaper: {
         styleOverrides: {
           root: {
-            // backgroundColor: mode === 'dark' ? '#1a1042' : '#FFFFFF',
             borderRadius: 5,
-            padding: '1.5rem',
+            padding: '0.75rem',
           },
         },
       },
@@ -85,8 +77,8 @@ export const getTheme = (mode) =>
         styleOverrides: {
           root: {
             '& > .MuiGrid-item': {
-              paddingTop: '1rem',
-              paddingBottom: '1rem',
+              paddingTop: '0.5rem',
+              paddingBottom: '0.5rem',
             },
           },
         },

@@ -80,7 +80,7 @@ export const generateDashboardData = () => {
         {
           name: 'SolMan',
           year: '2027',
-          type: 'Re-Platform',
+          type: 'Upgrade',
         },
         {
           name: 'SAP Gateway/Fiori',
@@ -90,7 +90,7 @@ export const generateDashboardData = () => {
         {
           name: 'Live Compare',
           year: '2026',
-          type: 'Upgrade',
+          type: 'Re-Platform',
         },
         {
           name: 'Data Masking',
@@ -196,4 +196,19 @@ export const generateOperationsData = (data) => {
       //   color: '#00C49F',
     },
   ];
+};
+
+export const generateProductRoadmapBarData = (items) => {
+  // Prepare data for BarChart
+  const years = [...new Set(items?.map((item) => item.year))].sort();
+  const types = [...new Set(items?.map((item) => item.type))];
+
+  // Group by year and type for stacked bar
+  const barData = types.map((type) =>
+    years.map(
+      (year) =>
+        items.filter((item) => item.year === year && item.type === type).length
+    )
+  );
+  return { years, types, barData };
 };

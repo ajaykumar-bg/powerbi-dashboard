@@ -112,7 +112,7 @@ export const generateServiceRequestData = (data) => {
   return [
     { id: 0, value: processed, label: 'Processed' },
     { id: 1, value: inProgress, label: 'In-Progress' },
-    { id: 3, value: completed, label: 'Completed' },
+    { id: 2, value: completed, label: 'Completed' },
   ];
 };
 
@@ -125,11 +125,11 @@ export const generateSQLQueryData = (data) => {
       value: dispositioned,
       label: 'Queries Dispositioned',
     },
-    { id: 3, value: inProgress, label: 'In Progress' },
+    { id: 2, value: inProgress, label: 'In Progress' },
     {
-      id: 4,
+      id: 3,
       value: optimized,
-      label: 'High Memory/time Intensive queries optimized so far',
+      label: 'Queries Optimized',
     },
   ];
 };
@@ -145,9 +145,9 @@ export const generateVulnerabilityData = (data) => {
         // color: '#0088FE',
       },
       {
-        id: 0,
+        id: 1,
         value: customCode.remediatedCount,
-        label: 'Disposition/Remediated',
+        label: 'Remediated',
         // color: '#00C49F',
       },
     ],
@@ -155,13 +155,13 @@ export const generateVulnerabilityData = (data) => {
       {
         id: 0,
         value: sapPortal.detected,
-        label: 'Detected (Critical, High, & Medium)',
+        label: 'Detected',
         // color: '#fe000dff',
       },
       {
-        id: 0,
+        id: 1,
         value: sapPortal.remaining,
-        label: 'Remaining (Low)',
+        label: 'Remaining',
         // color: '#5cc400ff',
       },
     ],
@@ -184,13 +184,13 @@ export const generateOperationsData = (data) => {
       // color: '#FFBB28'
     },
     {
-      id: 3,
+      id: 2,
       value: fioriApps,
       label: 'Fiori Apps',
       // color: '#FF8042'
     },
     {
-      id: 4,
+      id: 3,
       value: liveCompare.count,
       label: 'Live Compare',
       //   color: '#00C49F',

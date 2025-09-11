@@ -203,12 +203,20 @@ export const generateProductRoadmapBarData = (items) => {
 	const years = [...new Set(items?.map((item) => item.year))].sort();
 	const types = [...new Set(items?.map((item) => item.type))];
 
-	// Group by year and type for stacked bar
-	const barData = types.map((type) =>
-		years.map(
+	// Map colors to types
+	const typeColors = {
+		'Re-Platform': '#1976d2',
+		Upgrade: '#2e7d32',
+	};
+
+	// Group by year and type for stacked bar with colors
+	const barData = types.map((type) => ({
+		data: years.map(
 			(year) =>
 				items.filter((item) => item.year === year && item.type === type).length
-		)
-	);
+		),
+		color: typeColors[type],
+	}));
+
 	return { years, types, barData };
 };

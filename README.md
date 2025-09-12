@@ -78,3 +78,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## Light Mode
 
 <img width="1777" height="996" alt="Lightmode_Final" src="https://github.com/user-attachments/assets/54fa9109-9d05-4512-8a85-d6c1cb20aff1" />
+
+### Demo - UI Dashboard
+
+https://ajaykumar-bg.github.io/powerbi-dashboard/

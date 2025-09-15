@@ -6,14 +6,14 @@ import './App.css';
 import AppRoutes from './AppRoutes';
 
 function App() {
-	return (
-		<ThemeProvider>
-			<DashboardProvider>
-				<CssBaseline />
-				<AppRoutes />
-			</DashboardProvider>
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider>
+      <DashboardProvider>
+        <CssBaseline />
+        <AppRoutes />
+      </DashboardProvider>
+    </ThemeProvider>
+  );
 }
 
 export default App;

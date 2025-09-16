@@ -8,9 +8,9 @@ export const TechDebtSection = () => {
   const { techDebt } = data;
 
   return (
-    <Paper sx={{ px: 2, py: 5, height: '100%' }}>
+    <Paper sx={{ p: 2, height: '100%' }}>
       <Typography variant='h6' gutterBottom>
-        Tech Debt Reduction %
+        Tech Debt Reduction
       </Typography>
       <Box
         sx={{
@@ -23,7 +23,7 @@ export const TechDebtSection = () => {
         <Gauge
           width={140}
           height={140}
-          value={techDebt?.reductionPercentage}
+          value={`${techDebt?.reductionPercentage}%`}
           sx={(theme) => ({
             [`& .${gaugeClasses.valueText}`]: {
               color: theme.palette.text.secondary,

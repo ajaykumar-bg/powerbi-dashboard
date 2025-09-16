@@ -25,6 +25,16 @@ const Sidebar = ({ open, onClose }) => {
     { label: 'Dashboard', path: '/', icon: <DashboardIcon /> },
     { label: 'Details', path: '/details', icon: <DetailsIcon /> },
     { label: 'Dashboard V2', path: '/dashboardV2', icon: <AnalyticsIcon /> },
+    // {
+    //   label: 'SQL Details',
+    //   path: '/sql-optimization-details',
+    //   icon: <AnalyticsIcon />,
+    // },
+    {
+      label: 'SQL Optimization Details',
+      path: '/sql-optimization-details',
+      icon: <AnalyticsIcon />,
+    },
   ];
 
   const handleNavigation = (path) => {

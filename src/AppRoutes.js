@@ -11,6 +11,8 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Login from './components/Login';
 import Details from './components/Details/Details';
 import { DashboardV2 } from './components/DashboardV2';
+// import ExpensiveSQLOptimizationDetails from './components/ExpensiveSQLOptimizationDetails';
+import SqlOptimization from './components/SqlOptimization/SqlOptimization';
 
 function AppRoutes() {
   return (
@@ -28,6 +30,14 @@ function AppRoutes() {
                     <Route path='/' element={<Dashboard />} />
                     <Route path='/details' element={<Details />} />
                     <Route path='/dashboardV2' element={<DashboardV2 />} />
+                    {/* <Route
+                      path='/sql-optimization-details'
+                      element={<ExpensiveSQLOptimizationDetails />}
+                    /> */}
+                    <Route
+                      path='/sql-optimization-details'
+                      element={<SqlOptimization />}
+                    />
                     <Route path='*' element={<Navigate to='/' replace />} />
                   </Routes>
                 </Container>

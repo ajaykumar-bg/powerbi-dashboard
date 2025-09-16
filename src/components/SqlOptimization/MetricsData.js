@@ -3,7 +3,7 @@ import { Grid, Card, CardContent, Typography } from '@mui/material';
 // import { Sparkline } from '@mui/x-charts';
 import { SparkLineChart } from '@mui/x-charts/SparkLineChart';
 
-function SqlMetricsData() {
+function MetricsData() {
   // Generate different data patterns for each sparkline
   const queryResponseData = Array.from(
     { length: 30 },
@@ -77,7 +77,7 @@ function SqlMetricsData() {
   return (
     <Grid container spacing={3}>
       {cards.map((card, index) => (
-        <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={index}>
+        <Grid item xs={12} sm={6} md={4} key={index}>
           <Card sx={{ height: '100%' }}>
             <CardContent>
               <Typography variant='h6' gutterBottom>
@@ -106,4 +106,4 @@ function SqlMetricsData() {
   );
 }
 
-export default SqlMetricsData;
+export default MetricsData;

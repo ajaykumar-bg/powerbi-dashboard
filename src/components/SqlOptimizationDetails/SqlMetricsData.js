@@ -108,7 +108,11 @@ function SqlMetricsData() {
               <Typography variant='h4' sx={{ my: 1 }}>
                 {card.value}
               </Typography>
-              <Typography variant='body2' color='success.main' sx={{ mb: 2 }}>
+              <Typography 
+                variant='body2' 
+                color={card.trend.startsWith('+') ? 'success.main' : 'error.main'} 
+                sx={{ mb: 2 }}
+              >
                 {card.trend}
               </Typography>
               <SparkLineChart

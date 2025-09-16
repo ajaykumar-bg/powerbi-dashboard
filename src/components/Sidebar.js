@@ -26,8 +26,8 @@ const Sidebar = ({ open, onClose }) => {
     { label: 'Details', path: '/details', icon: <DetailsIcon /> },
     { label: 'Dashboard V2', path: '/dashboardV2', icon: <AnalyticsIcon /> },
     {
-      label: 'SQL Optimization Details',
-      path: '/sql-optimization-details',
+      label: 'SQL Analytics',
+      path: '/sql-analytics',
       icon: <AnalyticsIcon />,
     },
   ];

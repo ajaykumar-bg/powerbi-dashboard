@@ -30,7 +30,7 @@ function AppRoutes() {
                     <Route path='/details' element={<Details />} />
                     <Route path='/dashboardV2' element={<DashboardV2 />} />
                     <Route
-                      path='/sql-optimization-details'
+                      path='/sql-analytics'
                       element={<SqlOptimization />}
                     />
                     <Route path='*' element={<Navigate to='/' replace />} />

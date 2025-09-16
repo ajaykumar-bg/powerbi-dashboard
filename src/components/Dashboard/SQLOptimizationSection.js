@@ -2,6 +2,7 @@ import { Box, Divider, Grid, Paper, Typography } from '@mui/material';
 import { useDashboard } from '../../context/DashboardContext';
 import { useMemo } from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
+import { useNavigate } from 'react-router-dom';
 
 import { generateSQLQueryData } from '../../utils/dataGenerator';
 
@@ -14,6 +15,7 @@ const donutSettings = {
 
 export const SQLOptimizationSection = () => {
   const { data } = useDashboard();
+  const navigate = useNavigate();
 
   const { sqlOptimization } = data;
 
@@ -21,8 +23,23 @@ export const SQLOptimizationSection = () => {
     () => generateSQLQueryData(sqlOptimization.queries),
     [sqlOptimization.queries]
   );
+
+  const handleClick = () => {
+    navigate('/sql-analytics');
+  };
+
   return (
-    <Paper sx={{ p: 2, height: '100%' }}>
+    <Paper
+      sx={{
+        p: 2,
+        height: '100%',
+        cursor: 'pointer',
+        '&:hover': {
+          backgroundColor: 'action.hover',
+        },
+      }}
+      onClick={handleClick}
+    >
       <Typography variant='h6' gutterBottom>
         Expensive SQL Optimization
       </Typography>

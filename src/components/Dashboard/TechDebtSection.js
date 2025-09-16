@@ -1,7 +1,6 @@
-import { Box, Paper, Typography } from '@mui/material';
+import { Paper, Typography, Box, CircularProgress } from '@mui/material';
 import { useDashboard } from '../../context/DashboardContext';
-import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
-import { getColorFromPath, getGaugeColor } from '../../utils/commonUtils';
+import { getColorFromColorPath, getGaugeColor } from '../../utils/commonUtils';
 import { useMemo } from 'react';
 
 export const TechDebtSection = () => {
@@ -9,29 +8,11 @@ export const TechDebtSection = () => {
 
   const { techDebt } = data;
 
-  const gaugeConfig = useMemo(
-    () => ({
-      width: 140,
-      height: 140,
-      value: techDebt?.reductionPercentage,
-      sx: (theme) => ({
-        [`& .${gaugeClasses.valueText}`]: {
-          color: theme.palette.text.secondary,
-          fontSize: 35,
-        },
-        [`& .${gaugeClasses.valueArc}`]: {
-          fill: getColorFromPath(
-            theme,
-            getGaugeColor(techDebt?.reductionPercentage, 'debt')
-          ),
-        },
-        [`& .${gaugeClasses.referenceArc}`]: {
-          fill: theme.palette.text.disabled,
-        },
-      }),
-    }),
-    [techDebt?.reductionPercentage]
-  );
+  const progressColor = useMemo(() => {
+    return getColorFromColorPath(
+      getGaugeColor(techDebt?.reductionPercentage, 'debt')
+    );
+  }, [techDebt?.reductionPercentage]);
 
   return (
     <Paper sx={{ p: 2, height: '100%' }}>
@@ -40,13 +21,52 @@ export const TechDebtSection = () => {
       </Typography>
       <Box
         sx={{
-          display: 'grid',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
           justifyContent: 'center',
-          textAlign: 'center',
           mt: 2,
         }}
       >
-        <Gauge {...gaugeConfig} />
+        <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+          <CircularProgress
+            variant='determinate'
+            value={techDebt?.reductionPercentage || 0}
+            size={120}
+            thickness={6}
+            sx={{
+              color: progressColor,
+            }}
+          />
+          <Box
+            sx={{
+              top: 0,
+              left: 0,
+              bottom: 0,
+              right: 0,
+              position: 'absolute',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Typography
+              variant='h4'
+              component='div'
+              color='text.secondary'
+              sx={{ fontWeight: 'bold' }}
+            >
+              {`${Math.round(techDebt?.reductionPercentage || 0)}%`}
+            </Typography>
+          </Box>
+        </Box>
+        <Typography
+          variant='body2'
+          color='text.secondary'
+          sx={{ mt: 1, textAlign: 'center' }}
+        >
+          Current Progress
+        </Typography>
       </Box>
     </Paper>
   );

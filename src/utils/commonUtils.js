@@ -13,6 +13,17 @@ export const getRoadMapChipColor = (type) => {
   return color;
 };
 
+export const getColorFromColorPath = (colorPath) => {
+  const colorMap = {
+    'success.main': '#2e7d32',
+    'info.main': '#0288d1',
+    'warning.main': '#ed6c02',
+    'error.main': '#d32f2f',
+    'primary.main': '#1976d2',
+  };
+  return colorMap[colorPath] || colorMap['primary.main'];
+};
+
 export const getColorFromPath = (theme, colorPath) => {
   const [palette, shade] = colorPath.split('.');
   return theme.palette[palette][shade];

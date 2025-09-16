@@ -24,7 +24,7 @@ const rows = [
   createData('Watermelon', 356, 16.0, 49, 3.9),
 ];
 
-function DenseTable() {
+function SqlDenseTable() {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
@@ -58,4 +58,4 @@ function DenseTable() {
   );
 }
 
-export default DenseTable;
+export default SqlDenseTable;

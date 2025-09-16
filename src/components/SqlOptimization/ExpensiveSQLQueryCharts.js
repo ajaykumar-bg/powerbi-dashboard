@@ -1,15 +1,8 @@
 import React from 'react';
-import {
-  Grid,
-  Card,
-  CardContent,
-  Typography,
-  Container,
-  Box,
-} from '@mui/material';
+import { Grid, Card, CardContent, Typography, Box } from '@mui/material';
 import { BarChart, LineChart, PieChart } from '@mui/x-charts';
 
-function ExpensiveSQLQueriesOverview() {
+function ExpensiveSQLQueryCharts() {
   // Mock data for SQL query metrics
   const queryExecutionData = [
     { database: 'SQL Server', avgTime: 2.5 },
@@ -182,4 +175,4 @@ function ExpensiveSQLQueriesOverview() {
   );
 }
 
-export default ExpensiveSQLQueriesOverview;
+export default ExpensiveSQLQueryCharts;

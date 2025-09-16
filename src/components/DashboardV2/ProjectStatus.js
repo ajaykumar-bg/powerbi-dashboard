@@ -38,13 +38,15 @@ const ProjectStatus = ({ data }) => {
   };
 
   return (
-    <Card sx={{ height: '100%' }}>
-      <CardContent>
+    <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <CardContent
+        sx={{ display: 'flex', flexDirection: 'column', height: '100%', pb: 1 }}
+      >
         <Typography variant='h6' gutterBottom>
           Project Status
         </Typography>
-        <TableContainer>
-          <Table size='small'>
+        <TableContainer sx={{ maxHeight: 400, overflow: 'auto', flexGrow: 1 }}>
+          <Table size='small' stickyHeader>
             <TableHead>
               <TableRow>
                 <TableCell>Project Name</TableCell>

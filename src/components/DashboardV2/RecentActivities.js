@@ -49,52 +49,56 @@ const RecentActivities = ({ data }) => {
   };
 
   return (
-    <Card sx={{ height: '100%' }}>
-      <CardContent>
+    <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <CardContent
+        sx={{ display: 'flex', flexDirection: 'column', height: '100%', pb: 1 }}
+      >
         <Typography variant='h6' gutterBottom>
           Recent Activities
         </Typography>
-        <List sx={{ pt: 0 }}>
-          {data.map((activity) => (
-            <ListItem key={activity.id} sx={{ px: 0, py: 1 }}>
-              <ListItemIcon sx={{ minWidth: 40 }}>
-                {getIcon(activity.type)}
-              </ListItemIcon>
-              <ListItemText
-                primary={
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                    <Typography variant='subtitle2'>
-                      {activity.title}
-                    </Typography>
-                    <Chip
-                      label={activity.type}
-                      size='small'
-                      color={getChipColor(activity.type)}
-                      variant='outlined'
-                    />
-                  </Box>
-                }
-                secondary={
-                  <Box>
-                    <Typography variant='body2' color='text.secondary'>
-                      {activity.description}
-                    </Typography>
-                    <Typography variant='caption' color='text.secondary'>
-                      {activity.timestamp}
-                    </Typography>
-                  </Box>
-                }
-                primaryTypographyProps={{
-                  variant: 'subtitle2',
-                  component: 'div',
-                }}
-                secondaryTypographyProps={{
-                  component: 'div',
-                }}
-              />
-            </ListItem>
-          ))}
-        </List>
+        <Box sx={{ flexGrow: 1, overflow: 'auto', maxHeight: 400 }}>
+          <List sx={{ pt: 0 }}>
+            {data.map((activity) => (
+              <ListItem key={activity.id} sx={{ px: 0, py: 1 }}>
+                <ListItemIcon sx={{ minWidth: 40 }}>
+                  {getIcon(activity.type)}
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <Typography variant='subtitle2'>
+                        {activity.title}
+                      </Typography>
+                      <Chip
+                        label={activity.type}
+                        size='small'
+                        color={getChipColor(activity.type)}
+                        variant='outlined'
+                      />
+                    </Box>
+                  }
+                  secondary={
+                    <Box>
+                      <Typography variant='body2' color='text.secondary'>
+                        {activity.description}
+                      </Typography>
+                      <Typography variant='caption' color='text.secondary'>
+                        {activity.timestamp}
+                      </Typography>
+                    </Box>
+                  }
+                  primaryTypographyProps={{
+                    variant: 'subtitle2',
+                    component: 'div',
+                  }}
+                  secondaryTypographyProps={{
+                    component: 'div',
+                  }}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </Box>
       </CardContent>
     </Card>
   );

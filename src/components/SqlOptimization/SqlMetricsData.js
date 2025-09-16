@@ -29,6 +29,14 @@ function SqlMetricsData() {
     { length: 30 },
     (_, i) => Math.floor(Math.random() * 15) + 2 // Blocking sessions
   );
+  const lockWaitTimeData = Array.from(
+    { length: 30 },
+    (_, i) => Math.floor(Math.random() * 200) + 50 // Lock wait time in ms
+  );
+  const transactionLogSizeData = Array.from(
+    { length: 30 },
+    (_, i) => 2.5 + Math.sin(i / 8) * 0.8 + Math.random() * 0.3 // Transaction log size in GB
+  );
 
   const cards = [
     {
@@ -72,6 +80,20 @@ function SqlMetricsData() {
       trend: '-12%',
       data: blockingSessionsData,
       color: 'secondary.main',
+    },
+    {
+      title: 'Lock Wait Time',
+      value: '125ms',
+      trend: '+5%',
+      data: lockWaitTimeData,
+      color: 'error.main',
+    },
+    {
+      title: 'Transaction Log Size',
+      value: '2.8GB',
+      trend: '+8%',
+      data: transactionLogSizeData,
+      color: 'warning.main',
     },
   ];
   return (

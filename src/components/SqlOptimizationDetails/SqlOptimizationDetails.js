@@ -7,7 +7,7 @@ import SqlMetricsData from './SqlMetricsData';
 import SqlDenseTable from './SqlDenseTable';
 import SQLQueryCharts from './SQLQueryCharts';
 
-function SqlOptimization() {
+function SqlOptimizationDetails() {
   return (
     <Container maxWidth='xl' sx={{ py: 2 }}>
       {/* SQL Metrics Data - Horizontal Layout (3 items per row) */}
@@ -37,4 +37,4 @@ function SqlOptimization() {
   );
 }
 
-export default SqlOptimization;
+export default SqlOptimizationDetails;

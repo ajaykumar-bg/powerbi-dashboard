@@ -11,7 +11,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Login from './components/Login';
 import DashboardV3 from './components/DashboardV3/DashboardV3';
 import { DashboardV2 } from './components/DashboardV2';
-import SqlOptimization from './components/SqlOptimization/SqlOptimization';
+import SqlOptimizationDetails from './components/SqlOptimizationDetails/SqlOptimizationDetails';
 
 function AppRoutes() {
   return (
@@ -31,7 +31,7 @@ function AppRoutes() {
                     <Route path='/dashboardV2' element={<DashboardV2 />} />
                     <Route
                       path='/sql-analytics'
-                      element={<SqlOptimization />}
+                      element={<SqlOptimizationDetails />}
                     />
                     <Route path='*' element={<Navigate to='/' replace />} />
                   </Routes>

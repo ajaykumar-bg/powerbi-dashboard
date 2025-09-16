@@ -12,7 +12,7 @@ const DashboardV2 = () => {
       {/* Header */}
       <Box sx={{ mb: 4 }}>
         <Typography variant='h4' component='h1' fontWeight='bold' gutterBottom>
-          Dashboard V2
+          Delivery Dashboard
         </Typography>
         <Typography variant='body1' color='text.secondary'>
           Advanced analytics and insights for your business

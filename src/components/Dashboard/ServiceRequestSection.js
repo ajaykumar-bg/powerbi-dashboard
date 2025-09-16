@@ -17,6 +17,30 @@ export const ServiceRequestSection = () => {
     [serviceNowRequest]
   );
 
+  const gaugeConfig = useMemo(
+    () => ({
+      width: 100,
+      height: 100,
+      value: serviceNowRequest?.completionPercentage,
+      sx: (theme) => ({
+        [`& .${gaugeClasses.valueText}`]: {
+          color: theme.palette.text.secondary,
+          fontSize: 30,
+        },
+        [`& .${gaugeClasses.valueArc}`]: {
+          fill: getColorFromPath(
+            theme,
+            getGaugeColor(serviceNowRequest?.completionPercentage, 'completion')
+          ),
+        },
+        [`& .${gaugeClasses.referenceArc}`]: {
+          fill: theme.palette.text.disabled,
+        },
+      }),
+    }),
+    [serviceNowRequest?.completionPercentage]
+  );
+
   return (
     <Paper sx={{ p: 2, height: '100%' }}>
       <Typography variant='h6' gutterBottom>
@@ -66,29 +90,7 @@ export const ServiceRequestSection = () => {
         <Typography variant='h6' gutterBottom>
           % Completion
         </Typography>
-        <Gauge
-          width={100}
-          height={100}
-          value={serviceNowRequest?.completionPercentage}
-          sx={(theme) => ({
-            [`& .${gaugeClasses.valueText}`]: {
-              color: theme.palette.text.secondary,
-              fontSize: 30,
-            },
-            [`& .${gaugeClasses.valueArc}`]: {
-              fill: getColorFromPath(
-                theme,
-                getGaugeColor(
-                  serviceNowRequest?.completionPercentage,
-                  'completion'
-                )
-              ),
-            },
-            [`& .${gaugeClasses.referenceArc}`]: {
-              fill: theme.palette.text.disabled,
-            },
-          })}
-        />
+        <Gauge {...gaugeConfig} />
       </Box>
     </Paper>
   );

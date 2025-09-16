@@ -2,11 +2,36 @@ import { Box, Paper, Typography } from '@mui/material';
 import { useDashboard } from '../../context/DashboardContext';
 import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 import { getColorFromPath, getGaugeColor } from '../../utils/commonUtils';
+import { useMemo } from 'react';
 
 export const TechDebtSection = () => {
   const { data } = useDashboard();
 
   const { techDebt } = data;
+
+  const gaugeConfig = useMemo(
+    () => ({
+      width: 140,
+      height: 140,
+      value: techDebt?.reductionPercentage,
+      sx: (theme) => ({
+        [`& .${gaugeClasses.valueText}`]: {
+          color: theme.palette.text.secondary,
+          fontSize: 35,
+        },
+        [`& .${gaugeClasses.valueArc}`]: {
+          fill: getColorFromPath(
+            theme,
+            getGaugeColor(techDebt?.reductionPercentage, 'debt')
+          ),
+        },
+        [`& .${gaugeClasses.referenceArc}`]: {
+          fill: theme.palette.text.disabled,
+        },
+      }),
+    }),
+    [techDebt?.reductionPercentage]
+  );
 
   return (
     <Paper sx={{ p: 2, height: '100%' }}>
@@ -21,26 +46,7 @@ export const TechDebtSection = () => {
           mt: 2,
         }}
       >
-        <Gauge
-          width={140}
-          height={140}
-          value={techDebt?.reductionPercentage}
-          sx={(theme) => ({
-            [`& .${gaugeClasses.valueText}`]: {
-              color: theme.palette.text.secondary,
-              fontSize: 35,
-            },
-            [`& .${gaugeClasses.valueArc}`]: {
-              fill: getColorFromPath(
-                theme,
-                getGaugeColor(techDebt?.reductionPercentage, 'debt')
-              ),
-            },
-            [`& .${gaugeClasses.referenceArc}`]: {
-              fill: theme.palette.text.disabled,
-            },
-          })}
-        />
+        <Gauge {...gaugeConfig} />
       </Box>
     </Paper>
   );

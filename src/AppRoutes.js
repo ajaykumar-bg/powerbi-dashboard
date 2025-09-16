@@ -12,6 +12,7 @@ import Login from './components/Login';
 import DashboardV3 from './components/DashboardV3/DashboardV3';
 import { DashboardV2 } from './components/DashboardV2';
 import SqlOptimizationDetails from './components/SqlOptimizationDetails/SqlOptimizationDetails';
+import VulnerabilityDetails from './components/VulnerabilityDetails/VulnerabilityDetails';
 
 function AppRoutes() {
   return (
@@ -32,6 +33,10 @@ function AppRoutes() {
                     <Route
                       path='/sql-analytics'
                       element={<SqlOptimizationDetails />}
+                    />
+                    <Route
+                      path='/vulnerability-details'
+                      element={<VulnerabilityDetails />}
                     />
                     <Route path='*' element={<Navigate to='/' replace />} />
                   </Routes>

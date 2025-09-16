@@ -14,6 +14,7 @@ import {
   Dashboard as DashboardIcon,
   Details as DetailsIcon,
   Analytics as AnalyticsIcon,
+  Security as SecurityIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -29,6 +30,11 @@ const Sidebar = ({ open, onClose }) => {
       label: 'SQL Analytics',
       path: '/sql-analytics',
       icon: <AnalyticsIcon />,
+    },
+    {
+      label: 'Vulnerability Details',
+      path: '/vulnerability-details',
+      icon: <SecurityIcon />,
     },
   ];
 

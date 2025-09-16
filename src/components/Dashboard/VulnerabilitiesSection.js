@@ -1,5 +1,6 @@
 import { Box, Paper, Typography, Grid, Divider } from '@mui/material';
 import { useDashboard } from '../../context/DashboardContext';
+import { useNavigate } from 'react-router-dom';
 
 import { useMemo } from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
@@ -13,6 +14,7 @@ const chartSettings = {
 
 export const VulnerabilitiesSection = () => {
   const { data } = useDashboard();
+  const navigate = useNavigate();
 
   const { vulnerabilities } = data;
   const vulnerabilityData = useMemo(
@@ -20,8 +22,22 @@ export const VulnerabilitiesSection = () => {
     [vulnerabilities]
   );
 
+  const handleClick = () => {
+    navigate('/vulnerability-details');
+  };
+
   return (
-    <Paper sx={{ p: 2, height: '100%' }}>
+    <Paper
+      sx={{
+        p: 2,
+        height: '100%',
+        cursor: 'pointer',
+        '&:hover': {
+          backgroundColor: 'action.hover',
+        },
+      }}
+      onClick={handleClick}
+    >
       <Typography variant='h6' gutterBottom>
         Vulnerabilities
       </Typography>

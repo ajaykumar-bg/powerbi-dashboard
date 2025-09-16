@@ -1,10 +1,10 @@
 import { Box, Paper, Typography, Grid, Divider } from '@mui/material';
 import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 
-import { useDashboard } from '../context/DashboardContext';
+import { useDashboard } from '../../context/DashboardContext';
 import { PieChart } from '@mui/x-charts';
 import { useMemo } from 'react';
-import { generateServiceRequestData } from '../utils/dataGenerator';
+import { generateServiceRequestData } from '../../utils/dataGenerator';
 
 export const ServiceRequestSection = () => {
   const { data } = useDashboard();
@@ -17,7 +17,7 @@ export const ServiceRequestSection = () => {
   );
   return (
     <Paper sx={{ p: 2, height: '100%' }}>
-      <Typography variant="h6" gutterBottom>
+      <Typography variant='h6' gutterBottom>
         Service Now Request
       </Typography>
       <Box>
@@ -34,22 +34,22 @@ export const ServiceRequestSection = () => {
 
       <Grid container spacing={2} justifyContent={'space-between'}>
         <Grid item xs={4}>
-          <Typography variant="h4" color="primary">
+          <Typography variant='h4' color='primary'>
             {serviceNowRequest?.processed}
           </Typography>
-          <Typography variant="body2">Processed</Typography>
+          <Typography variant='body2'>Processed</Typography>
         </Grid>
         <Grid item xs={4}>
-          <Typography variant="h4" color="warning">
+          <Typography variant='h4' color='warning'>
             {serviceNowRequest?.inProgress}
           </Typography>
-          <Typography variant="body2">In-Progress</Typography>
+          <Typography variant='body2'>In-Progress</Typography>
         </Grid>
         <Grid item xs={4}>
-          <Typography variant="h4" color="success">
+          <Typography variant='h4' color='success'>
             {serviceNowRequest?.completed}
           </Typography>
-          <Typography variant="body2">Completed</Typography>
+          <Typography variant='body2'>Completed</Typography>
         </Grid>
       </Grid>
       <Divider sx={{ my: 2 }} />
@@ -61,7 +61,7 @@ export const ServiceRequestSection = () => {
           mt: 2,
         }}
       >
-        <Typography variant="h6" gutterBottom>
+        <Typography variant='h6' gutterBottom>
           % Completion
         </Typography>
         <Gauge

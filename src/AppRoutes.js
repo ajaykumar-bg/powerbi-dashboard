@@ -7,9 +7,9 @@ import {
   Navigate,
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import Login from './components/Login';
-import Details from './components/Details';
+import Details from './components/Details/Details';
 
 function AppRoutes() {
   return (

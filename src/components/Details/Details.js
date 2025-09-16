@@ -1,8 +1,8 @@
 import React from 'react';
+import { Box, Typography, Grid } from '@mui/material';
 
 import Media from './Media';
 import DenseTable from './DenseTable';
-import { Box, Container, Typography, Grid } from '@mui/material';
 import MetricsData from './MetricsData';
 
 function Details() {

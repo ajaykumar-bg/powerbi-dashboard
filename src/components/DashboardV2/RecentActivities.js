@@ -84,6 +84,13 @@ const RecentActivities = ({ data }) => {
                     </Typography>
                   </Box>
                 }
+                primaryTypographyProps={{
+                  variant: 'subtitle2',
+                  component: 'div',
+                }}
+                secondaryTypographyProps={{
+                  component: 'div',
+                }}
               />
             </ListItem>
           ))}

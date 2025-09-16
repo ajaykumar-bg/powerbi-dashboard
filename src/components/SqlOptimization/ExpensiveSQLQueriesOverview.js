@@ -32,6 +32,11 @@ function ExpensiveSQLQueriesOverview() {
     { id: 4, value: 5, label: 'Others' },
   ];
 
+  const queryPerformanceByHour = Array.from({ length: 24 }, (_, i) => ({
+    hour: i,
+    avgResponseTime: Math.random() * 2 + 0.5 + (i >= 9 && i <= 17 ? 1 : 0), // Higher during business hours
+  }));
+
   return (
     <Grid container spacing={3}>
       {/* Query Execution Time by Database */}
@@ -130,6 +135,45 @@ function ExpensiveSQLQueriesOverview() {
             </Box>
             <Typography variant='body2' color='text.secondary' sx={{ mt: 1 }}>
               Distribution of query types in the system
+            </Typography>
+          </CardContent>
+        </Card>
+      </Grid>
+
+      {/* Query Performance by Hour */}
+      <Grid size={{ xs: 12, md: 6 }}>
+        <Card sx={{ height: '100%' }}>
+          <CardContent>
+            <Typography variant='h6' gutterBottom>
+              Query Performance by Hour
+            </Typography>
+            <Box sx={{ height: 300, mt: 2 }}>
+              <LineChart
+                xAxis={[
+                  {
+                    data: queryPerformanceByHour.map(
+                      (item) => `${item.hour}:00`
+                    ),
+                    scaleType: 'point',
+                  },
+                ]}
+                series={[
+                  {
+                    data: queryPerformanceByHour.map(
+                      (item) => item.avgResponseTime
+                    ),
+                    label: 'Avg Response Time (ms)',
+                    color: '#9c27b0',
+                    curve: 'natural',
+                    area: true,
+                  },
+                ]}
+                width={350}
+                height={250}
+              />
+            </Box>
+            <Typography variant='body2' color='text.secondary' sx={{ mt: 1 }}>
+              Average query response time throughout the day
             </Typography>
           </CardContent>
         </Card>

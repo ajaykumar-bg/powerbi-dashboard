@@ -19,18 +19,11 @@ function SqlOptimization() {
           <MetricsData />
         </Grid>
         <Grid size={{ xs: 12, sm: 6, md: 10 }}>
-          <Box sx={{ mb: 4 }}>
-            <Typography variant='h5' component='h2' gutterBottom sx={{ mb: 2 }}>
-              Expensive SQL Queries Overview
-            </Typography>
-            <ExpensiveSQLQueriesOverview />
-          </Box>
-          <Box>
-            <Typography variant='h5' component='h2' gutterBottom sx={{ mb: 2 }}>
-              Data Table
-            </Typography>
-            <DenseTable />
-          </Box>
+          <ExpensiveSQLQueriesOverview />
+          <Typography variant='h5' component='h2' gutterBottom sx={{ mb: 2 }}>
+            Data Table
+          </Typography>
+          <DenseTable />
         </Grid>
       </Grid>
     </Box>

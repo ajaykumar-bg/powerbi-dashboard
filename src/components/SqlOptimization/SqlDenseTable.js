@@ -7,21 +7,105 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(
+  queryId,
+  queryDescription,
+  executionTime,
+  cpuTime,
+  ioReads,
+  executionCount
+) {
+  return {
+    queryId,
+    queryDescription,
+    executionTime,
+    cpuTime,
+    ioReads,
+    executionCount,
+  };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Eggs', 159, 6.0, 24, 4.0),
-  createData('Milk', 237, 9.0, 37, 4.3),
-  createData('Banana', 262, 16.0, 24, 6.0),
-  createData('Blueberry', 305, 3.7, 67, 4.3),
-  createData('Watermelon', 356, 16.0, 49, 3.9),
+  createData(
+    'Q001',
+    'Customer Order Join Query - Retrieve orders with customer details since 2023',
+    2500,
+    1800,
+    15000,
+    245
+  ),
+  createData(
+    'Q002',
+    'Electronics Price Update - Bulk price increase for electronics category',
+    3200,
+    2100,
+    8500,
+    78
+  ),
+  createData(
+    'Q003',
+    'Transaction Count with Account Join - Count transactions with account details',
+    1850,
+    1200,
+    12000,
+    156
+  ),
+  createData(
+    'Q004',
+    'Audit Log Insert - Add user action to audit trail',
+    450,
+    280,
+    1200,
+    892
+  ),
+  createData(
+    'Q005',
+    'Temp Data Cleanup - Delete temporary data older than 30 days',
+    4100,
+    3200,
+    22000,
+    12
+  ),
+  createData(
+    'Q006',
+    'Product Category Join - Retrieve products with category names',
+    1650,
+    980,
+    9800,
+    324
+  ),
+  createData(
+    'Q007',
+    'User Session Update - Update last activity timestamp for session',
+    680,
+    420,
+    2100,
+    1245
+  ),
+  createData(
+    'Q008',
+    'Payment Average Calculation - Calculate average payment amount for date range',
+    2200,
+    1650,
+    11500,
+    89
+  ),
+  createData(
+    'Q009',
+    'Bulk Notification Insert - Send notifications to all active users',
+    3800,
+    2900,
+    18000,
+    24
+  ),
+  createData(
+    'Q010',
+    'Complex Order Product Join - Retrieve order details with product information',
+    5200,
+    4100,
+    28000,
+    67
+  ),
 ];
 
 function SqlDenseTable() {
@@ -30,26 +114,37 @@ function SqlDenseTable() {
       <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align='right'>Calories</TableCell>
-            <TableCell align='right'>Fat&nbsp;(g)</TableCell>
-            <TableCell align='right'>Carbs&nbsp;(g)</TableCell>
-            <TableCell align='right'>Protein&nbsp;(g)</TableCell>
+            <TableCell>Query ID</TableCell>
+            <TableCell>Query Description</TableCell>
+            <TableCell align='right'>Execution Time (ms)</TableCell>
+            <TableCell align='right'>CPU Time (ms)</TableCell>
+            <TableCell align='right'>IO Reads</TableCell>
+            <TableCell align='right'>Execution Count</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.queryId}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component='th' scope='row'>
-                {row.name}
+                {row.queryId}
               </TableCell>
-              <TableCell align='right'>{row.calories}</TableCell>
-              <TableCell align='right'>{row.fat}</TableCell>
-              <TableCell align='right'>{row.carbs}</TableCell>
-              <TableCell align='right'>{row.protein}</TableCell>
+              <TableCell
+                sx={{
+                  maxWidth: 400,
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {row.queryDescription}
+              </TableCell>
+              <TableCell align='right'>{row.executionTime}</TableCell>
+              <TableCell align='right'>{row.cpuTime}</TableCell>
+              <TableCell align='right'>{row.ioReads}</TableCell>
+              <TableCell align='right'>{row.executionCount}</TableCell>
             </TableRow>
           ))}
         </TableBody>

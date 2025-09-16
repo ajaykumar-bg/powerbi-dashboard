@@ -1,0 +1,112 @@
+export const dashboardV2Data = {
+  overview: {
+    totalUsers: 12450,
+    totalRevenue: 2350000,
+    activeProjects: 48,
+    completionRate: 87,
+  },
+  charts: {
+    salesData: [
+      { month: 'Jan', sales: 4000, target: 3800 },
+      { month: 'Feb', sales: 3000, target: 3200 },
+      { month: 'Mar', sales: 5000, target: 4500 },
+      { month: 'Apr', sales: 4500, target: 4200 },
+      { month: 'May', sales: 6000, target: 5500 },
+      { month: 'Jun', sales: 5500, target: 5200 },
+    ],
+    performanceData: [
+      { name: 'Development', value: 400, color: '#0088FE' },
+      { name: 'Testing', value: 300, color: '#00C49F' },
+      { name: 'Deployment', value: 200, color: '#FFBB28' },
+      { name: 'Maintenance', value: 100, color: '#FF8042' },
+    ],
+    trendData: Array.from({ length: 30 }, (_, i) => ({
+      day: i + 1,
+      value: Math.floor(Math.random() * 100) + 50,
+    })),
+  },
+  recentActivities: [
+    {
+      id: 1,
+      title: 'System Update Completed',
+      description: 'Backend infrastructure updated successfully',
+      timestamp: '2 hours ago',
+      type: 'success',
+    },
+    {
+      id: 2,
+      title: 'New User Registration',
+      description: '25 new users registered today',
+      timestamp: '4 hours ago',
+      type: 'info',
+    },
+    {
+      id: 3,
+      title: 'Security Scan Alert',
+      description: 'Routine security scan detected minor issues',
+      timestamp: '6 hours ago',
+      type: 'warning',
+    },
+    {
+      id: 4,
+      title: 'Backup Completed',
+      description: 'Daily database backup completed successfully',
+      timestamp: '8 hours ago',
+      type: 'success',
+    },
+  ],
+  projectStatus: [
+    {
+      id: 1,
+      name: 'E-commerce Platform',
+      progress: 85,
+      status: 'In Progress',
+      team: 'Frontend Team',
+      deadline: '2024-12-15',
+    },
+    {
+      id: 2,
+      name: 'Mobile App Redesign',
+      progress: 60,
+      status: 'In Progress',
+      team: 'Design Team',
+      deadline: '2024-11-30',
+    },
+    {
+      id: 3,
+      name: 'API Gateway Migration',
+      progress: 100,
+      status: 'Completed',
+      team: 'Backend Team',
+      deadline: '2024-10-20',
+    },
+    {
+      id: 4,
+      name: 'Analytics Dashboard',
+      progress: 45,
+      status: 'Planning',
+      team: 'Data Team',
+      deadline: '2025-01-15',
+    },
+  ],
+  notifications: [
+    {
+      id: 1,
+      message: 'Server maintenance scheduled for tonight',
+      priority: 'high',
+      read: false,
+    },
+    {
+      id: 2,
+      message: 'Monthly report is ready for review',
+      priority: 'medium',
+      read: false,
+    },
+    {
+      id: 3,
+      message: 'New team member onboarded',
+      priority: 'low',
+      read: true,
+    },
+  ],
+};

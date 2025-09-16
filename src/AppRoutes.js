@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard/Dashboard';
 import Login from './components/Login';
 import Details from './components/Details/Details';
+import { DashboardV2 } from './components/DashboardV2';
 
 function AppRoutes() {
   return (
@@ -26,6 +27,7 @@ function AppRoutes() {
                   <Routes>
                     <Route path='/' element={<Dashboard />} />
                     <Route path='/details' element={<Details />} />
+                    <Route path='/dashboardV2' element={<DashboardV2 />} />
                     <Route path='*' element={<Navigate to='/' replace />} />
                   </Routes>
                 </Container>

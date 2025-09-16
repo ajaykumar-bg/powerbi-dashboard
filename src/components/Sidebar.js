@@ -23,8 +23,8 @@ const Sidebar = ({ open, onClose }) => {
 
   const navigationItems = [
     { label: 'Dashboard', path: '/', icon: <DashboardIcon /> },
-    { label: 'Details', path: '/details', icon: <DetailsIcon /> },
     { label: 'Dashboard V2', path: '/dashboardV2', icon: <AnalyticsIcon /> },
+    { label: 'Dashboard V3', path: '/dashboardV3', icon: <DetailsIcon /> },
     {
       label: 'SQL Analytics',
       path: '/sql-analytics',

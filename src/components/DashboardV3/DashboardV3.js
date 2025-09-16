@@ -5,11 +5,11 @@ import Media from './Media';
 import DenseTable from './DenseTable';
 import MetricsData from './MetricsData';
 
-function Details() {
+function DashboardV3() {
   return (
     <Box sx={{ py: 2 }}>
       <Typography variant='h4' component='h1' gutterBottom sx={{ mb: 3 }}>
-        Details Dashboard
+        Dashboard V3
       </Typography>
 
       <Box sx={{ mb: 4 }}>
@@ -38,4 +38,4 @@ function Details() {
   );
 }
 
-export default Details;
+export default DashboardV3;

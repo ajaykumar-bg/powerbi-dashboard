@@ -5,13 +5,6 @@ import {
   IconButton,
   Box,
   Tooltip,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Divider,
 } from '@mui/material';
 import {
   PlayArrow,
@@ -19,27 +12,16 @@ import {
   DarkMode,
   LightMode,
   Menu as MenuIcon,
-  Dashboard as DashboardIcon,
-  Details as DetailsIcon,
-  Analytics as AnalyticsIcon,
 } from '@mui/icons-material';
 import { useState } from 'react';
 import { useDashboard } from '../context/DashboardContext';
 import { useThemeMode } from '../context/ThemeContext';
-import { useNavigate, useLocation } from 'react-router-dom';
+import Sidebar from './Sidebar';
 
 const Navbar = () => {
   const { isLive, toggleLive } = useDashboard();
   const { mode, toggleTheme } = useThemeMode();
-  const navigate = useNavigate();
-  const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const navigationItems = [
-    { label: 'Dashboard', path: '/', icon: <DashboardIcon /> },
-    { label: 'Details', path: '/details', icon: <DetailsIcon /> },
-    { label: 'Dashboard V2', path: '/dashboardV2', icon: <AnalyticsIcon /> },
-  ];
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -51,8 +33,7 @@ const Navbar = () => {
     setDrawerOpen(open);
   };
 
-  const handleNavigation = (path) => {
-    navigate(path);
+  const handleSidebarClose = () => {
     setDrawerOpen(false);
   };
 
@@ -100,64 +81,8 @@ const Navbar = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Navigation Drawer */}
-      <Drawer anchor='left' open={drawerOpen} onClose={toggleDrawer(false)}>
-        <Box
-          sx={{ width: 250 }}
-          role='presentation'
-          onClick={toggleDrawer(false)}
-          onKeyDown={toggleDrawer(false)}
-        >
-          <Box sx={{ p: 2 }}>
-            <Typography variant='h6' sx={{ fontWeight: 'bold' }}>
-              Navigation
-            </Typography>
-          </Box>
-          <Divider />
-          <List>
-            {navigationItems.map((item) => (
-              <ListItem key={item.path} disablePadding>
-                <ListItemButton
-                  onClick={() => handleNavigation(item.path)}
-                  selected={location.pathname === item.path}
-                  sx={{
-                    '&.Mui-selected': {
-                      backgroundColor: 'primary.light',
-                      '&:hover': {
-                        backgroundColor: 'primary.light',
-                      },
-                    },
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      color:
-                        location.pathname === item.path
-                          ? 'primary.main'
-                          : 'inherit',
-                    }}
-                  >
-                    {item.icon}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.label}
-                    sx={{
-                      '& .MuiListItemText-primary': {
-                        fontWeight:
-                          location.pathname === item.path ? 'bold' : 'normal',
-                        color:
-                          location.pathname === item.path
-                            ? 'primary.main'
-                            : 'inherit',
-                      },
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Drawer>
+      {/* Navigation Sidebar */}
+      <Sidebar open={drawerOpen} onClose={handleSidebarClose} />
     </>
   );
 };

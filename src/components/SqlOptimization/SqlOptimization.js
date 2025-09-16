@@ -5,7 +5,7 @@ import { Box, Typography, Grid, Container } from '@mui/material';
 // import DenseTable from './DenseTable';
 import SqlMetricsData from './SqlMetricsData';
 import SqlDenseTable from './SqlDenseTable';
-import ExpensiveSQLQueryCharts from './ExpensiveSQLQueryCharts';
+import SQLQueryCharts from './SQLQueryCharts';
 
 function SqlOptimization() {
   return (
@@ -23,7 +23,7 @@ function SqlOptimization() {
         <Grid item xs={12} lg={9}>
           <Box sx={{ pl: { lg: 2 } }}>
             <Box sx={{ mb: 4 }}>
-              <ExpensiveSQLQueryCharts />
+              <SQLQueryCharts />
             </Box>
             <Box>
               <Typography

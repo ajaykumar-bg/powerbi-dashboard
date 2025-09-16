@@ -62,14 +62,6 @@ const Sidebar = ({ open, onClose }) => {
               <ListItemButton
                 onClick={() => handleNavigation(item.path)}
                 selected={location.pathname === item.path}
-                sx={{
-                  '&.Mui-selected': {
-                    backgroundColor: 'primary.light',
-                    '&:hover': {
-                      backgroundColor: 'primary.light',
-                    },
-                  },
-                }}
               >
                 <ListItemIcon
                   sx={{

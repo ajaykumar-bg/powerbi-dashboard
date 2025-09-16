@@ -6,7 +6,7 @@ const ChartsSection = ({ data }) => {
   return (
     <Grid container spacing={3}>
       {/* Sales vs Target Chart */}
-      <Grid item xs={12} md={6}>
+      <Grid size={{ xs: 12, lg: 6 }}>
         <Card sx={{ height: '100%' }}>
           <CardContent>
             <Typography variant='h6' gutterBottom>
@@ -41,7 +41,7 @@ const ChartsSection = ({ data }) => {
       </Grid>
 
       {/* Performance Distribution */}
-      <Grid item xs={12} md={6}>
+      <Grid size={{ xs: 12, lg: 6 }}>
         <Card sx={{ height: '100%' }}>
           <CardContent>
             <Typography variant='h6' gutterBottom>
@@ -70,7 +70,7 @@ const ChartsSection = ({ data }) => {
       </Grid>
 
       {/* Trend Analysis */}
-      <Grid item xs={12}>
+      <Grid size={{ xs: 12 }}>
         <Card>
           <CardContent>
             <Typography variant='h6' gutterBottom>

@@ -31,10 +31,10 @@ const DashboardV2 = () => {
 
       {/* Activities and Projects Section */}
       <Grid container spacing={3}>
-        <Grid item xs={12} lg={6}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <RecentActivities data={dashboardV2Data.recentActivities} />
         </Grid>
-        <Grid item xs={12} lg={6}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <ProjectStatus data={dashboardV2Data.projectStatus} />
         </Grid>
       </Grid>

@@ -5,6 +5,7 @@ import { useDashboard } from '../../context/DashboardContext';
 import { PieChart } from '@mui/x-charts';
 import { useMemo } from 'react';
 import { generateServiceRequestData } from '../../utils/dataGenerator';
+import { getColorFromPath, getGaugeColor } from '../../utils/commonUtils';
 
 export const ServiceRequestSection = () => {
   const { data } = useDashboard();
@@ -15,6 +16,7 @@ export const ServiceRequestSection = () => {
     () => generateServiceRequestData(serviceNowRequest),
     [serviceNowRequest]
   );
+
   return (
     <Paper sx={{ p: 2, height: '100%' }}>
       <Typography variant='h6' gutterBottom>
@@ -74,7 +76,13 @@ export const ServiceRequestSection = () => {
               fontSize: 30,
             },
             [`& .${gaugeClasses.valueArc}`]: {
-              fill: theme.palette.success.main,
+              fill: getColorFromPath(
+                theme,
+                getGaugeColor(
+                  serviceNowRequest?.completionPercentage,
+                  'completion'
+                )
+              ),
             },
             [`& .${gaugeClasses.referenceArc}`]: {
               fill: theme.palette.text.disabled,

@@ -1,6 +1,7 @@
 import { Box, Paper, Typography } from '@mui/material';
 import { useDashboard } from '../../context/DashboardContext';
 import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
+import { getColorFromPath, getGaugeColor } from '../../utils/commonUtils';
 
 export const TechDebtSection = () => {
   const { data } = useDashboard();
@@ -23,14 +24,17 @@ export const TechDebtSection = () => {
         <Gauge
           width={140}
           height={140}
-          value={`${techDebt?.reductionPercentage}%`}
+          value={techDebt?.reductionPercentage}
           sx={(theme) => ({
             [`& .${gaugeClasses.valueText}`]: {
               color: theme.palette.text.secondary,
               fontSize: 35,
             },
             [`& .${gaugeClasses.valueArc}`]: {
-              fill: theme.palette.warning.main,
+              fill: getColorFromPath(
+                theme,
+                getGaugeColor(techDebt?.reductionPercentage, 'debt')
+              ),
             },
             [`& .${gaugeClasses.referenceArc}`]: {
               fill: theme.palette.text.disabled,

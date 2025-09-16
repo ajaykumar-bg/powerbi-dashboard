@@ -5,6 +5,9 @@ import {
   IconButton,
   Box,
   Tooltip,
+  Button,
+  Menu,
+  MenuItem,
 } from '@mui/material';
 import {
   PlayArrow,
@@ -12,16 +15,20 @@ import {
   DarkMode,
   LightMode,
   Menu as MenuIcon,
+  Person,
 } from '@mui/icons-material';
 import { useState } from 'react';
 import { useDashboard } from '../context/DashboardContext';
 import { useThemeMode } from '../context/ThemeContext';
+import { useUser } from '../context/UserContext';
 import Sidebar from './Sidebar';
 
 const Navbar = () => {
   const { isLive, toggleLive } = useDashboard();
   const { mode, toggleTheme } = useThemeMode();
+  const { user, switchRole } = useUser();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -35,6 +42,19 @@ const Navbar = () => {
 
   const handleSidebarClose = () => {
     setDrawerOpen(false);
+  };
+
+  const handleRoleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleRoleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleRoleChange = (role) => {
+    switchRole(role);
+    handleRoleMenuClose();
   };
 
   return (
@@ -61,6 +81,28 @@ const Navbar = () => {
           </Typography>
 
           <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+            {/* Role Switcher */}
+            <Tooltip title='Switch Role'>
+              <Button
+                color='inherit'
+                startIcon={<Person />}
+                onClick={handleRoleMenuClick}
+                sx={{ textTransform: 'capitalize' }}
+              >
+                {user.role}
+              </Button>
+            </Tooltip>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleRoleMenuClose}
+            >
+              <MenuItem onClick={() => handleRoleChange('admin')}>
+                Admin
+              </MenuItem>
+              <MenuItem onClick={() => handleRoleChange('user')}>User</MenuItem>
+            </Menu>
+
             <Tooltip title='Toggle Theme'>
               <IconButton style={{ color: '#FFFFFF' }} onClick={toggleTheme}>
                 {mode === 'dark' ? <DarkMode /> : <LightMode />}

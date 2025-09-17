@@ -167,69 +167,89 @@ function Forms() {
   };
 
   return (
-    <Box sx={{ 
-      p: { xs: 1, sm: 2, md: 3 }, 
-      maxWidth: 1400, 
-      mx: 'auto',
-      minHeight: '100vh',
-      bgcolor: 'background.default'
-    }}>
+    <Box
+      sx={{
+        p: { xs: 1, sm: 2, md: 3 },
+        maxWidth: 1400,
+        mx: 'auto',
+        minHeight: '100vh',
+        bgcolor: 'background.default',
+      }}
+    >
       {/* Header Section */}
-      <Paper 
-        elevation={2} 
-        sx={{ 
-          p: { xs: 3, sm: 4 }, 
-          mb: 3, 
+      <Paper
+        elevation={2}
+        sx={{
+          p: { xs: 3, sm: 4 },
+          mb: 3,
           textAlign: 'center',
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          color: 'white'
+          color: 'white',
         }}
       >
         <BusinessIcon sx={{ fontSize: 56, mb: 2, opacity: 0.9 }} />
-        <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 300 }}>
+        <Typography
+          variant='h3'
+          component='h1'
+          gutterBottom
+          sx={{ fontWeight: 300 }}
+        >
           Project Dashboard Form
         </Typography>
-        <Typography variant="h6" sx={{ opacity: 0.9, fontWeight: 300 }}>
+        <Typography variant='h6' sx={{ opacity: 0.9, fontWeight: 300 }}>
           Create and manage project information with comprehensive details
         </Typography>
       </Paper>
 
       <form onSubmit={handleSubmit}>
         <Grid container spacing={3}>
-          
           {/* Basic Information Card */}
           <Grid item xs={12}>
             <Card elevation={3} sx={{ overflow: 'visible' }}>
               <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-                <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 3 }}>
-                  <CodeIcon color="primary" sx={{ fontSize: 28 }} />
-                  <Typography variant="h5" color="primary" fontWeight={600}>
+                <Stack
+                  direction='row'
+                  alignItems='center'
+                  spacing={2}
+                  sx={{ mb: 3 }}
+                >
+                  <CodeIcon color='primary' sx={{ fontSize: 28 }} />
+                  <Typography variant='h5' color='primary' fontWeight={600}>
                     Basic Information
                   </Typography>
                 </Stack>
-                
+
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={6}>
                     <TextField
                       fullWidth
-                      label="Project Name"
+                      label='Project Name'
                       value={formData.projectName}
-                      onChange={(e) => handleInputChange('projectName', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange('projectName', e.target.value)
+                      }
                       error={!!errors.projectName}
                       helperText={errors.projectName}
-                      variant="outlined"
+                      variant='outlined'
                       required
-                      size="medium"
+                      size='medium'
                     />
                   </Grid>
 
                   <Grid item xs={12} md={6}>
-                    <FormControl fullWidth error={!!errors.category} required size="medium">
+                    <FormControl
+                      fullWidth
+                      error={!!errors.category}
+                      required
+                      size='medium'
+                    >
                       <InputLabel>Project Category</InputLabel>
                       <Select
                         value={formData.category}
-                        label="Project Category"
-                        onChange={(e) => handleInputChange('category', e.target.value)}
+                        label='Project Category'
+                        onChange={(e) =>
+                          handleInputChange('category', e.target.value)
+                        }
                       >
                         {projectCategories.map((category) => (
                           <MenuItem key={category} value={category}>
@@ -238,7 +258,11 @@ function Forms() {
                         ))}
                       </Select>
                       {errors.category && (
-                        <Typography variant="caption" color="error" sx={{ mt: 0.5, ml: 1.5 }}>
+                        <Typography
+                          variant='caption'
+                          color='error'
+                          sx={{ mt: 0.5, ml: 1.5 }}
+                        >
                           {errors.category}
                         </Typography>
                       )}
@@ -248,16 +272,18 @@ function Forms() {
                   <Grid item xs={12}>
                     <TextField
                       fullWidth
-                      label="Project Description"
+                      label='Project Description'
                       multiline
                       rows={4}
                       value={formData.description}
-                      onChange={(e) => handleInputChange('description', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange('description', e.target.value)
+                      }
                       error={!!errors.description}
                       helperText={errors.description}
-                      variant="outlined"
+                      variant='outlined'
                       required
-                      size="medium"
+                      size='medium'
                     />
                   </Grid>
                 </Grid>
@@ -269,39 +295,46 @@ function Forms() {
           <Grid item xs={12}>
             <Card elevation={3}>
               <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-                <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 3 }}>
-                  <PersonIcon color="primary" sx={{ fontSize: 28 }} />
-                  <Typography variant="h5" color="primary" fontWeight={600}>
+                <Stack
+                  direction='row'
+                  alignItems='center'
+                  spacing={2}
+                  sx={{ mb: 3 }}
+                >
+                  <PersonIcon color='primary' sx={{ fontSize: 28 }} />
+                  <Typography variant='h5' color='primary' fontWeight={600}>
                     Team & Technology
                   </Typography>
                 </Stack>
-                
+
                 <Grid container spacing={3}>
                   <Grid item xs={12} lg={6}>
                     <Autocomplete
                       multiple
                       options={teamMembers}
                       value={formData.assignedTeam}
-                      onChange={(event, newValue) => handleInputChange('assignedTeam', newValue)}
+                      onChange={(event, newValue) =>
+                        handleInputChange('assignedTeam', newValue)
+                      }
                       renderTags={(value, getTagProps) =>
                         value.map((option, index) => (
                           <Chip
-                            variant="outlined"
+                            variant='outlined'
                             label={option}
                             {...getTagProps({ index })}
                             key={option}
-                            color="primary"
+                            color='primary'
                           />
                         ))
                       }
                       renderInput={(params) => (
                         <TextField
                           {...params}
-                          label="Assigned Team Members"
+                          label='Assigned Team Members'
                           error={!!errors.assignedTeam}
                           helperText={errors.assignedTeam}
                           required
-                          size="medium"
+                          size='medium'
                         />
                       )}
                     />
@@ -312,24 +345,26 @@ function Forms() {
                       multiple
                       options={technologies}
                       value={formData.technologies}
-                      onChange={(event, newValue) => handleInputChange('technologies', newValue)}
+                      onChange={(event, newValue) =>
+                        handleInputChange('technologies', newValue)
+                      }
                       renderTags={(value, getTagProps) =>
                         value.map((option, index) => (
                           <Chip
-                            variant="outlined"
+                            variant='outlined'
                             label={option}
                             {...getTagProps({ index })}
                             key={option}
-                            color="secondary"
+                            color='secondary'
                           />
                         ))
                       }
                       renderInput={(params) => (
                         <TextField
                           {...params}
-                          label="Technologies Used"
-                          placeholder="Select technologies..."
-                          size="medium"
+                          label='Technologies Used'
+                          placeholder='Select technologies...'
+                          size='medium'
                         />
                       )}
                     />
@@ -343,55 +378,104 @@ function Forms() {
           <Grid item xs={12} lg={6}>
             <Card elevation={3} sx={{ height: '100%' }}>
               <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-                <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 3 }}>
-                  <SpeedIcon color="primary" sx={{ fontSize: 28 }} />
-                  <Typography variant="h5" color="primary" fontWeight={600}>
+                <Stack
+                  direction='row'
+                  alignItems='center'
+                  spacing={2}
+                  sx={{ mb: 3 }}
+                >
+                  <SpeedIcon color='primary' sx={{ fontSize: 28 }} />
+                  <Typography variant='h5' color='primary' fontWeight={600}>
                     Project Settings
                   </Typography>
                 </Stack>
-                
+
                 <Stack spacing={3}>
-                  <FormControl component="fieldset">
-                    <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                  <FormControl component='fieldset'>
+                    <FormLabel
+                      component='legend'
+                      sx={{ mb: 2, fontWeight: 600 }}
+                    >
                       Project Priority
                     </FormLabel>
                     <RadioGroup
                       row
                       value={formData.priority}
-                      onChange={(e) => handleInputChange('priority', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange('priority', e.target.value)
+                      }
                     >
-                      <FormControlLabel value="low" control={<Radio />} label="Low" />
-                      <FormControlLabel value="medium" control={<Radio />} label="Medium" />
-                      <FormControlLabel value="high" control={<Radio />} label="High" />
-                      <FormControlLabel value="critical" control={<Radio />} label="Critical" />
+                      <FormControlLabel
+                        value='low'
+                        control={<Radio />}
+                        label='Low'
+                      />
+                      <FormControlLabel
+                        value='medium'
+                        control={<Radio />}
+                        label='Medium'
+                      />
+                      <FormControlLabel
+                        value='high'
+                        control={<Radio />}
+                        label='High'
+                      />
+                      <FormControlLabel
+                        value='critical'
+                        control={<Radio />}
+                        label='Critical'
+                      />
                     </RadioGroup>
                   </FormControl>
 
-                  <FormControl component="fieldset">
-                    <FormLabel component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                  <FormControl component='fieldset'>
+                    <FormLabel
+                      component='legend'
+                      sx={{ mb: 2, fontWeight: 600 }}
+                    >
                       Project Type
                     </FormLabel>
                     <RadioGroup
                       row
                       value={formData.projectType}
-                      onChange={(e) => handleInputChange('projectType', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange('projectType', e.target.value)
+                      }
                     >
-                      <FormControlLabel value="internal" control={<Radio />} label="Internal" />
-                      <FormControlLabel value="client" control={<Radio />} label="Client" />
-                      <FormControlLabel value="research" control={<Radio />} label="Research" />
+                      <FormControlLabel
+                        value='internal'
+                        control={<Radio />}
+                        label='Internal'
+                      />
+                      <FormControlLabel
+                        value='client'
+                        control={<Radio />}
+                        label='Client'
+                      />
+                      <FormControlLabel
+                        value='research'
+                        control={<Radio />}
+                        label='Research'
+                      />
                     </RadioGroup>
                   </FormControl>
 
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
+                  <Stack
+                    direction='row'
+                    justifyContent='space-between'
+                    alignItems='center'
+                  >
                     <FormControlLabel
                       control={
                         <Switch
                           checked={formData.isActive}
-                          onChange={(e) => handleInputChange('isActive', e.target.checked)}
-                          color="primary"
+                          onChange={(e) =>
+                            handleInputChange('isActive', e.target.checked)
+                          }
+                          color='primary'
                         />
                       }
-                      label="Project Active"
+                      label='Project Active'
                       sx={{ fontSize: '1.1rem' }}
                     />
                   </Stack>
@@ -401,19 +485,26 @@ function Forms() {
                       control={
                         <Checkbox
                           checked={formData.hasDocumentation}
-                          onChange={(e) => handleInputChange('hasDocumentation', e.target.checked)}
+                          onChange={(e) =>
+                            handleInputChange(
+                              'hasDocumentation',
+                              e.target.checked
+                            )
+                          }
                         />
                       }
-                      label="Has Documentation"
+                      label='Has Documentation'
                     />
                     <FormControlLabel
                       control={
                         <Checkbox
                           checked={formData.needsApproval}
-                          onChange={(e) => handleInputChange('needsApproval', e.target.checked)}
+                          onChange={(e) =>
+                            handleInputChange('needsApproval', e.target.checked)
+                          }
                         />
                       }
-                      label="Needs Approval"
+                      label='Needs Approval'
                     />
                   </FormGroup>
                 </Stack>
@@ -425,40 +516,63 @@ function Forms() {
           <Grid item xs={12} lg={6}>
             <Card elevation={3} sx={{ height: '100%' }}>
               <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-                <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 3 }}>
-                  <AssessmentIcon color="primary" sx={{ fontSize: 28 }} />
-                  <Typography variant="h5" color="primary" fontWeight={600}>
+                <Stack
+                  direction='row'
+                  alignItems='center'
+                  spacing={2}
+                  sx={{ mb: 3 }}
+                >
+                  <AssessmentIcon color='primary' sx={{ fontSize: 28 }} />
+                  <Typography variant='h5' color='primary' fontWeight={600}>
                     Ratings & Assessment
                   </Typography>
                 </Stack>
-                
+
                 <Stack spacing={4}>
                   <Box>
-                    <Typography component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                    <Typography
+                      component='legend'
+                      sx={{ mb: 2, fontWeight: 600 }}
+                    >
                       Project Rating
                     </Typography>
                     <Rating
                       value={formData.projectRating}
-                      onChange={(event, newValue) => handleInputChange('projectRating', newValue)}
-                      size="large"
+                      onChange={(event, newValue) =>
+                        handleInputChange('projectRating', newValue)
+                      }
+                      size='large'
                       precision={0.5}
                     />
-                    <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
+                    <Typography
+                      variant='caption'
+                      color='text.secondary'
+                      sx={{ display: 'block', mt: 1 }}
+                    >
                       Rate the overall project quality
                     </Typography>
                   </Box>
 
                   <Box>
-                    <Typography component="legend" sx={{ mb: 2, fontWeight: 600 }}>
+                    <Typography
+                      component='legend'
+                      sx={{ mb: 2, fontWeight: 600 }}
+                    >
                       Client Feedback Rating
                     </Typography>
                     <Rating
                       value={formData.clientFeedback}
-                      onChange={(event, newValue) => handleInputChange('clientFeedback', newValue)}
-                      size="large"
+                      onChange={(event, newValue) =>
+                        handleInputChange('clientFeedback', newValue)
+                      }
+                      size='large'
                       max={5}
                     />
-                    <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
+                    <Typography
+                      variant='caption'
+                      color='text.secondary'
+                      sx={{ display: 'block', mt: 1 }}
+                    >
                       Client satisfaction rating
                     </Typography>
                   </Box>
@@ -469,15 +583,17 @@ function Forms() {
                     </Typography>
                     <Slider
                       value={formData.riskLevel}
-                      onChange={(event, newValue) => handleInputChange('riskLevel', newValue)}
+                      onChange={(event, newValue) =>
+                        handleInputChange('riskLevel', newValue)
+                      }
                       min={1}
                       max={5}
                       step={1}
-                      valueLabelDisplay="auto"
+                      valueLabelDisplay='auto'
                       marks={[
                         { value: 1, label: 'Low' },
                         { value: 3, label: 'Medium' },
-                        { value: 5, label: 'High' }
+                        { value: 5, label: 'High' },
                       ]}
                       sx={{ mt: 2 }}
                     />
@@ -491,53 +607,69 @@ function Forms() {
           <Grid item xs={12}>
             <Card elevation={3}>
               <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-                <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 3 }}>
-                  <SecurityIcon color="primary" sx={{ fontSize: 28 }} />
-                  <Typography variant="h5" color="primary" fontWeight={600}>
+                <Stack
+                  direction='row'
+                  alignItems='center'
+                  spacing={2}
+                  sx={{ mb: 3 }}
+                >
+                  <SecurityIcon color='primary' sx={{ fontSize: 28 }} />
+                  <Typography variant='h5' color='primary' fontWeight={600}>
                     Budget & Timeline
                   </Typography>
                 </Stack>
-                
+
                 <Grid container spacing={4}>
                   <Grid item xs={12} md={6}>
-                    <Typography gutterBottom sx={{ fontWeight: 600, fontSize: '1.1rem' }}>
+                    <Typography
+                      gutterBottom
+                      sx={{ fontWeight: 600, fontSize: '1.1rem' }}
+                    >
                       Budget: ${formData.budget.toLocaleString()}
                     </Typography>
                     <Slider
                       value={formData.budget}
-                      onChange={(event, newValue) => handleInputChange('budget', newValue)}
+                      onChange={(event, newValue) =>
+                        handleInputChange('budget', newValue)
+                      }
                       min={10000}
                       max={500000}
                       step={5000}
-                      valueLabelDisplay="auto"
+                      valueLabelDisplay='auto'
                       valueLabelFormat={(value) => `$${value.toLocaleString()}`}
                       marks={[
                         { value: 10000, label: '$10K' },
                         { value: 100000, label: '$100K' },
                         { value: 250000, label: '$250K' },
-                        { value: 500000, label: '$500K' }
+                        { value: 500000, label: '$500K' },
                       ]}
                       sx={{ mt: 2 }}
                     />
                   </Grid>
 
                   <Grid item xs={12} md={6}>
-                    <Typography gutterBottom sx={{ fontWeight: 600, fontSize: '1.1rem' }}>
-                      Estimated Hours: {formData.estimatedHours[0]} - {formData.estimatedHours[1]} hours
+                    <Typography
+                      gutterBottom
+                      sx={{ fontWeight: 600, fontSize: '1.1rem' }}
+                    >
+                      Estimated Hours: {formData.estimatedHours[0]} -{' '}
+                      {formData.estimatedHours[1]} hours
                     </Typography>
                     <Slider
                       value={formData.estimatedHours}
-                      onChange={(event, newValue) => handleInputChange('estimatedHours', newValue)}
+                      onChange={(event, newValue) =>
+                        handleInputChange('estimatedHours', newValue)
+                      }
                       min={20}
                       max={500}
                       step={10}
-                      valueLabelDisplay="auto"
+                      valueLabelDisplay='auto'
                       valueLabelFormat={(value) => `${value}h`}
                       marks={[
                         { value: 20, label: '20h' },
                         { value: 100, label: '100h' },
                         { value: 250, label: '250h' },
-                        { value: 500, label: '500h' }
+                        { value: 500, label: '500h' },
                       ]}
                       sx={{ mt: 2 }}
                     />
@@ -549,48 +681,50 @@ function Forms() {
 
           {/* Action Buttons */}
           <Grid item xs={12}>
-            <Paper 
-              elevation={2} 
-              sx={{ 
-                p: 3, 
+            <Paper
+              elevation={2}
+              sx={{
+                p: 3,
                 background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
-                borderRadius: 2
+                borderRadius: 2,
               }}
             >
-              <Stack 
-                direction={{ xs: 'column', sm: 'row' }} 
-                spacing={2} 
-                justifyContent="center"
-                alignItems="center"
+              <Stack
+                direction={{ xs: 'column', sm: 'row' }}
+                spacing={2}
+                justifyContent='center'
+                alignItems='center'
               >
                 <Button
-                  variant="outlined"
-                  color="secondary"
+                  variant='outlined'
+                  color='secondary'
                   startIcon={<ClearIcon />}
                   onClick={handleClear}
-                  size="large"
-                  sx={{ 
+                  size='large'
+                  sx={{
                     minWidth: { xs: '100%', sm: 200 },
                     py: 1.5,
                     borderWidth: 2,
-                    '&:hover': { borderWidth: 2 }
+                    '&:hover': { borderWidth: 2 },
                   }}
                 >
                   Clear Form
                 </Button>
                 <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
+                  type='submit'
+                  variant='contained'
+                  color='primary'
                   startIcon={<SaveIcon />}
-                  size="large"
-                  sx={{ 
+                  size='large'
+                  sx={{
                     minWidth: { xs: '100%', sm: 200 },
                     py: 1.5,
-                    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+                    background:
+                      'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
                     '&:hover': {
-                      background: 'linear-gradient(45deg, #FE6B8B 60%, #FF8E53 100%)',
-                    }
+                      background:
+                        'linear-gradient(45deg, #FE6B8B 60%, #FF8E53 100%)',
+                    },
                   }}
                 >
                   Submit Project
@@ -610,8 +744,8 @@ function Forms() {
       >
         <Alert
           onClose={() => setShowSuccess(false)}
-          severity="success"
-          variant="filled"
+          severity='success'
+          variant='filled'
           sx={{ width: '100%' }}
         >
           Project form submitted successfully!

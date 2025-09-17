@@ -70,6 +70,7 @@ export const getTheme = (mode) =>
           root: {
             borderRadius: 5,
             padding: '0.75rem',
+            // backgroundColor: mode === 'dark' ? '#0E2841' : '#ffffff',
           },
         },
       },

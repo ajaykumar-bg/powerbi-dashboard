@@ -79,12 +79,6 @@ export const AIIndexWidget = () => {
             {progressPercentage.toFixed(1)}% of target achieved
           </Typography>
         </Box>
-
-        <Box sx={{ mt: 2 }}>
-          <Typography variant='caption' color='text.secondary'>
-            AI-driven cost optimization and efficiency improvements
-          </Typography>
-        </Box>
       </Box>
     </Paper>
   );

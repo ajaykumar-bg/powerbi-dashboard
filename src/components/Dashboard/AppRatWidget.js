@@ -11,21 +11,21 @@ export const AppRatWidget = () => {
       <Typography variant='h6' gutterBottom>
         App Rat
       </Typography>
-      <Grid container spacing={1} direction='column'>
+      <Grid container spacing={2} direction='column'>
         <Grid>
-          <Typography variant='h5' color='success'>
+          <Typography variant='h2' color='success'>
             {appRat?.totalSavings}
           </Typography>
           <Typography variant='body2'>Dollars savings</Typography>
         </Grid>
         <Grid>
-          <Typography variant='h5' color='success'>
+          <Typography variant='h2' color='warning'>
             {appRat?.sapMobilePlatform}
           </Typography>
           <Typography variant='body2'>SAP Mobile Platform</Typography>
         </Grid>
         <Grid>
-          <Typography variant='h5' color='success'>
+          <Typography variant='h2' color='info'>
             {appRat?.sapCE}
           </Typography>
           <Typography variant='body2'>SAP CE</Typography>

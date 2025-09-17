@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useMemo } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import TableSortLabel from '@mui/material/TableSortLabel';
 
 function createData(
   queryId,
@@ -109,21 +110,104 @@ const rows = [
 ];
 
 function SqlDenseTable() {
+  const [order, setOrder] = useState('asc');
+  const [orderBy, setOrderBy] = useState('queryId');
+
+  const handleRequestSort = (property) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+  };
+
+  const sortedRows = useMemo(() => {
+    return [...rows].sort((a, b) => {
+      let aValue = a[orderBy];
+      let bValue = b[orderBy];
+
+      // Handle different data types
+      if (
+        orderBy === 'executionTime' ||
+        orderBy === 'cpuTime' ||
+        orderBy === 'ioReads' ||
+        orderBy === 'executionCount'
+      ) {
+        aValue = Number(aValue);
+        bValue = Number(bValue);
+      } else {
+        aValue = String(aValue).toLowerCase();
+        bValue = String(bValue).toLowerCase();
+      }
+
+      if (order === 'asc') {
+        return aValue < bValue ? -1 : aValue > bValue ? 1 : 0;
+      } else {
+        return aValue > bValue ? -1 : aValue < bValue ? 1 : 0;
+      }
+    });
+  }, [order, orderBy]);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
         <TableHead>
           <TableRow>
-            <TableCell>Query ID</TableCell>
-            <TableCell>Query Description</TableCell>
-            <TableCell align='right'>Execution Time (ms)</TableCell>
-            <TableCell align='right'>CPU Time (ms)</TableCell>
-            <TableCell align='right'>IO Reads</TableCell>
-            <TableCell align='right'>Execution Count</TableCell>
+            <TableCell>
+              <TableSortLabel
+                active={orderBy === 'queryId'}
+                direction={orderBy === 'queryId' ? order : 'asc'}
+                onClick={() => handleRequestSort('queryId')}
+              >
+                Query ID
+              </TableSortLabel>
+            </TableCell>
+            <TableCell>
+              <TableSortLabel
+                active={orderBy === 'queryDescription'}
+                direction={orderBy === 'queryDescription' ? order : 'asc'}
+                onClick={() => handleRequestSort('queryDescription')}
+              >
+                Query Description
+              </TableSortLabel>
+            </TableCell>
+            <TableCell align='right'>
+              <TableSortLabel
+                active={orderBy === 'executionTime'}
+                direction={orderBy === 'executionTime' ? order : 'asc'}
+                onClick={() => handleRequestSort('executionTime')}
+              >
+                Execution Time (ms)
+              </TableSortLabel>
+            </TableCell>
+            <TableCell align='right'>
+              <TableSortLabel
+                active={orderBy === 'cpuTime'}
+                direction={orderBy === 'cpuTime' ? order : 'asc'}
+                onClick={() => handleRequestSort('cpuTime')}
+              >
+                CPU Time (ms)
+              </TableSortLabel>
+            </TableCell>
+            <TableCell align='right'>
+              <TableSortLabel
+                active={orderBy === 'ioReads'}
+                direction={orderBy === 'ioReads' ? order : 'asc'}
+                onClick={() => handleRequestSort('ioReads')}
+              >
+                IO Reads
+              </TableSortLabel>
+            </TableCell>
+            <TableCell align='right'>
+              <TableSortLabel
+                active={orderBy === 'executionCount'}
+                direction={orderBy === 'executionCount' ? order : 'asc'}
+                onClick={() => handleRequestSort('executionCount')}
+              >
+                Execution Count
+              </TableSortLabel>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {sortedRows.map((row) => (
             <TableRow
               key={row.queryId}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

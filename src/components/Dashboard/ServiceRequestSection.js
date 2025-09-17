@@ -1,11 +1,17 @@
-import { Box, Paper, Typography, Grid, Divider } from '@mui/material';
-import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
+import {
+  Box,
+  Paper,
+  Typography,
+  Grid,
+  Divider,
+  CircularProgress,
+} from '@mui/material';
 
 import { useDashboard } from '../../context/DashboardContext';
 import { PieChart } from '@mui/x-charts';
 import { useMemo } from 'react';
 import { generateServiceRequestData } from '../../utils/dataGenerator';
-import { getColorFromPath, getGaugeColor } from '../../utils/commonUtils';
+import { getColorFromColorPath, getGaugeColor } from '../../utils/commonUtils';
 
 export const ServiceRequestSection = () => {
   const { data } = useDashboard();
@@ -17,29 +23,11 @@ export const ServiceRequestSection = () => {
     [serviceNowRequest]
   );
 
-  const gaugeConfig = useMemo(
-    () => ({
-      width: 100,
-      height: 100,
-      value: serviceNowRequest?.completionPercentage,
-      sx: (theme) => ({
-        [`& .${gaugeClasses.valueText}`]: {
-          color: theme.palette.text.secondary,
-          fontSize: 30,
-        },
-        [`& .${gaugeClasses.valueArc}`]: {
-          fill: getColorFromPath(
-            theme,
-            getGaugeColor(serviceNowRequest?.completionPercentage, 'completion')
-          ),
-        },
-        [`& .${gaugeClasses.referenceArc}`]: {
-          fill: theme.palette.text.disabled,
-        },
-      }),
-    }),
-    [serviceNowRequest?.completionPercentage]
-  );
+  const progressColor = useMemo(() => {
+    return getColorFromColorPath(
+      getGaugeColor(serviceNowRequest?.completionPercentage, 'completion')
+    );
+  }, [serviceNowRequest?.completionPercentage]);
 
   return (
     <Paper sx={{ p: 2, height: '100%' }}>
@@ -81,16 +69,55 @@ export const ServiceRequestSection = () => {
       <Divider sx={{ my: 2 }} />
       <Box
         sx={{
-          display: 'grid',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
           justifyContent: 'center',
-          textAlign: 'center',
           mt: 2,
         }}
       >
         <Typography variant='h6' gutterBottom>
           % Completion
         </Typography>
-        <Gauge {...gaugeConfig} />
+        <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+          <CircularProgress
+            variant='determinate'
+            value={serviceNowRequest?.completionPercentage || 0}
+            size={80}
+            thickness={6}
+            sx={{
+              color: progressColor,
+            }}
+          />
+          <Box
+            sx={{
+              top: 0,
+              left: 0,
+              bottom: 0,
+              right: 0,
+              position: 'absolute',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Typography
+              variant='h4'
+              component='div'
+              color='text.secondary'
+              sx={{ fontWeight: 'bold' }}
+            >
+              {`${Math.round(serviceNowRequest?.completionPercentage || 0)}%`}
+            </Typography>
+          </Box>
+        </Box>
+        <Typography
+          variant='body2'
+          color='text.secondary'
+          sx={{ mt: 1, textAlign: 'center' }}
+        >
+          Current Progress
+        </Typography>
       </Box>
     </Paper>
   );

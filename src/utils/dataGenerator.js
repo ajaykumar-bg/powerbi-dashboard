@@ -63,7 +63,7 @@ export const generateDashboardData = () => {
       processed: getRandomValue(9800, 9900),
       inProgress: getRandomValue(2500, 1050),
       completed: getRandomValue(5500, 6000),
-      completionPercentage: getRandomValue(10, 90),
+      completionPercentage: getRandomValue(50, 90),
     },
     productRoadmap: {
       items: [

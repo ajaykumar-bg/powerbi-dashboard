@@ -231,7 +231,7 @@ const Navbar = () => {
 
             <Box
               component='img'
-              src={`${process.env.PUBLIC_URL}/pepsico-logo.png`}
+              src={`${process.env.PUBLIC_URL}/pepsico_logo.png`}
               alt='PepsiCo Logo'
               sx={{ height: 40, ml: 2 }}
               onError={(e) => {

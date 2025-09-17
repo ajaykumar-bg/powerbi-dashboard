@@ -2,7 +2,7 @@ const getRandomValue = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-const formatNumber = (num) => {
+export const formatNumber = (num) => {
   if (num >= 1000000) return `${(num / 1000000).toFixed(1)} MM`;
   if (num >= 1000) return `${(num / 1000).toFixed(0)}K`;
   return num.toString();
@@ -19,7 +19,7 @@ export const generateDashboardData = () => {
       sapCE: formatNumber(getRandomValue(90000, 110000)),
     },
     aiIndex: {
-      value: formatNumber(getRandomValue(300000, 500000)),
+      value: getRandomValue(300000, 500000),
       type: 'Savings',
     },
     vulnerabilities: {

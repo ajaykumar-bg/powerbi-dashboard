@@ -13,6 +13,7 @@ import DashboardV3 from './components/DashboardV3/DashboardV3';
 import { DashboardV2 } from './components/DashboardV2';
 import SqlOptimizationDetails from './components/SqlOptimizationDetails/SqlOptimizationDetails';
 import VulnerabilityDetails from './components/VulnerabilityDetails/VulnerabilityDetails';
+import Forms from './components/Forms';
 
 function AppRoutes() {
   return (
@@ -38,6 +39,7 @@ function AppRoutes() {
                       path='/vulnerability-details'
                       element={<VulnerabilityDetails />}
                     />
+                    <Route path='/forms' element={<Forms />} />
                     <Route path='*' element={<Navigate to='/' replace />} />
                   </Routes>
                 </Container>

@@ -15,6 +15,7 @@ import {
   Details as DetailsIcon,
   Analytics as AnalyticsIcon,
   Security as SecurityIcon,
+  Assignment as AssignmentIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -35,6 +36,11 @@ const Sidebar = ({ open, onClose }) => {
       label: 'Vulnerability Details',
       path: '/vulnerability-details',
       icon: <SecurityIcon />,
+    },
+    {
+      label: 'Forms',
+      path: '/forms',
+      icon: <AssignmentIcon />,
     },
   ];
 

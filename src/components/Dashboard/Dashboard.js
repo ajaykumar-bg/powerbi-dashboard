@@ -32,22 +32,22 @@ function Dashboard() {
         <Grid size={{ xs: 12 }}>
           <Grid container spacing={2}>
             {permissions.canViewTechDebt && (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+              <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
                 <TechDebtSection />
               </Grid>
             )}
             {permissions.canViewAppRat && (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+              <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
                 <AppRatWidget />
               </Grid>
             )}
             {permissions.canViewOperationsMetrics && (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+              <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
                 <OperationsMetricsSection />
               </Grid>
             )}
             {permissions.canViewAIIndex && (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+              <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
                 <AIIndexWidget />
               </Grid>
             )}

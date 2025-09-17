@@ -119,8 +119,6 @@ function SqlMetricsData() {
               </Typography>
               <SparkLineChart
                 data={card.data}
-                width={150}
-                height={50}
                 curve='natural'
                 area={true}
                 colors={[card.color]}

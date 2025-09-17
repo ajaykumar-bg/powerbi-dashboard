@@ -3,6 +3,7 @@ import { Box, Paper, Typography } from '@mui/material';
 import { useDashboard } from '../../context/DashboardContext';
 
 import { PieChart } from '@mui/x-charts/PieChart';
+
 import { generateOperationsData } from '../../utils/dataGenerator';
 
 export const OperationsMetricsSection = () => {
@@ -29,7 +30,7 @@ export const OperationsMetricsSection = () => {
               data: operationsData,
             },
           ]}
-          width={200}
+          width={170}
           height={200}
         />
       </Box>

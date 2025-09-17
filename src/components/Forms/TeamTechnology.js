@@ -39,16 +39,16 @@ const technologies = [
 
 function TeamTechnology({ formData, handleInputChange, errors }) {
   return (
-    <Card elevation={3}>
-      <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-        <Stack direction='row' alignItems='center' spacing={2} sx={{ mb: 3 }}>
-          <PersonIcon color='primary' sx={{ fontSize: 28 }} />
-          <Typography variant='h5' color='primary' fontWeight={600}>
+    <Card elevation={2}>
+      <CardContent sx={{ p: { xs: 2, sm: 2.5 } }}>
+        <Stack direction='row' alignItems='center' spacing={1.5} sx={{ mb: 2 }}>
+          <PersonIcon color='primary' sx={{ fontSize: 22 }} />
+          <Typography variant='h6' color='primary' fontWeight={600}>
             Team & Technology
           </Typography>
         </Stack>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           <Grid size={{ xs: 12, lg: 6 }}>
             <Autocomplete
               multiple
@@ -65,6 +65,7 @@ function TeamTechnology({ formData, handleInputChange, errors }) {
                     {...getTagProps({ index })}
                     key={option}
                     color='primary'
+                    size='small'
                   />
                 ))
               }
@@ -75,7 +76,7 @@ function TeamTechnology({ formData, handleInputChange, errors }) {
                   error={!!errors.assignedTeam}
                   helperText={errors.assignedTeam}
                   required
-                  size='medium'
+                  size='small'
                 />
               )}
             />
@@ -97,6 +98,7 @@ function TeamTechnology({ formData, handleInputChange, errors }) {
                     {...getTagProps({ index })}
                     key={option}
                     color='secondary'
+                    size='small'
                   />
                 ))
               }
@@ -105,7 +107,7 @@ function TeamTechnology({ formData, handleInputChange, errors }) {
                   {...params}
                   label='Technologies Used'
                   placeholder='Select technologies...'
-                  size='medium'
+                  size='small'
                 />
               )}
             />

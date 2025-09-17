@@ -114,8 +114,8 @@ function Forms() {
   return (
     <Box
       sx={{
-        p: { xs: 1, sm: 2, md: 3 },
-        maxWidth: 1400,
+        p: { xs: 1, sm: 1.5, md: 2 },
+        maxWidth: 1200,
         mx: 'auto',
         minHeight: '100vh',
         bgcolor: 'background.default',
@@ -125,7 +125,7 @@ function Forms() {
       <FormHeader />
 
       <form onSubmit={handleSubmit}>
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           {/* Basic Information Card */}
           <Grid size={{ xs: 12 }}>
             <BasicInformation

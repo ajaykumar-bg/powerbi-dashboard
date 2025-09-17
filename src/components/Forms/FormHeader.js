@@ -7,23 +7,23 @@ function FormHeader() {
     <Paper
       elevation={2}
       sx={{
-        p: { xs: 3, sm: 4 },
-        mb: 3,
+        p: { xs: 2, sm: 2.5 },
+        mb: 2,
         textAlign: 'center',
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         color: 'white',
       }}
     >
-      <BusinessIcon sx={{ fontSize: 56, mb: 2, opacity: 0.9 }} />
+      <BusinessIcon sx={{ fontSize: 40, mb: 1, opacity: 0.9 }} />
       <Typography
-        variant='h3'
+        variant='h4'
         component='h1'
         gutterBottom
         sx={{ fontWeight: 300 }}
       >
         Project Dashboard Form
       </Typography>
-      <Typography variant='h6' sx={{ opacity: 0.9, fontWeight: 300 }}>
+      <Typography variant='subtitle1' sx={{ opacity: 0.9, fontWeight: 300 }}>
         Create and manage project information with comprehensive details
       </Typography>
     </Paper>

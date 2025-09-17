@@ -12,18 +12,21 @@ import { Assessment as AssessmentIcon } from '@mui/icons-material';
 
 function RatingsAssessment({ formData, handleInputChange }) {
   return (
-    <Card elevation={3} sx={{ height: '100%' }}>
-      <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-        <Stack direction='row' alignItems='center' spacing={2} sx={{ mb: 3 }}>
-          <AssessmentIcon color='primary' sx={{ fontSize: 28 }} />
-          <Typography variant='h5' color='primary' fontWeight={600}>
+    <Card elevation={2} sx={{ height: '100%' }}>
+      <CardContent sx={{ p: { xs: 2, sm: 2.5 } }}>
+        <Stack direction='row' alignItems='center' spacing={1.5} sx={{ mb: 2 }}>
+          <AssessmentIcon color='primary' sx={{ fontSize: 22 }} />
+          <Typography variant='h6' color='primary' fontWeight={600}>
             Ratings & Assessment
           </Typography>
         </Stack>
 
-        <Stack spacing={4}>
+        <Stack spacing={2.5}>
           <Box>
-            <Typography component='legend' sx={{ mb: 2, fontWeight: 600 }}>
+            <Typography
+              component='legend'
+              sx={{ mb: 1, fontWeight: 600, fontSize: '0.9rem' }}
+            >
               Project Rating
             </Typography>
             <Rating
@@ -31,20 +34,23 @@ function RatingsAssessment({ formData, handleInputChange }) {
               onChange={(event, newValue) =>
                 handleInputChange('projectRating', newValue)
               }
-              size='large'
+              size='medium'
               precision={0.5}
             />
             <Typography
               variant='caption'
               color='text.secondary'
-              sx={{ display: 'block', mt: 1 }}
+              sx={{ display: 'block', mt: 0.5, fontSize: '0.75rem' }}
             >
               Rate the overall project quality
             </Typography>
           </Box>
 
           <Box>
-            <Typography component='legend' sx={{ mb: 2, fontWeight: 600 }}>
+            <Typography
+              component='legend'
+              sx={{ mb: 1, fontWeight: 600, fontSize: '0.9rem' }}
+            >
               Client Feedback Rating
             </Typography>
             <Rating
@@ -52,20 +58,23 @@ function RatingsAssessment({ formData, handleInputChange }) {
               onChange={(event, newValue) =>
                 handleInputChange('clientFeedback', newValue)
               }
-              size='large'
+              size='medium'
               max={5}
             />
             <Typography
               variant='caption'
               color='text.secondary'
-              sx={{ display: 'block', mt: 1 }}
+              sx={{ display: 'block', mt: 0.5, fontSize: '0.75rem' }}
             >
               Client satisfaction rating
             </Typography>
           </Box>
 
           <Box>
-            <Typography gutterBottom sx={{ fontWeight: 600 }}>
+            <Typography
+              gutterBottom
+              sx={{ fontWeight: 600, fontSize: '0.9rem' }}
+            >
               Risk Level: {formData.riskLevel}/5
             </Typography>
             <Slider
@@ -82,7 +91,8 @@ function RatingsAssessment({ formData, handleInputChange }) {
                 { value: 3, label: 'Medium' },
                 { value: 5, label: 'High' },
               ]}
-              sx={{ mt: 2 }}
+              sx={{ mt: 1, '& .MuiSlider-markLabel': { fontSize: '0.75rem' } }}
+              size='small'
             />
           </Box>
         </Stack>

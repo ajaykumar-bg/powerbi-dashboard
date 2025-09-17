@@ -11,20 +11,20 @@ import { Security as SecurityIcon } from '@mui/icons-material';
 
 function BudgetTimeline({ formData, handleInputChange }) {
   return (
-    <Card elevation={3}>
-      <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-        <Stack direction='row' alignItems='center' spacing={2} sx={{ mb: 3 }}>
-          <SecurityIcon color='primary' sx={{ fontSize: 28 }} />
-          <Typography variant='h5' color='primary' fontWeight={600}>
+    <Card elevation={2}>
+      <CardContent sx={{ p: { xs: 2, sm: 2.5 } }}>
+        <Stack direction='row' alignItems='center' spacing={1.5} sx={{ mb: 2 }}>
+          <SecurityIcon color='primary' sx={{ fontSize: 22 }} />
+          <Typography variant='h6' color='primary' fontWeight={600}>
             Budget & Timeline
           </Typography>
         </Stack>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={3}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography
               gutterBottom
-              sx={{ fontWeight: 600, fontSize: '1.1rem' }}
+              sx={{ fontWeight: 600, fontSize: '0.9rem' }}
             >
               Budget: ${formData.budget.toLocaleString()}
             </Typography>
@@ -44,14 +44,18 @@ function BudgetTimeline({ formData, handleInputChange }) {
                 { value: 250000, label: '$250K' },
                 { value: 500000, label: '$500K' },
               ]}
-              sx={{ mt: 2 }}
+              sx={{
+                mt: 1,
+                '& .MuiSlider-markLabel': { fontSize: '0.75rem' },
+              }}
+              size='small'
             />
           </Grid>
 
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography
               gutterBottom
-              sx={{ fontWeight: 600, fontSize: '1.1rem' }}
+              sx={{ fontWeight: 600, fontSize: '0.9rem' }}
             >
               Estimated Hours: {formData.estimatedHours[0]} -{' '}
               {formData.estimatedHours[1]} hours
@@ -72,7 +76,11 @@ function BudgetTimeline({ formData, handleInputChange }) {
                 { value: 250, label: '250h' },
                 { value: 500, label: '500h' },
               ]}
-              sx={{ mt: 2 }}
+              sx={{
+                mt: 1,
+                '& .MuiSlider-markLabel': { fontSize: '0.75rem' },
+              }}
+              size='small'
             />
           </Grid>
         </Grid>

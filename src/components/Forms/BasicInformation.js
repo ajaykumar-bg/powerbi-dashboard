@@ -26,16 +26,16 @@ const projectCategories = [
 
 function BasicInformation({ formData, handleInputChange, errors }) {
   return (
-    <Card elevation={3} sx={{ overflow: 'visible' }}>
-      <CardContent sx={{ p: { xs: 3, sm: 4 } }}>
-        <Stack direction='row' alignItems='center' spacing={2} sx={{ mb: 3 }}>
-          <CodeIcon color='primary' sx={{ fontSize: 28 }} />
-          <Typography variant='h5' color='primary' fontWeight={600}>
+    <Card elevation={2} sx={{ overflow: 'visible' }}>
+      <CardContent sx={{ p: { xs: 2, sm: 2.5 } }}>
+        <Stack direction='row' alignItems='center' spacing={1.5} sx={{ mb: 2 }}>
+          <CodeIcon color='primary' sx={{ fontSize: 22 }} />
+          <Typography variant='h6' color='primary' fontWeight={600}>
             Basic Information
           </Typography>
         </Stack>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           <Grid size={{ xs: 12, md: 6 }}>
             <TextField
               fullWidth
@@ -46,7 +46,7 @@ function BasicInformation({ formData, handleInputChange, errors }) {
               helperText={errors.projectName}
               variant='outlined'
               required
-              size='medium'
+              size='small'
             />
           </Grid>
 
@@ -55,7 +55,7 @@ function BasicInformation({ formData, handleInputChange, errors }) {
               fullWidth
               error={!!errors.category}
               required
-              size='medium'
+              size='small'
             >
               <InputLabel>Project Category</InputLabel>
               <Select
@@ -86,14 +86,14 @@ function BasicInformation({ formData, handleInputChange, errors }) {
               fullWidth
               label='Project Description'
               multiline
-              rows={4}
+              rows={3}
               value={formData.description}
               onChange={(e) => handleInputChange('description', e.target.value)}
               error={!!errors.description}
               helperText={errors.description}
               variant='outlined'
               required
-              size='medium'
+              size='small'
             />
           </Grid>
         </Grid>

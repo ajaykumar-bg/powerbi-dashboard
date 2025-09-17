@@ -206,6 +206,17 @@ const Navbar = () => {
                 <ListItemText>Logout</ListItemText>
               </MenuItem>
             </Menu>
+
+            <Box
+              component='img'
+              src={`${process.env.PUBLIC_URL}/pepsico-logo.png`}
+              alt='PepsiCo Logo'
+              sx={{ height: 40, ml: 2 }}
+              onError={(e) => {
+                console.log('Logo failed to load:', e.target.src);
+                e.target.style.display = 'none';
+              }}
+            />
           </Box>
         </Toolbar>
       </AppBar>

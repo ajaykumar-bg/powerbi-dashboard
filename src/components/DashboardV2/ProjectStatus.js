@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Card,
   CardContent,
@@ -12,9 +12,44 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  TableSortLabel,
 } from '@mui/material';
 
 const ProjectStatus = ({ data }) => {
+  const [orderBy, setOrderBy] = useState('name');
+  const [order, setOrder] = useState('asc');
+
+  const handleRequestSort = (property) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+  };
+
+  const sortedData = useMemo(() => {
+    return [...data].sort((a, b) => {
+      let aValue = a[orderBy];
+      let bValue = b[orderBy];
+
+      // Handle different data types
+      if (orderBy === 'deadline') {
+        aValue = new Date(aValue);
+        bValue = new Date(bValue);
+      } else if (orderBy === 'progress') {
+        aValue = Number(aValue);
+        bValue = Number(bValue);
+      } else if (typeof aValue === 'string') {
+        aValue = aValue.toLowerCase();
+        bValue = bValue.toLowerCase();
+      }
+
+      if (order === 'asc') {
+        return aValue < bValue ? -1 : aValue > bValue ? 1 : 0;
+      } else {
+        return aValue > bValue ? -1 : aValue < bValue ? 1 : 0;
+      }
+    });
+  }, [data, orderBy, order]);
+
   const getStatusColor = (status) => {
     switch (status.toLowerCase()) {
       case 'completed':
@@ -49,15 +84,55 @@ const ProjectStatus = ({ data }) => {
           <Table size='small' stickyHeader>
             <TableHead>
               <TableRow>
-                <TableCell>Project Name</TableCell>
-                <TableCell>Progress</TableCell>
-                <TableCell>Status</TableCell>
-                <TableCell>Team</TableCell>
-                <TableCell>Deadline</TableCell>
+                <TableCell>
+                  <TableSortLabel
+                    active={orderBy === 'name'}
+                    direction={orderBy === 'name' ? order : 'asc'}
+                    onClick={() => handleRequestSort('name')}
+                  >
+                    Project Name
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell>
+                  <TableSortLabel
+                    active={orderBy === 'progress'}
+                    direction={orderBy === 'progress' ? order : 'asc'}
+                    onClick={() => handleRequestSort('progress')}
+                  >
+                    Progress
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell>
+                  <TableSortLabel
+                    active={orderBy === 'status'}
+                    direction={orderBy === 'status' ? order : 'asc'}
+                    onClick={() => handleRequestSort('status')}
+                  >
+                    Status
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell>
+                  <TableSortLabel
+                    active={orderBy === 'team'}
+                    direction={orderBy === 'team' ? order : 'asc'}
+                    onClick={() => handleRequestSort('team')}
+                  >
+                    Team
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell>
+                  <TableSortLabel
+                    active={orderBy === 'deadline'}
+                    direction={orderBy === 'deadline' ? order : 'asc'}
+                    onClick={() => handleRequestSort('deadline')}
+                  >
+                    Deadline
+                  </TableSortLabel>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.map((project) => (
+              {sortedData.map((project) => (
                 <TableRow key={project.id}>
                   <TableCell>
                     <Typography variant='subtitle2'>{project.name}</Typography>

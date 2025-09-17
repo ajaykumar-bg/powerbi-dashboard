@@ -115,7 +115,7 @@ const Navbar = () => {
             </Tooltip>
             <Box
               component='img'
-              src='/pepsico-logo.png'
+              src='/pepsico-logo.jpg'
               alt='PepsiCo Logo'
               sx={{ height: 40 }}
             />

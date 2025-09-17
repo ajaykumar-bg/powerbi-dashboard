@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 
 import { TechDebtSection } from './TechDebtSection';
 import { AppRatWidget } from './AppRatWidget';
@@ -14,57 +14,67 @@ function Dashboard() {
   const { permissions } = useUser();
 
   return (
-    <Grid container spacing={3} sx={{ width: '100%', lg: { px: 5, py: 3 } }}>
-      {/* Left Side - Three Small Widgets */}
-      <Grid size={{ xs: 12, sm: 6, md: 4, lg: 2 }}>
-        {permissions.canViewTechDebt && (
-          <Box mb={3}>
-            <TechDebtSection />
-          </Box>
-        )}
-        {permissions.canViewAppRat && (
-          <Box mb={3}>
-            <AppRatWidget />
-          </Box>
-        )}
-        {permissions.canViewAIIndex && (
-          <Box mb={3}>
-            <AIIndexWidget />
-          </Box>
-        )}
+    <Grid
+      container
+      spacing={3}
+      sx={{ width: '100%', px: { xs: 1, sm: 2, lg: 5 }, py: { xs: 2, lg: 3 } }}
+    >
+      {/* Top Row - Small Widgets */}
+      <Grid size={{ xs: 12 }}>
+        <Grid container spacing={3}>
+          {permissions.canViewTechDebt && (
+            <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
+              <TechDebtSection />
+            </Grid>
+          )}
+          {permissions.canViewAppRat && (
+            <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
+              <AppRatWidget />
+            </Grid>
+          )}
+          {permissions.canViewAIIndex && (
+            <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
+              <AIIndexWidget />
+            </Grid>
+          )}
+          {permissions.canViewOperationsMetrics && (
+            <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
+              <OperationsMetricsSection />
+            </Grid>
+          )}
+        </Grid>
       </Grid>
 
-      {/* Middle Side - Large Sections */}
-      <Grid size={{ xs: 12, sm: 6, md: 4, lg: 7 }}>
-        {permissions.canViewVulnerabilities && (
-          <Box mb={3}>
-            <VulnerabilitiesSection />
-          </Box>
-        )}
-        {permissions.canViewSQLOptimization && (
-          <Box mb={3}>
-            <SQLOptimizationSection />
-          </Box>
-        )}
-        {permissions.canViewProductRoadmap && (
-          <Box mb={3}>
-            <ProductRoadmapSection />
-          </Box>
-        )}
+      {/* Middle Row - Large Sections */}
+      <Grid size={{ xs: 12 }}>
+        <Grid container spacing={3}>
+          {permissions.canViewVulnerabilities && (
+            <Grid size={{ xs: 12, lg: 6 }}>
+              <VulnerabilitiesSection />
+            </Grid>
+          )}
+          {permissions.canViewSQLOptimization && (
+            <Grid size={{ xs: 12, lg: 6 }}>
+              <SQLOptimizationSection />
+            </Grid>
+          )}
+        </Grid>
       </Grid>
 
-      {/* Right Side */}
-      <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
-        {permissions.canViewOperationsMetrics && (
-          <Box mb={3}>
-            <OperationsMetricsSection />
-          </Box>
-        )}
-        {permissions.canViewServiceRequest && (
-          <Box mb={3}>
-            <ServiceRequestSection />
-          </Box>
-        )}
+      {/* Bottom Row - Additional Sections */}
+      <Grid size={{ xs: 12 }}>
+        <Grid container spacing={3}>
+          {permissions.canViewProductRoadmap && (
+            <Grid size={{ xs: 12, md: 8 }}>
+              <ProductRoadmapSection />
+            </Grid>
+          )}
+          {permissions.canViewServiceRequest && (
+            <Grid size={{ xs: 12, md: 4 }}>
+              <ServiceRequestSection />
+            </Grid>
+          )}
+        </Grid>
       </Grid>
     </Grid>
   );

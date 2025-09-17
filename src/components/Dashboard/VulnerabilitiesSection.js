@@ -8,8 +8,8 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import { generateVulnerabilityData } from '../../utils/dataGenerator';
 
 const chartSettings = {
-  width: 200,
-  height: 150,
+  width: 180,
+  height: 120,
 };
 
 export const VulnerabilitiesSection = () => {
@@ -29,45 +29,55 @@ export const VulnerabilitiesSection = () => {
   return (
     <Paper
       sx={{
-        p: 2,
+        p: { xs: 1.5, sm: 2 },
         height: '100%',
         cursor: 'pointer',
+        display: 'flex',
+        flexDirection: 'column',
         '&:hover': {
           backgroundColor: 'action.hover',
         },
       }}
       onClick={handleClick}
     >
-      <Typography variant='h6' gutterBottom>
+      <Typography variant='h6' gutterBottom sx={{ mb: 1 }}>
         Vulnerabilities
       </Typography>
 
-      <Grid container spacing={2} justifyContent={'space-between'}>
-        <Grid xs={6}>
-          <Typography variant='body1' color='text.secondary'>
+      <Grid container spacing={1} sx={{ flexGrow: 1 }}>
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <Typography variant='body2' color='text.secondary' sx={{ mb: 1 }}>
             Custom Code Vulnerabilities
           </Typography>
-          <Box sx={{ mt: 1 }}>
-            <Typography variant='h4' color='primary'>
+          <Box sx={{ mb: 1 }}>
+            <Typography variant='h4' color='primary' sx={{ lineHeight: 1 }}>
               {vulnerabilities?.customCode?.analyzed}
             </Typography>
-            <Typography variant='body2'>Analyzed</Typography>
+            <Typography variant='caption' color='text.secondary'>
+              Analyzed
+            </Typography>
           </Box>
-          <Box sx={{ mt: 1 }}>
-            <Typography variant='h4' color='success'>
+          <Box sx={{ mb: 1 }}>
+            <Typography
+              variant='h4'
+              color='success.main'
+              sx={{ lineHeight: 1 }}
+            >
               {vulnerabilities?.customCode?.remediatedCount}
             </Typography>
-            <Typography variant='body2'>Disposition/Remediated</Typography>
+            <Typography variant='caption' color='text.secondary'>
+              Disposition/Remediated
+            </Typography>
           </Box>
-          <Box>
+          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>
             <PieChart
               series={[
                 {
                   startAngle: -90,
                   endAngle: 90,
-                  paddingAngle: 5,
-                  innerRadius: 50,
-                  outerRadius: 70,
+                  paddingAngle: 3,
+                  innerRadius: 35,
+                  outerRadius: 55,
                   cy: '75%',
                   data: vulnerabilityData.customCode,
                 },
@@ -76,35 +86,42 @@ export const VulnerabilitiesSection = () => {
             />
           </Box>
         </Grid>
-        <Divider orientation='vertical' />
 
-        <Grid xs={6}>
-          <Typography variant='body1' color='text.secondary'>
+        {/* <Divider orientation='vertical' flexItem sx={{ mx: 1 }} /> */}
+
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <Typography variant='body2' color='text.secondary' sx={{ mb: 1 }}>
             SAP Portal Vulnerabilities
           </Typography>
-          <Box sx={{ mt: 1 }}>
-            <Typography variant='h4' color='error'>
+          <Box sx={{ mb: 1 }}>
+            <Typography variant='h4' color='error.main' sx={{ lineHeight: 1 }}>
               {vulnerabilities?.sapPortal?.detected}
             </Typography>
-            <Typography variant='body2'>
+            <Typography variant='caption' color='text.secondary'>
               Detected (Critical, High, & Medium)
             </Typography>
           </Box>
-          <Box sx={{ mt: 1 }}>
-            <Typography variant='h4' color='warning'>
+          <Box sx={{ mb: 1 }}>
+            <Typography
+              variant='h4'
+              color='warning.main'
+              sx={{ lineHeight: 1 }}
+            >
               {vulnerabilities?.sapPortal?.remaining}
             </Typography>
-            <Typography variant='body2'>Remaining (Low)</Typography>
+            <Typography variant='caption' color='text.secondary'>
+              Remaining (Low)
+            </Typography>
           </Box>
-          <Box>
+          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>
             <PieChart
               series={[
                 {
                   startAngle: -90,
                   endAngle: 90,
-                  paddingAngle: 5,
-                  innerRadius: 50,
-                  outerRadius: 70,
+                  paddingAngle: 3,
+                  innerRadius: 35,
+                  outerRadius: 55,
                   cy: '75%',
                   data: vulnerabilityData.sapPortal,
                 },

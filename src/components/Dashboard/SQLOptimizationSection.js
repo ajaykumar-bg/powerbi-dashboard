@@ -8,9 +8,8 @@ import { generateSQLQueryData } from '../../utils/dataGenerator';
 
 const donutSettings = {
   margin: { right: 5 },
-  width: 200,
-  height: 200,
-  // hideLegend: true,
+  width: 180,
+  height: 150,
 };
 
 export const SQLOptimizationSection = () => {
@@ -31,24 +30,27 @@ export const SQLOptimizationSection = () => {
   return (
     <Paper
       sx={{
-        p: 2,
+        p: { xs: 1.5, sm: 2 },
         height: '100%',
         cursor: 'pointer',
+        display: 'flex',
+        flexDirection: 'column',
         '&:hover': {
           backgroundColor: 'action.hover',
         },
       }}
       onClick={handleClick}
     >
-      <Typography variant='h6' gutterBottom>
+      <Typography variant='h6' gutterBottom sx={{ mb: 1 }}>
         Expensive SQL Optimization
       </Typography>
-      <Box>
+
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
         <PieChart
           series={[
             {
-              innerRadius: 50,
-              outerRadius: 100,
+              innerRadius: 40,
+              outerRadius: 70,
               data: queryData,
               arcLabel: 'value',
             },
@@ -57,24 +59,28 @@ export const SQLOptimizationSection = () => {
         />
       </Box>
 
-      <Divider sx={{ my: 2 }} />
+      <Divider sx={{ my: 1 }} />
 
-      <Grid container sx={{ justifyContent: 'space-between', gap: 2, mt: 3 }}>
-        <Grid item>
-          <Typography variant='h4'>
+      <Grid container spacing={2} sx={{ mt: 'auto' }}>
+        <Grid size={{ xs: 6 }}>
+          <Typography variant='h4' sx={{ lineHeight: 1 }}>
             {sqlOptimization?.performance?.memoryReduction?.value}
           </Typography>
-          <Typography variant='body2'>Memory Usage Reduction/day</Typography>
-          <Typography variant='body2' color='text.secondary'>
+          <Typography variant='caption' color='text.secondary'>
+            Memory Usage Reduction/day
+          </Typography>
+          <Typography variant='caption' color='text.secondary' display='block'>
             {sqlOptimization?.performance?.memoryReduction?.unit}
           </Typography>
         </Grid>
-        <Grid item>
-          <Typography variant='h4'>
+        <Grid size={{ xs: 6 }}>
+          <Typography variant='h4' sx={{ lineHeight: 1 }}>
             {sqlOptimization?.performance?.executionTimeReduction?.value}
           </Typography>
-          <Typography variant='body2'>Execution Time Reduction/day</Typography>
-          <Typography variant='body2' color='text.secondary'>
+          <Typography variant='caption' color='text.secondary'>
+            Execution Time Reduction/day
+          </Typography>
+          <Typography variant='caption' color='text.secondary' display='block'>
             {sqlOptimization?.performance?.executionTimeReduction?.unit}
           </Typography>
         </Grid>

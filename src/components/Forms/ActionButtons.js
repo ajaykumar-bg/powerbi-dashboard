@@ -20,7 +20,7 @@ function ActionButtons({ handleClear, isSubmitting = false }) {
       >
         <Button
           variant='outlined'
-          color='secondary'
+          color='primary'
           startIcon={<ClearIcon fontSize='small' />}
           onClick={handleClear}
           size='medium'
@@ -45,10 +45,10 @@ function ActionButtons({ handleClear, isSubmitting = false }) {
           sx={{
             minWidth: { xs: '100%', sm: 160 },
             py: 1,
-            background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-            '&:hover': {
-              background: 'linear-gradient(45deg, #FE6B8B 60%, #FF8E53 100%)',
-            },
+            // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+            // '&:hover': {
+            //   background: 'linear-gradient(45deg, #FE6B8B 60%, #FF8E53 100%)',
+            // },
             fontSize: '0.875rem',
           }}
         >

@@ -115,9 +115,7 @@ function Forms() {
     <Box
       sx={{
         p: { xs: 1, sm: 1.5, md: 2 },
-        maxWidth: 1200,
         mx: 'auto',
-        minHeight: '100vh',
         bgcolor: 'background.default',
       }}
     >

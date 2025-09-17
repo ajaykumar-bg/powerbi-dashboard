@@ -8,6 +8,10 @@ import {
   Button,
   Menu,
   MenuItem,
+  Avatar,
+  Divider,
+  ListItemIcon,
+  ListItemText,
 } from '@mui/material';
 import {
   PlayArrow,
@@ -16,6 +20,8 @@ import {
   LightMode,
   Menu as MenuIcon,
   Person,
+  Logout,
+  AccountCircle,
 } from '@mui/icons-material';
 import { useState } from 'react';
 import { useDashboard } from '../context/DashboardContext';
@@ -29,6 +35,7 @@ const Navbar = () => {
   const { user, switchRole } = useUser();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [userMenuAnchorEl, setUserMenuAnchorEl] = useState(null);
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -55,6 +62,29 @@ const Navbar = () => {
   const handleRoleChange = (role) => {
     switchRole(role);
     handleRoleMenuClose();
+  };
+
+  const handleUserMenuClick = (event) => {
+    setUserMenuAnchorEl(event.currentTarget);
+  };
+
+  const handleUserMenuClose = () => {
+    setUserMenuAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    // In a real app, this would clear auth tokens and redirect to login
+    console.log('Logout clicked');
+    handleUserMenuClose();
+    // You can add actual logout logic here
+  };
+
+  const getUserInitials = (name) => {
+    return name
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase())
+      .join('')
+      .substring(0, 2);
   };
 
   return (
@@ -113,12 +143,69 @@ const Navbar = () => {
                 {isLive ? <Pause /> : <PlayArrow />}
               </IconButton>
             </Tooltip>
-            <Box
-              component='img'
-              src='/pepsico-logo.jpg'
-              alt='PepsiCo Logo'
-              sx={{ height: 40 }}
-            />
+
+            {/* User Info Section */}
+            <Tooltip title='User Menu'>
+              <Button
+                color='inherit'
+                onClick={handleUserMenuClick}
+                sx={{
+                  textTransform: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1,
+                  ml: 1,
+                }}
+              >
+                <Avatar
+                  sx={{
+                    width: 32,
+                    height: 32,
+                    bgcolor: 'primary.dark',
+                    fontSize: '0.875rem',
+                  }}
+                >
+                  {getUserInitials(user.name)}
+                </Avatar>
+                <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                  <Typography variant='body2' sx={{ fontWeight: 500 }}>
+                    {user.name}
+                  </Typography>
+                  <Typography variant='caption' sx={{ opacity: 0.8 }}>
+                    {user.role}
+                  </Typography>
+                </Box>
+              </Button>
+            </Tooltip>
+            <Menu
+              anchorEl={userMenuAnchorEl}
+              open={Boolean(userMenuAnchorEl)}
+              onClose={handleUserMenuClose}
+              PaperProps={{
+                sx: { minWidth: 200 },
+              }}
+            >
+              <MenuItem disabled>
+                <ListItemIcon>
+                  <AccountCircle />
+                </ListItemIcon>
+                <ListItemText>
+                  <Typography variant='body2' sx={{ fontWeight: 500 }}>
+                    {user.name}
+                  </Typography>
+                  <Typography variant='caption' color='text.secondary'>
+                    {user.email}
+                  </Typography>
+                </ListItemText>
+              </MenuItem>
+              <Divider />
+              <MenuItem onClick={handleLogout}>
+                <ListItemIcon>
+                  <Logout fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Logout</ListItemText>
+              </MenuItem>
+            </Menu>
           </Box>
         </Toolbar>
       </AppBar>

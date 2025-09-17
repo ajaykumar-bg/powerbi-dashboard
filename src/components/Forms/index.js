@@ -127,7 +127,7 @@ function Forms() {
       <form onSubmit={handleSubmit}>
         <Grid container spacing={3}>
           {/* Basic Information Card */}
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <BasicInformation
               formData={formData}
               handleInputChange={handleInputChange}
@@ -136,7 +136,7 @@ function Forms() {
           </Grid>
 
           {/* Team & Technology Card */}
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <TeamTechnology
               formData={formData}
               handleInputChange={handleInputChange}
@@ -145,7 +145,7 @@ function Forms() {
           </Grid>
 
           {/* Project Settings Card */}
-          <Grid item xs={12} lg={6}>
+          <Grid size={{ xs: 12, lg: 6 }}>
             <ProjectSettings
               formData={formData}
               handleInputChange={handleInputChange}
@@ -153,7 +153,7 @@ function Forms() {
           </Grid>
 
           {/* Ratings & Assessment Card */}
-          <Grid item xs={12} lg={6}>
+          <Grid size={{ xs: 12, lg: 6 }}>
             <RatingsAssessment
               formData={formData}
               handleInputChange={handleInputChange}
@@ -161,7 +161,7 @@ function Forms() {
           </Grid>
 
           {/* Budget & Timeline Card */}
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <BudgetTimeline
               formData={formData}
               handleInputChange={handleInputChange}
@@ -169,7 +169,7 @@ function Forms() {
           </Grid>
 
           {/* Action Buttons */}
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <ActionButtons
               handleClear={handleClear}
               isSubmitting={isSubmitting}

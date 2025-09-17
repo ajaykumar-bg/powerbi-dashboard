@@ -21,7 +21,7 @@ function BudgetTimeline({ formData, handleInputChange }) {
         </Stack>
 
         <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Typography
               gutterBottom
               sx={{ fontWeight: 600, fontSize: '1.1rem' }}
@@ -48,7 +48,7 @@ function BudgetTimeline({ formData, handleInputChange }) {
             />
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Typography
               gutterBottom
               sx={{ fontWeight: 600, fontSize: '1.1rem' }}

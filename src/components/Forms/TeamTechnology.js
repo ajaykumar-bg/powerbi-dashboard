@@ -49,7 +49,7 @@ function TeamTechnology({ formData, handleInputChange, errors }) {
         </Stack>
 
         <Grid container spacing={3}>
-          <Grid item xs={12} lg={6}>
+          <Grid size={{ xs: 12, lg: 6 }}>
             <Autocomplete
               multiple
               options={teamMembers}
@@ -81,7 +81,7 @@ function TeamTechnology({ formData, handleInputChange, errors }) {
             />
           </Grid>
 
-          <Grid item xs={12} lg={6}>
+          <Grid size={{ xs: 12, lg: 6 }}>
             <Autocomplete
               multiple
               options={technologies}

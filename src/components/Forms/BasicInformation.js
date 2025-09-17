@@ -36,7 +36,7 @@ function BasicInformation({ formData, handleInputChange, errors }) {
         </Stack>
 
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <TextField
               fullWidth
               label='Project Name'
@@ -50,7 +50,7 @@ function BasicInformation({ formData, handleInputChange, errors }) {
             />
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <FormControl
               fullWidth
               error={!!errors.category}
@@ -81,7 +81,7 @@ function BasicInformation({ formData, handleInputChange, errors }) {
             </FormControl>
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid size={{ xs: 12 }}>
             <TextField
               fullWidth
               label='Project Description'

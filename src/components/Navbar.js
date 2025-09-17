@@ -14,14 +14,14 @@ import {
   ListItemText,
 } from '@mui/material';
 import {
-  PlayArrow,
-  Pause,
-  DarkMode,
-  LightMode,
   Menu as MenuIcon,
-  Person,
   Logout,
   AccountCircle,
+  Person,
+  DarkMode,
+  LightMode,
+  PlayArrow,
+  Pause,
 } from '@mui/icons-material';
 import { useState } from 'react';
 import { useDashboard } from '../context/DashboardContext';
@@ -34,7 +34,6 @@ const Navbar = () => {
   const { mode, toggleTheme } = useThemeMode();
   const { user, switchRole } = useUser();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
   const [userMenuAnchorEl, setUserMenuAnchorEl] = useState(null);
 
   const toggleDrawer = (open) => (event) => {
@@ -51,25 +50,27 @@ const Navbar = () => {
     setDrawerOpen(false);
   };
 
-  const handleRoleMenuClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleRoleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleRoleChange = (role) => {
-    switchRole(role);
-    handleRoleMenuClose();
-  };
-
   const handleUserMenuClick = (event) => {
     setUserMenuAnchorEl(event.currentTarget);
   };
 
   const handleUserMenuClose = () => {
     setUserMenuAnchorEl(null);
+  };
+
+  const handleRoleChange = (role) => {
+    switchRole(role);
+    handleUserMenuClose();
+  };
+
+  const handleThemeToggle = () => {
+    toggleTheme();
+    handleUserMenuClose();
+  };
+
+  const handleLiveToggle = () => {
+    toggleLive();
+    handleUserMenuClose();
   };
 
   const handleLogout = () => {
@@ -111,39 +112,6 @@ const Navbar = () => {
           </Typography>
 
           <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-            {/* Role Switcher */}
-            <Tooltip title='Switch Role'>
-              <Button
-                color='inherit'
-                startIcon={<Person />}
-                onClick={handleRoleMenuClick}
-                sx={{ textTransform: 'capitalize' }}
-              >
-                {user.role}
-              </Button>
-            </Tooltip>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleRoleMenuClose}
-            >
-              <MenuItem onClick={() => handleRoleChange('admin')}>
-                Admin
-              </MenuItem>
-              <MenuItem onClick={() => handleRoleChange('user')}>User</MenuItem>
-            </Menu>
-
-            <Tooltip title='Toggle Theme'>
-              <IconButton style={{ color: '#FFFFFF' }} onClick={toggleTheme}>
-                {mode === 'dark' ? <DarkMode /> : <LightMode />}
-              </IconButton>
-            </Tooltip>
-            <Tooltip title='Toggle Live Update'>
-              <IconButton style={{ color: '#FFFFFF' }} onClick={toggleLive}>
-                {isLive ? <Pause /> : <PlayArrow />}
-              </IconButton>
-            </Tooltip>
-
             {/* User Info Section */}
             <Tooltip title='User Menu'>
               <Button
@@ -182,7 +150,7 @@ const Navbar = () => {
               open={Boolean(userMenuAnchorEl)}
               onClose={handleUserMenuClose}
               PaperProps={{
-                sx: { minWidth: 200 },
+                sx: { minWidth: 220 },
               }}
             >
               <MenuItem disabled>
@@ -199,6 +167,60 @@ const Navbar = () => {
                 </ListItemText>
               </MenuItem>
               <Divider />
+
+              {/* Role Switcher */}
+              <MenuItem
+                onClick={() => handleRoleChange('admin')}
+                disabled={user.role === 'admin'}
+              >
+                <ListItemIcon>
+                  <Person fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Switch to Admin</ListItemText>
+              </MenuItem>
+              <MenuItem
+                onClick={() => handleRoleChange('user')}
+                disabled={user.role === 'user'}
+              >
+                <ListItemIcon>
+                  <Person fontSize='small' />
+                </ListItemIcon>
+                <ListItemText>Switch to User</ListItemText>
+              </MenuItem>
+
+              <Divider />
+
+              {/* Theme Toggle */}
+              <MenuItem onClick={handleThemeToggle}>
+                <ListItemIcon>
+                  {mode === 'dark' ? (
+                    <LightMode fontSize='small' />
+                  ) : (
+                    <DarkMode fontSize='small' />
+                  )}
+                </ListItemIcon>
+                <ListItemText>
+                  {mode === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                </ListItemText>
+              </MenuItem>
+
+              {/* Live Update Toggle */}
+              <MenuItem onClick={handleLiveToggle}>
+                <ListItemIcon>
+                  {isLive ? (
+                    <Pause fontSize='small' />
+                  ) : (
+                    <PlayArrow fontSize='small' />
+                  )}
+                </ListItemIcon>
+                <ListItemText>
+                  {isLive ? 'Pause Updates' : 'Resume Updates'}
+                </ListItemText>
+              </MenuItem>
+
+              <Divider />
+
+              {/* Logout */}
               <MenuItem onClick={handleLogout}>
                 <ListItemIcon>
                   <Logout fontSize='small' />

@@ -2,6 +2,11 @@
 	"name": "powerbi-dashboard",
 	"version": "0.1.0",
 	"private": true,
+	"author": {
+		"name": "Ajay Girija",
+		"email": "ajaykumarbg.tvm@gmail.com",
+		"url": "https://github.com/ajaykumar-bg"
+  	},
 	"homepage": "https://ajaykumarbg.github.io/powerbi-dashboard",
 	"dependencies": {
 		"@emotion/react": "^11.14.0",

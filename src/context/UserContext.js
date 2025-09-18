@@ -14,8 +14,8 @@ export const UserProvider = ({ children }) => {
   // Mock user data - in real app this would come from authentication
   const [user, setUser] = useState({
     id: '1',
-    name: 'John Doe',
-    email: 'john.doe@company.com',
+    name: 'Ajay Girija',
+    email: 'ajay.girija@company.com',
     role: 'admin', // 'admin' or 'user'
   });
 

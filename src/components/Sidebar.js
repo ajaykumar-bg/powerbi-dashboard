@@ -27,16 +27,16 @@ const Sidebar = ({ open, onClose }) => {
     { label: 'Dashboard', path: '/', icon: <DashboardIcon /> },
     { label: 'Dashboard V2', path: '/dashboardV2', icon: <AnalyticsIcon /> },
     { label: 'Dashboard V3', path: '/dashboardV3', icon: <DetailsIcon /> },
-    {
-      label: 'SQL Analytics',
-      path: '/sql-analytics',
-      icon: <AnalyticsIcon />,
-    },
-    {
-      label: 'Vulnerability Details',
-      path: '/vulnerability-details',
-      icon: <SecurityIcon />,
-    },
+    // {
+    //   label: 'SQL Analytics',
+    //   path: '/sql-analytics',
+    //   icon: <AnalyticsIcon />,
+    // },
+    // {
+    //   label: 'Vulnerability Details',
+    //   path: '/vulnerability-details',
+    //   icon: <SecurityIcon />,
+    // },
     {
       label: 'Forms',
       path: '/forms',

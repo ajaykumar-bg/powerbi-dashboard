@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TableSortLabel from '@mui/material/TableSortLabel';
+import { TextField, Box, Typography } from '@mui/material';
 
 function createData(
   queryId,
@@ -112,6 +113,7 @@ const rows = [
 function SqlDenseTable() {
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('queryId');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleRequestSort = (property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -120,7 +122,17 @@ function SqlDenseTable() {
   };
 
   const sortedRows = useMemo(() => {
-    return [...rows].sort((a, b) => {
+    let filteredData = [...rows];
+
+    // Filter by search term (query description)
+    if (searchTerm) {
+      filteredData = filteredData.filter((query) =>
+        query.queryDescription.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    // Sort the filtered data
+    return filteredData.sort((a, b) => {
       let aValue = a[orderBy];
       let bValue = b[orderBy];
 
@@ -144,96 +156,120 @@ function SqlDenseTable() {
         return aValue > bValue ? -1 : aValue < bValue ? 1 : 0;
       }
     });
-  }, [order, orderBy]);
+  }, [order, orderBy, searchTerm]);
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
-        <TableHead>
-          <TableRow>
-            <TableCell>
-              <TableSortLabel
-                active={orderBy === 'queryId'}
-                direction={orderBy === 'queryId' ? order : 'asc'}
-                onClick={() => handleRequestSort('queryId')}
-              >
-                Query ID
-              </TableSortLabel>
-            </TableCell>
-            <TableCell>
-              <TableSortLabel
-                active={orderBy === 'queryDescription'}
-                direction={orderBy === 'queryDescription' ? order : 'asc'}
-                onClick={() => handleRequestSort('queryDescription')}
-              >
-                Query Description
-              </TableSortLabel>
-            </TableCell>
-            <TableCell align='right'>
-              <TableSortLabel
-                active={orderBy === 'executionTime'}
-                direction={orderBy === 'executionTime' ? order : 'asc'}
-                onClick={() => handleRequestSort('executionTime')}
-              >
-                Execution Time (ms)
-              </TableSortLabel>
-            </TableCell>
-            <TableCell align='right'>
-              <TableSortLabel
-                active={orderBy === 'cpuTime'}
-                direction={orderBy === 'cpuTime' ? order : 'asc'}
-                onClick={() => handleRequestSort('cpuTime')}
-              >
-                CPU Time (ms)
-              </TableSortLabel>
-            </TableCell>
-            <TableCell align='right'>
-              <TableSortLabel
-                active={orderBy === 'ioReads'}
-                direction={orderBy === 'ioReads' ? order : 'asc'}
-                onClick={() => handleRequestSort('ioReads')}
-              >
-                IO Reads
-              </TableSortLabel>
-            </TableCell>
-            <TableCell align='right'>
-              <TableSortLabel
-                active={orderBy === 'executionCount'}
-                direction={orderBy === 'executionCount' ? order : 'asc'}
-                onClick={() => handleRequestSort('executionCount')}
-              >
-                Execution Count
-              </TableSortLabel>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {sortedRows.map((row) => (
-            <TableRow
-              key={row.queryId}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component='th' scope='row'>
-                {row.queryId}
+    <Paper>
+      {/* Header with Search Control */}
+      <Box
+        sx={{
+          p: 2,
+          mb: 2,
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <Typography variant='h6'>SQL Query Performance</Typography>
+
+        <TextField
+          size='small'
+          label='Search by query description'
+          variant='outlined'
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          sx={{ minWidth: 250 }}
+        />
+      </Box>
+
+      <TableContainer>
+        <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
+          <TableHead>
+            <TableRow>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === 'queryId'}
+                  direction={orderBy === 'queryId' ? order : 'asc'}
+                  onClick={() => handleRequestSort('queryId')}
+                >
+                  Query ID
+                </TableSortLabel>
               </TableCell>
-              <TableCell
-                sx={{
-                  maxWidth: 400,
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {row.queryDescription}
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === 'queryDescription'}
+                  direction={orderBy === 'queryDescription' ? order : 'asc'}
+                  onClick={() => handleRequestSort('queryDescription')}
+                >
+                  Query Description
+                </TableSortLabel>
               </TableCell>
-              <TableCell align='right'>{row.executionTime}</TableCell>
-              <TableCell align='right'>{row.cpuTime}</TableCell>
-              <TableCell align='right'>{row.ioReads}</TableCell>
-              <TableCell align='right'>{row.executionCount}</TableCell>
+              <TableCell align='right'>
+                <TableSortLabel
+                  active={orderBy === 'executionTime'}
+                  direction={orderBy === 'executionTime' ? order : 'asc'}
+                  onClick={() => handleRequestSort('executionTime')}
+                >
+                  Execution Time (ms)
+                </TableSortLabel>
+              </TableCell>
+              <TableCell align='right'>
+                <TableSortLabel
+                  active={orderBy === 'cpuTime'}
+                  direction={orderBy === 'cpuTime' ? order : 'asc'}
+                  onClick={() => handleRequestSort('cpuTime')}
+                >
+                  CPU Time (ms)
+                </TableSortLabel>
+              </TableCell>
+              <TableCell align='right'>
+                <TableSortLabel
+                  active={orderBy === 'ioReads'}
+                  direction={orderBy === 'ioReads' ? order : 'asc'}
+                  onClick={() => handleRequestSort('ioReads')}
+                >
+                  IO Reads
+                </TableSortLabel>
+              </TableCell>
+              <TableCell align='right'>
+                <TableSortLabel
+                  active={orderBy === 'executionCount'}
+                  direction={orderBy === 'executionCount' ? order : 'asc'}
+                  onClick={() => handleRequestSort('executionCount')}
+                >
+                  Execution Count
+                </TableSortLabel>
+              </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {sortedRows.map((row) => (
+              <TableRow
+                key={row.queryId}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component='th' scope='row'>
+                  {row.queryId}
+                </TableCell>
+                <TableCell
+                  sx={{
+                    maxWidth: 400,
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {row.queryDescription}
+                </TableCell>
+                <TableCell align='right'>{row.executionTime}</TableCell>
+                <TableCell align='right'>{row.cpuTime}</TableCell>
+                <TableCell align='right'>{row.ioReads}</TableCell>
+                <TableCell align='right'>{row.executionCount}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Paper>
   );
 }
 

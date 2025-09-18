@@ -14,14 +14,16 @@ import {
   Dashboard as DashboardIcon,
   Details as DetailsIcon,
   Analytics as AnalyticsIcon,
-  Security as SecurityIcon,
   Assignment as AssignmentIcon,
+  Settings as SettingsIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useUser } from '../context/UserContext';
 
 const Sidebar = ({ open, onClose }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { user } = useUser();
 
   const navigationItems = [
     { label: 'Dashboard', path: '/', icon: <DashboardIcon /> },
@@ -43,6 +45,17 @@ const Sidebar = ({ open, onClose }) => {
       icon: <AssignmentIcon />,
     },
   ];
+
+  // Add admin-only navigation items
+  if (user.role === 'admin') {
+    /*
+    navigationItems.push({
+      label: 'Configuration',
+      path: '/configuration',
+      icon: <SettingsIcon />,
+    });
+    */
+  }
 
   const handleNavigation = (path) => {
     navigate(path);

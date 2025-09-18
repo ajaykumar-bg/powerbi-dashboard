@@ -36,7 +36,7 @@ export const UserProvider = ({ children }) => {
       canViewProductRoadmap: false, // Hidden for regular users
       canViewTechDebt: true,
       canViewAppRat: true,
-      canViewVulnerabilities: false, // Hidden for regular users
+      canViewVulnerabilities: true,
       canViewSQLOptimization: true,
       canViewOperationsMetrics: true,
       canViewServiceRequest: false, // Hidden for regular users

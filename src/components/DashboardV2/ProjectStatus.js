@@ -13,11 +13,19 @@ import {
   TableHead,
   TableRow,
   TableSortLabel,
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Stack,
 } from '@mui/material';
 
 const ProjectStatus = ({ data }) => {
   const [orderBy, setOrderBy] = useState('name');
   const [order, setOrder] = useState('asc');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [statusFilter, setStatusFilter] = useState('');
 
   const handleRequestSort = (property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -26,7 +34,24 @@ const ProjectStatus = ({ data }) => {
   };
 
   const sortedData = useMemo(() => {
-    return [...data].sort((a, b) => {
+    let filteredData = [...data];
+
+    // Filter by search term (project name)
+    if (searchTerm) {
+      filteredData = filteredData.filter((project) =>
+        project.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    // Filter by status
+    if (statusFilter) {
+      filteredData = filteredData.filter(
+        (project) => project.status.toLowerCase() === statusFilter.toLowerCase()
+      );
+    }
+
+    // Sort the filtered data
+    return filteredData.sort((a, b) => {
       let aValue = a[orderBy];
       let bValue = b[orderBy];
 
@@ -48,7 +73,12 @@ const ProjectStatus = ({ data }) => {
         return aValue > bValue ? -1 : aValue < bValue ? 1 : 0;
       }
     });
-  }, [data, orderBy, order]);
+  }, [data, orderBy, order, searchTerm, statusFilter]);
+
+  // Get unique status values for the dropdown
+  const uniqueStatuses = useMemo(() => {
+    return [...new Set(data.map((project) => project.status))];
+  }, [data]);
 
   const getStatusColor = (status) => {
     switch (status.toLowerCase()) {
@@ -77,9 +107,43 @@ const ProjectStatus = ({ data }) => {
       <CardContent
         sx={{ display: 'flex', flexDirection: 'column', height: '100%', pb: 1 }}
       >
-        <Typography variant='h6' gutterBottom>
-          Project Status
-        </Typography>
+        {/* Header with Filter Controls */}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            mb: 2,
+          }}
+        >
+          <Typography variant='h6'>Project Status</Typography>
+
+          <Stack direction='row' spacing={2}>
+            <TextField
+              size='small'
+              label='Search by project name'
+              variant='outlined'
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              sx={{ minWidth: 200 }}
+            />
+            <FormControl size='small' sx={{ minWidth: 150 }}>
+              <InputLabel>Filter by Status</InputLabel>
+              <Select
+                value={statusFilter}
+                label='Filter by Status'
+                onChange={(e) => setStatusFilter(e.target.value)}
+              >
+                <MenuItem value=''>All Statuses</MenuItem>
+                {uniqueStatuses.map((status) => (
+                  <MenuItem key={status} value={status}>
+                    {status}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Stack>
+        </Box>
         <TableContainer sx={{ maxHeight: 400, overflow: 'auto', flexGrow: 1 }}>
           <Table size='small' stickyHeader>
             <TableHead>

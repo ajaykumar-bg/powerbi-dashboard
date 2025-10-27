@@ -22,23 +22,23 @@ export const UserProvider = ({ children }) => {
   // Define permissions based on role
   const permissions = {
     admin: {
-      canViewAIIndex: true,
-      canViewProductRoadmap: true,
       canViewTechDebt: true,
-      canViewAppRat: true,
       canViewVulnerabilities: true,
       canViewSQLOptimization: true,
+      canViewAppRat: true,
       canViewServiceScopes: true,
+      canViewAIIndex: true,
+      canViewProductRoadmap: true,
       canViewOperationMetrics: true,
     },
     user: {
-      canViewAIIndex: false, // Hidden for regular users
-      canViewProductRoadmap: false, // Hidden for regular users
-      canViewTechDebt: true,
+      canViewTechDebt: false,
+      canViewVulnerabilities: false,
+      canViewSQLOptimization: false,
       canViewAppRat: true,
-      canViewVulnerabilities: true,
-      canViewSQLOptimization: true,
       canViewServiceScopes: true,
+      canViewAIIndex: true, // Hidden for regular users
+      canViewProductRoadmap: false, // Hidden for regular users
       canViewOperationMetrics: false, // Hidden for regular users
     },
   };

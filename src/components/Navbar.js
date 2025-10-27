@@ -20,17 +20,17 @@ import {
   Person,
   DarkMode,
   LightMode,
-  PlayArrow,
-  Pause,
+  // PlayArrow,
+  // Pause,
 } from '@mui/icons-material';
 import { useState } from 'react';
-import { useDashboard } from '../context/DashboardContext';
+// import { useDashboard } from '../context/DashboardContext';
 import { useThemeMode } from '../context/ThemeContext';
 import { useUser } from '../context/UserContext';
 import Sidebar from './Sidebar';
 
 const Navbar = () => {
-  const { isLive, toggleLive } = useDashboard();
+  // const { isLive, toggleLive } = useDashboard();
   const { mode, toggleTheme } = useThemeMode();
   const { user, switchRole } = useUser();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -68,10 +68,10 @@ const Navbar = () => {
     handleUserMenuClose();
   };
 
-  const handleLiveToggle = () => {
-    toggleLive();
-    handleUserMenuClose();
-  };
+  // const handleLiveToggle = () => {
+  //   toggleLive();
+  //   handleUserMenuClose();
+  // };
 
   const handleLogout = () => {
     // In a real app, this would clear auth tokens and redirect to login
@@ -205,7 +205,7 @@ const Navbar = () => {
               </MenuItem>
 
               {/* Live Update Toggle */}
-              <MenuItem onClick={handleLiveToggle}>
+              {/* <MenuItem onClick={handleLiveToggle}>
                 <ListItemIcon>
                   {isLive ? (
                     <Pause fontSize='small' />
@@ -216,7 +216,7 @@ const Navbar = () => {
                 <ListItemText>
                   {isLive ? 'Pause Updates' : 'Resume Updates'}
                 </ListItemText>
-              </MenuItem>
+              </MenuItem> */}
 
               <Divider />
 

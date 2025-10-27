@@ -14,7 +14,7 @@ import { DashboardV2 } from './components/DashboardV2';
 import SqlOptimizationDetails from './components/SqlOptimizationDetails/SqlOptimizationDetails';
 import VulnerabilityDetails from './components/VulnerabilityDetails/VulnerabilityDetails';
 import Forms from './components/Forms';
-import Configuration from './components/Configuration';
+import RoleSettings from './components/RoleSettings';
 
 function AppRoutes() {
   return (
@@ -41,7 +41,7 @@ function AppRoutes() {
                       element={<VulnerabilityDetails />}
                     />
                     <Route path='/forms' element={<Forms />} />
-                    <Route path='/configuration' element={<Configuration />} />
+                    <Route path='/role-settings' element={<RoleSettings />} />
                     <Route path='*' element={<Navigate to='/' replace />} />
                   </Routes>
                 </Container>

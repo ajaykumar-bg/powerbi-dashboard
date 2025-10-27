@@ -205,25 +205,25 @@ export const generateServiceScopesData = (data) => {
       id: 0,
       value: ricefs,
       label: 'RICEFs',
-      // color: '#0088FE'
+      color: '#0088FE',
     },
     {
       id: 1,
       value: retrofits,
       label: 'Retrofits',
-      // color: '#FFBB28'
+      color: '#FFBB28',
     },
     {
       id: 2,
       value: fioriApps,
       label: 'Fiori Apps',
-      // color: '#FF8042'
+      color: '#FF8042',
     },
     {
       id: 3,
       value: liveCompare.count,
       label: 'Live Compare',
-      //   color: '#00C49F',
+      color: '#00C49F',
     },
   ];
 };

@@ -15,7 +15,7 @@ import {
   Details as DetailsIcon,
   Analytics as AnalyticsIcon,
   Assignment as AssignmentIcon,
-  Settings as SettingsIcon,
+  // Settings as SettingsIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
@@ -50,8 +50,8 @@ const Sidebar = ({ open, onClose }) => {
   if (user.role === 'admin') {
     /*
     navigationItems.push({
-      label: 'Configuration',
-      path: '/configuration',
+      label: 'Role Settings',
+      path: '/role-settings',
       icon: <SettingsIcon />,
     });
     */

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Paper, Typography, Grid } from '@mui/material';
 import { useDashboard } from '../../context/DashboardContext';
 
 import { PieChart } from '@mui/x-charts/PieChart';
@@ -20,20 +20,95 @@ export const ServiceScopesSection = () => {
       <Typography variant='h6' gutterBottom>
         Service Scopes
       </Typography>
-      <Box>
-        <PieChart
-          series={[
-            {
-              paddingAngle: 5,
-              innerRadius: 60,
-              outerRadius: 80,
-              data: serviceScopesData,
-            },
-          ]}
-          width={170}
-          height={200}
-        />
-      </Box>
+
+      <Grid container spacing={2} alignItems='center'>
+        {/* Chart Section */}
+        <Grid size={{ xs: 12, md: 6 }}>
+          <Box display='flex' justifyContent='center'>
+            <PieChart
+              series={[
+                {
+                  paddingAngle: 5,
+                  innerRadius: 60,
+                  outerRadius: 80,
+                  data: serviceScopesData,
+                },
+              ]}
+              width={280}
+              height={200}
+              slotProps={{
+                legend: {
+                  direction: 'column',
+                  position: { vertical: 'middle', horizontal: 'left' },
+                  padding: 0,
+                  itemMarkWidth: 8,
+                  itemMarkHeight: 8,
+                  markGap: 4,
+                  itemGap: 8,
+                },
+              }}
+            />
+          </Box>
+        </Grid>
+
+        {/* Numbers Section - Vertical List */}
+        <Grid size={{ xs: 12, md: 6 }}>
+          <Box display='flex' flexDirection='column' gap={2}>
+            <Box
+              display='flex'
+              justifyContent='space-between'
+              alignItems='center'
+            >
+              <Typography variant='body2'>RICEFs</Typography>
+              <Typography
+                variant='h6'
+                sx={{ color: serviceScopesData[0]?.color }}
+              >
+                {serviceScopes?.ricefs?.toLocaleString()}
+              </Typography>
+            </Box>
+            <Box
+              display='flex'
+              justifyContent='space-between'
+              alignItems='center'
+            >
+              <Typography variant='body2'>Retrofits</Typography>
+              <Typography
+                variant='h6'
+                sx={{ color: serviceScopesData[1]?.color }}
+              >
+                {serviceScopes?.retrofits?.toLocaleString()}
+              </Typography>
+            </Box>
+            <Box
+              display='flex'
+              justifyContent='space-between'
+              alignItems='center'
+            >
+              <Typography variant='body2'>Fiori Apps</Typography>
+              <Typography
+                variant='h6'
+                sx={{ color: serviceScopesData[2]?.color }}
+              >
+                {serviceScopes?.fioriApps?.toLocaleString()}
+              </Typography>
+            </Box>
+            <Box
+              display='flex'
+              justifyContent='space-between'
+              alignItems='center'
+            >
+              <Typography variant='body2'>Live Compare</Typography>
+              <Typography
+                variant='h6'
+                sx={{ color: serviceScopesData[3]?.color }}
+              >
+                {serviceScopes?.liveCompare?.count?.toLocaleString()}
+              </Typography>
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
     </Paper>
   );
 };

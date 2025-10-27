@@ -47,19 +47,19 @@ export const OperationMetricsSection = () => {
       </Box>
 
       <Grid container spacing={2} justifyContent={'space-between'}>
-        <Grid item xs={4}>
+        <Grid size={{ xs: 4 }}>
           <Typography variant='h4' color='primary'>
             {operationMetrics?.processed}
           </Typography>
           <Typography variant='body2'>Processed</Typography>
         </Grid>
-        <Grid item xs={4}>
+        <Grid size={{ xs: 4 }}>
           <Typography variant='h4' color='warning'>
             {operationMetrics?.inProgress}
           </Typography>
           <Typography variant='body2'>In-Progress</Typography>
         </Grid>
-        <Grid item xs={4}>
+        <Grid size={{ xs: 4 }}>
           <Typography variant='h4' color='success'>
             {operationMetrics?.completed}
           </Typography>

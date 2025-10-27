@@ -77,7 +77,7 @@ describe('dataGenerator', () => {
   });
 
   describe('generateServiceScopesData', () => {
-    it('should generate correct operations data array', () => {
+    it('should generate correct service scopes data array', () => {
       const input = {
         ricefs: 1,
         retrofits: 2,

@@ -11,7 +11,7 @@ export const ServiceScopesSection = () => {
 
   const { serviceScopes } = data;
 
-  const operationsData = useMemo(
+  const serviceScopesData = useMemo(
     () => generateServiceScopesData(serviceScopes),
     [serviceScopes]
   );
@@ -27,7 +27,7 @@ export const ServiceScopesSection = () => {
               paddingAngle: 5,
               innerRadius: 60,
               outerRadius: 80,
-              data: operationsData,
+              data: serviceScopesData,
             },
           ]}
           width={170}

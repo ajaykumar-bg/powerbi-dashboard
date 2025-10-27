@@ -32,12 +32,12 @@ export const UserProvider = ({ children }) => {
       canViewOperationMetrics: true,
     },
     user: {
-      canViewTechDebt: true,
-      canViewVulnerabilities: true,
-      canViewSQLOptimization: true,
+      canViewTechDebt: false,
+      canViewVulnerabilities: false,
+      canViewSQLOptimization: false,
       canViewAppRat: true,
       canViewServiceScopes: true,
-      canViewAIIndex: false, // Hidden for regular users
+      canViewAIIndex: true, // Hidden for regular users
       canViewProductRoadmap: false, // Hidden for regular users
       canViewOperationMetrics: false, // Hidden for regular users
     },

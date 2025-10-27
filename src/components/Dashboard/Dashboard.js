@@ -31,17 +31,53 @@ function Dashboard() {
         <Grid size={{ xs: 12 }}>
           <Grid container spacing={2}>
             {permissions.canViewTechDebt && (
-              <Grid size={{ xs: 12, md: 2 }}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md:
+                    permissions.canViewVulnerabilities &&
+                    permissions.canViewSQLOptimization
+                      ? 2
+                      : permissions.canViewVulnerabilities ||
+                        permissions.canViewSQLOptimization
+                      ? 4
+                      : 12,
+                }}
+              >
                 <TechDebtSection />
               </Grid>
             )}
             {permissions.canViewVulnerabilities && (
-              <Grid size={{ xs: 12, md: 6 }}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md:
+                    permissions.canViewTechDebt &&
+                    permissions.canViewSQLOptimization
+                      ? 6
+                      : permissions.canViewTechDebt ||
+                        permissions.canViewSQLOptimization
+                      ? 8
+                      : 12,
+                }}
+              >
                 <VulnerabilitiesSection />
               </Grid>
             )}
             {permissions.canViewSQLOptimization && (
-              <Grid size={{ xs: 12, md: 4 }}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md:
+                    permissions.canViewTechDebt &&
+                    permissions.canViewVulnerabilities
+                      ? 4
+                      : permissions.canViewTechDebt ||
+                        permissions.canViewVulnerabilities
+                      ? 8
+                      : 12,
+                }}
+              >
                 <SQLOptimizationSection />
               </Grid>
             )}
@@ -56,12 +92,30 @@ function Dashboard() {
         <Grid size={{ xs: 12 }}>
           <Grid container spacing={2}>
             {permissions.canViewAppRat && (
-              <Grid size={{ xs: 12, md: 2 }}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: permissions.canViewAIIndex
+                    ? 2
+                    : permissions.canViewServiceScopes
+                    ? 3
+                    : 12,
+                }}
+              >
                 <AppRatWidget />
               </Grid>
             )}
             {permissions.canViewServiceScopes && (
-              <Grid size={{ xs: 12, md: 7 }}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: permissions.canViewAIIndex
+                    ? 7
+                    : permissions.canViewAppRat
+                    ? 9
+                    : 12,
+                }}
+              >
                 <ServiceScopesSection />
               </Grid>
             )}

@@ -23,7 +23,7 @@ export const ServiceScopesSection = () => {
 
       <Grid container spacing={2} alignItems='center'>
         {/* Chart Section */}
-        <Grid size={{ xs: 6 }}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Box display='flex' justifyContent='center'>
             <PieChart
               series={[
@@ -41,7 +41,7 @@ export const ServiceScopesSection = () => {
         </Grid>
 
         {/* Numbers Section - Vertical List */}
-        <Grid size={{ xs: 6 }}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Box display='flex' flexDirection='column' gap={2}>
             <Box
               display='flex'

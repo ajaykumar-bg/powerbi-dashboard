@@ -205,7 +205,7 @@ const Navbar = () => {
               </MenuItem>
 
               {/* Live Update Toggle */}
-              <MenuItem onClick={handleLiveToggle}>
+              {/* <MenuItem onClick={handleLiveToggle}>
                 <ListItemIcon>
                   {isLive ? (
                     <Pause fontSize='small' />
@@ -216,7 +216,7 @@ const Navbar = () => {
                 <ListItemText>
                   {isLive ? 'Pause Updates' : 'Resume Updates'}
                 </ListItemText>
-              </MenuItem>
+              </MenuItem> */}
 
               <Divider />
 

@@ -59,7 +59,7 @@ export const generateDashboardData = () => {
         },
       },
     },
-    serviceNowRequest: {
+    operationMetrics: {
       processed: getRandomValue(9800, 9900),
       inProgress: getRandomValue(2500, 1050),
       completed: getRandomValue(5500, 6000),
@@ -132,7 +132,7 @@ export const generateDashboardData = () => {
   };
 };
 
-export const generateServiceRequestData = (data) => {
+export const generateOperationMetricsData = (data) => {
   const { processed, inProgress, completed } = data;
   // const percentage = {
   //   processed: (processed / (processed + inProgress + completed)) * 100,

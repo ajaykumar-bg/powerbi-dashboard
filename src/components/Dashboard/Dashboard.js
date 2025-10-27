@@ -6,7 +6,7 @@ import { AIIndexWidget } from './AIIndexWidget';
 import { VulnerabilitiesSection } from './VulnerabilitiesSection';
 import { SQLOptimizationSection } from './SQLOptimizationSection';
 import { ServiceScopesSection } from './ServiceScopesSection';
-import { ServiceRequestSection } from './ServiceRequestSection';
+import { OperationMetricsSection } from './OperationMetricsSection';
 import { ProductRoadmapSection } from './ProductRoadmapSection';
 import { useUser } from '../../context/UserContext';
 
@@ -106,7 +106,7 @@ function Dashboard() {
                   md: permissions.canViewProductRoadmap ? 4 : 12,
                 }}
               >
-                <ServiceRequestSection />
+                <OperationMetricsSection />
               </Grid>
             )}
           </Grid>

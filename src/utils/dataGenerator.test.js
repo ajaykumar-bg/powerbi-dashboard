@@ -1,6 +1,6 @@
 import {
   generateDashboardData,
-  generateServiceRequestData,
+  generateOperationMetricsData,
   generateSQLQueryData,
   generateVulnerabilityData,
   generateServiceScopesData,
@@ -19,15 +19,15 @@ describe('dataGenerator', () => {
       expect(typeof data.vulnerabilities.customCode.analyzed).toBe('number');
       expect(typeof data.serviceScopes.ricefs).toBe('number');
       expect(typeof data.sqlOptimization.queries.analyzed).toBe('number');
-      expect(typeof data.serviceNowRequest.processed).toBe('number');
+      expect(typeof data.operationMetrics.processed).toBe('number');
       expect(Array.isArray(data.productRoadmap.items)).toBe(true);
     });
   });
 
-  describe('generateServiceRequestData', () => {
+  describe('generateOperationMetricsData', () => {
     it('should generate correct service request data array', () => {
       const input = { processed: 10, inProgress: 5, completed: 15 };
-      const result = generateServiceRequestData(input);
+      const result = generateOperationMetricsData(input);
       expect(result).toEqual([
         { id: 0, value: 10, label: 'Processed' },
         { id: 1, value: 5, label: 'In-Progress' },

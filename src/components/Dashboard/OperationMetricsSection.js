@@ -10,35 +10,35 @@ import {
 import { useDashboard } from '../../context/DashboardContext';
 import { PieChart } from '@mui/x-charts';
 import { useMemo } from 'react';
-import { generateServiceRequestData } from '../../utils/dataGenerator';
+import { generateOperationMetricsData } from '../../utils/dataGenerator';
 import { getColorFromColorPath, getGaugeColor } from '../../utils/commonUtils';
 
-export const ServiceRequestSection = () => {
+export const OperationMetricsSection = () => {
   const { data } = useDashboard();
 
-  const { serviceNowRequest } = data;
+  const { operationMetrics } = data;
 
-  const serviceNowData = useMemo(
-    () => generateServiceRequestData(serviceNowRequest),
-    [serviceNowRequest]
+  const operationMetricsData = useMemo(
+    () => generateOperationMetricsData(operationMetrics),
+    [operationMetrics]
   );
 
   const progressColor = useMemo(() => {
     return getColorFromColorPath(
-      getGaugeColor(serviceNowRequest?.completionPercentage, 'completion')
+      getGaugeColor(operationMetrics?.completionPercentage, 'completion')
     );
-  }, [serviceNowRequest?.completionPercentage]);
+  }, [operationMetrics?.completionPercentage]);
 
   return (
     <Paper sx={{ p: 2, height: '100%' }}>
       <Typography variant='h6' gutterBottom>
-        Service Now Request
+        Operation Metrics
       </Typography>
       <Box>
         <PieChart
           series={[
             {
-              data: serviceNowData,
+              data: operationMetricsData,
             },
           ]}
           width={200}
@@ -49,19 +49,19 @@ export const ServiceRequestSection = () => {
       <Grid container spacing={2} justifyContent={'space-between'}>
         <Grid item xs={4}>
           <Typography variant='h4' color='primary'>
-            {serviceNowRequest?.processed}
+            {operationMetrics?.processed}
           </Typography>
           <Typography variant='body2'>Processed</Typography>
         </Grid>
         <Grid item xs={4}>
           <Typography variant='h4' color='warning'>
-            {serviceNowRequest?.inProgress}
+            {operationMetrics?.inProgress}
           </Typography>
           <Typography variant='body2'>In-Progress</Typography>
         </Grid>
         <Grid item xs={4}>
           <Typography variant='h4' color='success'>
-            {serviceNowRequest?.completed}
+            {operationMetrics?.completed}
           </Typography>
           <Typography variant='body2'>Completed</Typography>
         </Grid>
@@ -82,7 +82,7 @@ export const ServiceRequestSection = () => {
         <Box sx={{ position: 'relative', display: 'inline-flex' }}>
           <CircularProgress
             variant='determinate'
-            value={serviceNowRequest?.completionPercentage || 0}
+            value={operationMetrics?.completionPercentage || 0}
             size={80}
             thickness={6}
             sx={{
@@ -107,7 +107,7 @@ export const ServiceRequestSection = () => {
               color='text.secondary'
               sx={{ fontWeight: 'bold' }}
             >
-              {`${Math.round(serviceNowRequest?.completionPercentage || 0)}%`}
+              {`${Math.round(operationMetrics?.completionPercentage || 0)}%`}
             </Typography>
           </Box>
         </Box>

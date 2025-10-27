@@ -1,9 +1,9 @@
 import {
   generateDashboardData,
-  generateServiceRequestData,
+  generateOperationMetricsData,
   generateSQLQueryData,
   generateVulnerabilityData,
-  generateOperationsData,
+  generateServiceScopesData,
 } from './dataGenerator';
 
 describe('dataGenerator', () => {
@@ -17,17 +17,17 @@ describe('dataGenerator', () => {
       expect(typeof data.aiIndex.value).toBe('string');
       expect(data.aiIndex.type).toBe('Savings');
       expect(typeof data.vulnerabilities.customCode.analyzed).toBe('number');
-      expect(typeof data.operationsMetrics.ricefs).toBe('number');
+      expect(typeof data.serviceScopes.ricefs).toBe('number');
       expect(typeof data.sqlOptimization.queries.analyzed).toBe('number');
-      expect(typeof data.serviceNowRequest.processed).toBe('number');
+      expect(typeof data.operationMetrics.processed).toBe('number');
       expect(Array.isArray(data.productRoadmap.items)).toBe(true);
     });
   });
 
-  describe('generateServiceRequestData', () => {
-    it('should generate correct service request data array', () => {
+  describe('generateOperationMetricsData', () => {
+    it('should generate correct operation metrics data array', () => {
       const input = { processed: 10, inProgress: 5, completed: 15 };
-      const result = generateServiceRequestData(input);
+      const result = generateOperationMetricsData(input);
       expect(result).toEqual([
         { id: 0, value: 10, label: 'Processed' },
         { id: 1, value: 5, label: 'In-Progress' },
@@ -76,15 +76,15 @@ describe('dataGenerator', () => {
     });
   });
 
-  describe('generateOperationsData', () => {
-    it('should generate correct operations data array', () => {
+  describe('generateServiceScopesData', () => {
+    it('should generate correct service scopes data array', () => {
       const input = {
         ricefs: 1,
         retrofits: 2,
         fioriApps: 3,
         liveCompare: { count: 4, type: 'Executions' },
       };
-      const result = generateOperationsData(input);
+      const result = generateServiceScopesData(input);
       expect(result).toEqual([
         { id: 0, value: 1, label: 'RICEFs' },
         { id: 1, value: 2, label: 'Retrofits' },

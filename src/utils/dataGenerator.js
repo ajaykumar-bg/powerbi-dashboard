@@ -32,7 +32,7 @@ export const generateDashboardData = () => {
         remaining: getRandomValue(10, 20),
       },
     },
-    operationsMetrics: {
+    serviceScopes: {
       ricefs: getRandomValue(3800, 4200),
       fioriApps: getRandomValue(280, 320),
       retrofits: getRandomValue(6800, 7200),
@@ -59,7 +59,7 @@ export const generateDashboardData = () => {
         },
       },
     },
-    serviceNowRequest: {
+    operationMetrics: {
       processed: getRandomValue(9800, 9900),
       inProgress: getRandomValue(2500, 1050),
       completed: getRandomValue(5500, 6000),
@@ -132,7 +132,7 @@ export const generateDashboardData = () => {
   };
 };
 
-export const generateServiceRequestData = (data) => {
+export const generateOperationMetricsData = (data) => {
   const { processed, inProgress, completed } = data;
   // const percentage = {
   //   processed: (processed / (processed + inProgress + completed)) * 100,
@@ -198,7 +198,7 @@ export const generateVulnerabilityData = (data) => {
   };
 };
 
-export const generateOperationsData = (data) => {
+export const generateServiceScopesData = (data) => {
   const { ricefs, retrofits, fioriApps, liveCompare } = data;
   return [
     {

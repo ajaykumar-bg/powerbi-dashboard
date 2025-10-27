@@ -9,7 +9,7 @@ export const ProductRoadmapSection = () => {
   const { data } = useDashboard();
   const { productRoadmap } = data;
 
-  const operationsData = useMemo(
+  const productRoadmapData = useMemo(
     () => generateProductRoadmapBarData(productRoadmap?.items),
     [productRoadmap?.items]
   );
@@ -23,15 +23,15 @@ export const ProductRoadmapSection = () => {
         xAxis={[
           {
             id: 'years',
-            data: operationsData.years,
+            data: productRoadmapData.years,
             label: 'Year',
           },
         ]}
-        series={operationsData.types.map((type, idx) => ({
-          data: operationsData.barData[idx].data,
+        series={productRoadmapData.types.map((type, idx) => ({
+          data: productRoadmapData.barData[idx].data,
           label: type,
           stack: 'total',
-          color: operationsData.barData[idx].color,
+          color: productRoadmapData.barData[idx].color,
         }))}
         height={250}
         width={350}
@@ -40,7 +40,7 @@ export const ProductRoadmapSection = () => {
       <Divider />
       <Box sx={{ mt: 2 }}>
         <Stack direction='row' spacing={2} flexWrap='wrap' useFlexGap>
-          {operationsData.years.map((year) => (
+          {productRoadmapData.years.map((year) => (
             <Box key={year} sx={{ minWidth: 90 }}>
               <Typography
                 variant='subtitle2'

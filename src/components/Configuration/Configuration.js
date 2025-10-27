@@ -27,8 +27,8 @@ const Configuration = () => {
     canViewAppRat: 'App Rationalization',
     canViewVulnerabilities: 'Vulnerabilities',
     canViewSQLOptimization: 'SQL Optimization',
-    canViewOperationsMetrics: 'Operations Metrics',
-    canViewServiceRequest: 'Service Requests',
+    canViewServiceScopes: 'Service Scopes',
+    canViewOperationMetrics: 'Operation Metrics',
   };
 
   const handleRoleSwitch = (newRole) => {
@@ -246,7 +246,7 @@ const Configuration = () => {
                               [
                                 'canViewAIIndex',
                                 'canViewProductRoadmap',
-                                'canViewServiceRequest',
+                                'canViewOperationMetrics',
                               ].includes(key)
                                 ? '✗'
                                 : '✓'
@@ -255,7 +255,7 @@ const Configuration = () => {
                               [
                                 'canViewAIIndex',
                                 'canViewProductRoadmap',
-                                'canViewServiceRequest',
+                                'canViewOperationMetrics',
                               ].includes(key)
                                 ? 'error'
                                 : 'success'

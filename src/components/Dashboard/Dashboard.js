@@ -5,8 +5,8 @@ import { AppRatWidget } from './AppRatWidget';
 import { AIIndexWidget } from './AIIndexWidget';
 import { VulnerabilitiesSection } from './VulnerabilitiesSection';
 import { SQLOptimizationSection } from './SQLOptimizationSection';
-import { OperationsMetricsSection } from './OperationsMetricsSection';
-import { ServiceRequestSection } from './ServiceRequestSection';
+import { ServiceScopesSection } from './ServiceScopesSection';
+import { OperationMetricsSection } from './OperationMetricsSection';
 import { ProductRoadmapSection } from './ProductRoadmapSection';
 import { useUser } from '../../context/UserContext';
 
@@ -28,7 +28,7 @@ function Dashboard() {
       {(permissions.canViewTechDebt ||
         permissions.canViewAppRat ||
         permissions.canViewAIIndex ||
-        permissions.canViewOperationsMetrics) && (
+        permissions.canViewServiceScopes) && (
         <Grid size={{ xs: 12 }}>
           <Grid container spacing={2}>
             {permissions.canViewTechDebt && (
@@ -41,9 +41,9 @@ function Dashboard() {
                 <AppRatWidget />
               </Grid>
             )}
-            {permissions.canViewOperationsMetrics && (
+            {permissions.canViewServiceScopes && (
               <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
-                <OperationsMetricsSection />
+                <ServiceScopesSection />
               </Grid>
             )}
             {permissions.canViewAIIndex && (
@@ -86,27 +86,27 @@ function Dashboard() {
 
       {/* Bottom Row - Additional Sections */}
       {(permissions.canViewProductRoadmap ||
-        permissions.canViewServiceRequest) && (
+        permissions.canViewOperationMetrics) && (
         <Grid size={{ xs: 12 }}>
           <Grid container spacing={2}>
             {permissions.canViewProductRoadmap && (
               <Grid
                 size={{
                   xs: 12,
-                  md: permissions.canViewServiceRequest ? 8 : 12,
+                  md: permissions.canViewOperationMetrics ? 8 : 12,
                 }}
               >
                 <ProductRoadmapSection />
               </Grid>
             )}
-            {permissions.canViewServiceRequest && (
+            {permissions.canViewOperationMetrics && (
               <Grid
                 size={{
                   xs: 12,
                   md: permissions.canViewProductRoadmap ? 4 : 12,
                 }}
               >
-                <ServiceRequestSection />
+                <OperationMetricsSection />
               </Grid>
             )}
           </Grid>

@@ -4,21 +4,21 @@ import { useDashboard } from '../../context/DashboardContext';
 
 import { PieChart } from '@mui/x-charts/PieChart';
 
-import { generateOperationsData } from '../../utils/dataGenerator';
+import { generateServiceScopesData } from '../../utils/dataGenerator';
 
-export const OperationsMetricsSection = () => {
+export const ServiceScopesSection = () => {
   const { data } = useDashboard();
 
-  const { operationsMetrics } = data;
+  const { serviceScopes } = data;
 
-  const operationsData = useMemo(
-    () => generateOperationsData(operationsMetrics),
-    [operationsMetrics]
+  const serviceScopesData = useMemo(
+    () => generateServiceScopesData(serviceScopes),
+    [serviceScopes]
   );
   return (
     <Paper sx={{ p: 2, height: '100%' }}>
       <Typography variant='h6' gutterBottom>
-        Operations Metrics
+        Service Scopes
       </Typography>
       <Box>
         <PieChart
@@ -27,7 +27,7 @@ export const OperationsMetricsSection = () => {
               paddingAngle: 5,
               innerRadius: 60,
               outerRadius: 80,
-              data: operationsData,
+              data: serviceScopesData,
             },
           ]}
           width={170}

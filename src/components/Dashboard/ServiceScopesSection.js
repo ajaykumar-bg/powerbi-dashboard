@@ -38,25 +38,25 @@ export const ServiceScopesSection = () => {
       <Divider sx={{ my: 2 }} />
 
       <Grid container spacing={2} justifyContent={'space-between'}>
-        <Grid item xs={6}>
+        <Grid size={{ xs: 3 }}>
           <Typography variant='h5' sx={{ color: serviceScopesData[0]?.color }}>
             {serviceScopes?.ricefs?.toLocaleString()}
           </Typography>
           <Typography variant='body2'>RICEFs</Typography>
         </Grid>
-        <Grid item xs={6}>
+        <Grid size={{ xs: 3 }}>
           <Typography variant='h5' sx={{ color: serviceScopesData[1]?.color }}>
             {serviceScopes?.retrofits?.toLocaleString()}
           </Typography>
           <Typography variant='body2'>Retrofits</Typography>
         </Grid>
-        <Grid item xs={6}>
+        <Grid size={{ xs: 3 }}>
           <Typography variant='h5' sx={{ color: serviceScopesData[2]?.color }}>
             {serviceScopes?.fioriApps?.toLocaleString()}
           </Typography>
           <Typography variant='body2'>Fiori Apps</Typography>
         </Grid>
-        <Grid item xs={6}>
+        <Grid size={{ xs: 3 }}>
           <Typography variant='h5' sx={{ color: serviceScopesData[3]?.color }}>
             {serviceScopes?.liveCompare?.count?.toLocaleString()}
           </Typography>

@@ -11,13 +11,13 @@ const RoleSettings = () => {
   const { user, permissions, switchRole } = useUser();
 
   const permissionLabels = {
-    canViewAIIndex: 'AI Index Widget',
-    canViewProductRoadmap: 'Product Roadmap',
     canViewTechDebt: 'Tech Debt Section',
-    canViewAppRat: 'App Rationalization',
     canViewVulnerabilities: 'Vulnerabilities',
     canViewSQLOptimization: 'SQL Optimization',
+    canViewAppRat: 'App Rationalization',
     canViewServiceScopes: 'Service Scopes',
+    canViewAIIndex: 'AI Index Widget',
+    canViewProductRoadmap: 'Product Roadmap',
     canViewOperationMetrics: 'Operation Metrics',
   };
 
@@ -31,17 +31,17 @@ const RoleSettings = () => {
 
       <Grid container spacing={3}>
         {/* User Information */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <UserInfoCard user={user} />
         </Grid>
 
         {/* Role Switching */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <RoleManagementCard user={user} onRoleSwitch={handleRoleSwitch} />
         </Grid>
 
         {/* Current Permissions */}
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <CurrentPermissionsCard
             user={user}
             permissions={permissions}
@@ -50,7 +50,7 @@ const RoleSettings = () => {
         </Grid>
 
         {/* Permission Comparison */}
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <RoleComparisonTable permissionLabels={permissionLabels} />
         </Grid>
       </Grid>

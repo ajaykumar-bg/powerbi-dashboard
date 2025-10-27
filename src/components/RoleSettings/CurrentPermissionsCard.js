@@ -21,7 +21,7 @@ const CurrentPermissionsCard = ({ user, permissions, permissionLabels }) => {
 
         <Grid container spacing={2}>
           {Object.entries(permissions).map(([key, value]) => (
-            <Grid item xs={12} sm={6} md={4} key={key}>
+            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={key}>
               <Paper
                 elevation={1}
                 sx={{

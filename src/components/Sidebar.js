@@ -50,8 +50,8 @@ const Sidebar = ({ open, onClose }) => {
   if (user.role === 'admin') {
     /*
     navigationItems.push({
-      label: 'Configuration',
-      path: '/configuration',
+      label: 'Role Settings',
+      path: '/role-settings',
       icon: <SettingsIcon />,
     });
     */

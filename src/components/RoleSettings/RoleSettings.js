@@ -17,7 +17,7 @@ import {
 } from '@mui/icons-material';
 import { useUser } from '../../context/UserContext';
 
-const Configuration = () => {
+const RoleSettings = () => {
   const { user, permissions, switchRole } = useUser();
 
   const permissionLabels = {
@@ -38,7 +38,7 @@ const Configuration = () => {
   return (
     <Box sx={{ p: 3 }}>
       <Typography variant='h4' gutterBottom>
-        Configuration
+        Role Settings
       </Typography>
       <Typography variant='body1' color='text.secondary' sx={{ mb: 3 }}>
         Manage role-based authentication and user permissions
@@ -277,4 +277,4 @@ const Configuration = () => {
   );
 };
 
-export default Configuration;
+export default RoleSettings;

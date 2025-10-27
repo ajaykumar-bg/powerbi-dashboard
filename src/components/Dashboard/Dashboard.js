@@ -86,20 +86,20 @@ function Dashboard() {
 
       {/* Bottom Row - Additional Sections */}
       {(permissions.canViewProductRoadmap ||
-        permissions.canViewServiceRequest) && (
+        permissions.canViewOperationMetrics) && (
         <Grid size={{ xs: 12 }}>
           <Grid container spacing={2}>
             {permissions.canViewProductRoadmap && (
               <Grid
                 size={{
                   xs: 12,
-                  md: permissions.canViewServiceRequest ? 8 : 12,
+                  md: permissions.canViewOperationMetrics ? 8 : 12,
                 }}
               >
                 <ProductRoadmapSection />
               </Grid>
             )}
-            {permissions.canViewServiceRequest && (
+            {permissions.canViewOperationMetrics && (
               <Grid
                 size={{
                   xs: 12,

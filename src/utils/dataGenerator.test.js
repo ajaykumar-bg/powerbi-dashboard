@@ -25,7 +25,7 @@ describe('dataGenerator', () => {
   });
 
   describe('generateOperationMetricsData', () => {
-    it('should generate correct service request data array', () => {
+    it('should generate correct operation metrics data array', () => {
       const input = { processed: 10, inProgress: 5, completed: 15 };
       const result = generateOperationMetricsData(input);
       expect(result).toEqual([

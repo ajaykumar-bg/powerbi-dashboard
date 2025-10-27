@@ -32,7 +32,7 @@ export const generateDashboardData = () => {
         remaining: getRandomValue(10, 20),
       },
     },
-    operationsMetrics: {
+    serviceScopes: {
       ricefs: getRandomValue(3800, 4200),
       fioriApps: getRandomValue(280, 320),
       retrofits: getRandomValue(6800, 7200),
@@ -198,7 +198,7 @@ export const generateVulnerabilityData = (data) => {
   };
 };
 
-export const generateOperationsData = (data) => {
+export const generateServiceScopesData = (data) => {
   const { ricefs, retrofits, fioriApps, liveCompare } = data;
   return [
     {

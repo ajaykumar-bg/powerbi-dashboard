@@ -27,7 +27,7 @@ const Configuration = () => {
     canViewAppRat: 'App Rationalization',
     canViewVulnerabilities: 'Vulnerabilities',
     canViewSQLOptimization: 'SQL Optimization',
-    canViewOperationsMetrics: 'Operations Metrics',
+    canViewServiceScopes: 'Service Scopes',
     canViewServiceRequest: 'Service Requests',
   };
 

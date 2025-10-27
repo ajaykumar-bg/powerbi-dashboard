@@ -21,7 +21,7 @@
 			"remaining": 5
 		}
 	},
-	"operationsMetrics": {
+	"serviceScopes": {
 		"ricefs": 4000,
 		"fioriApps": 300,
 		"retrofits": 7000,

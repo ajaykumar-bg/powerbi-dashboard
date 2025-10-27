@@ -28,7 +28,7 @@ export const UserProvider = ({ children }) => {
       canViewAppRat: true,
       canViewVulnerabilities: true,
       canViewSQLOptimization: true,
-      canViewOperationsMetrics: true,
+      canViewServiceScopes: true,
       canViewServiceRequest: true,
     },
     user: {
@@ -38,7 +38,7 @@ export const UserProvider = ({ children }) => {
       canViewAppRat: true,
       canViewVulnerabilities: true,
       canViewSQLOptimization: true,
-      canViewOperationsMetrics: true,
+      canViewServiceScopes: true,
       canViewServiceRequest: false, // Hidden for regular users
     },
   };

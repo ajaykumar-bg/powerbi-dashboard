@@ -3,7 +3,7 @@ import {
   generateServiceRequestData,
   generateSQLQueryData,
   generateVulnerabilityData,
-  generateOperationsData,
+  generateServiceScopesData,
 } from './dataGenerator';
 
 describe('dataGenerator', () => {
@@ -17,7 +17,7 @@ describe('dataGenerator', () => {
       expect(typeof data.aiIndex.value).toBe('string');
       expect(data.aiIndex.type).toBe('Savings');
       expect(typeof data.vulnerabilities.customCode.analyzed).toBe('number');
-      expect(typeof data.operationsMetrics.ricefs).toBe('number');
+      expect(typeof data.serviceScopes.ricefs).toBe('number');
       expect(typeof data.sqlOptimization.queries.analyzed).toBe('number');
       expect(typeof data.serviceNowRequest.processed).toBe('number');
       expect(Array.isArray(data.productRoadmap.items)).toBe(true);
@@ -76,7 +76,7 @@ describe('dataGenerator', () => {
     });
   });
 
-  describe('generateOperationsData', () => {
+  describe('generateServiceScopesData', () => {
     it('should generate correct operations data array', () => {
       const input = {
         ricefs: 1,
@@ -84,7 +84,7 @@ describe('dataGenerator', () => {
         fioriApps: 3,
         liveCompare: { count: 4, type: 'Executions' },
       };
-      const result = generateOperationsData(input);
+      const result = generateServiceScopesData(input);
       expect(result).toEqual([
         { id: 0, value: 1, label: 'RICEFs' },
         { id: 1, value: 2, label: 'Retrofits' },

@@ -24,59 +24,24 @@ function Dashboard() {
         minHeight: '100vh',
       }}
     >
-      {/* Top Row - Small Widgets */}
+      {/* First Row - Tech Debt Reduction, Vulnerabilities, Expensive SQL Optimization */}
       {(permissions.canViewTechDebt ||
-        permissions.canViewAppRat ||
-        permissions.canViewAIIndex ||
-        permissions.canViewServiceScopes) && (
-        <Grid size={{ xs: 12 }}>
-          <Grid container spacing={2}>
-            {permissions.canViewTechDebt && (
-              <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
-                <TechDebtSection />
-              </Grid>
-            )}
-            {permissions.canViewAppRat && (
-              <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
-                <AppRatWidget />
-              </Grid>
-            )}
-            {permissions.canViewServiceScopes && (
-              <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
-                <ServiceScopesSection />
-              </Grid>
-            )}
-            {permissions.canViewAIIndex && (
-              <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
-                <AIIndexWidget />
-              </Grid>
-            )}
-          </Grid>
-        </Grid>
-      )}
-
-      {/* Middle Row - Large Sections */}
-      {(permissions.canViewVulnerabilities ||
+        permissions.canViewVulnerabilities ||
         permissions.canViewSQLOptimization) && (
         <Grid size={{ xs: 12 }}>
           <Grid container spacing={2}>
+            {permissions.canViewTechDebt && (
+              <Grid size={{ xs: 12, md: 2 }}>
+                <TechDebtSection />
+              </Grid>
+            )}
             {permissions.canViewVulnerabilities && (
-              <Grid
-                size={{
-                  xs: 12,
-                  md: permissions.canViewSQLOptimization ? 7 : 12,
-                }}
-              >
+              <Grid size={{ xs: 12, md: 6 }}>
                 <VulnerabilitiesSection />
               </Grid>
             )}
             {permissions.canViewSQLOptimization && (
-              <Grid
-                size={{
-                  xs: 12,
-                  md: permissions.canViewVulnerabilities ? 5 : 12,
-                }}
-              >
+              <Grid size={{ xs: 12, md: 4 }}>
                 <SQLOptimizationSection />
               </Grid>
             )}
@@ -84,7 +49,32 @@ function Dashboard() {
         </Grid>
       )}
 
-      {/* Bottom Row - Additional Sections */}
+      {/* Second Row - App Rat, Service Scopes, AI Index */}
+      {(permissions.canViewAppRat ||
+        permissions.canViewServiceScopes ||
+        permissions.canViewAIIndex) && (
+        <Grid size={{ xs: 12 }}>
+          <Grid container spacing={2}>
+            {permissions.canViewAppRat && (
+              <Grid size={{ xs: 12, md: 2 }}>
+                <AppRatWidget />
+              </Grid>
+            )}
+            {permissions.canViewServiceScopes && (
+              <Grid size={{ xs: 12, md: 7 }}>
+                <ServiceScopesSection />
+              </Grid>
+            )}
+            {permissions.canViewAIIndex && (
+              <Grid size={{ xs: 12, md: 3 }}>
+                <AIIndexWidget />
+              </Grid>
+            )}
+          </Grid>
+        </Grid>
+      )}
+
+      {/* Third Row - Product EOL/Roadmap, Operation Metrics */}
       {(permissions.canViewProductRoadmap ||
         permissions.canViewOperationMetrics) && (
         <Grid size={{ xs: 12 }}>

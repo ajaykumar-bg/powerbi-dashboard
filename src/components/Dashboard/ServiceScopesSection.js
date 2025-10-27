@@ -34,8 +34,19 @@ export const ServiceScopesSection = () => {
                   data: serviceScopesData,
                 },
               ]}
-              width={170}
+              width={280}
               height={200}
+              slotProps={{
+                legend: {
+                  direction: 'column',
+                  position: { vertical: 'middle', horizontal: 'left' },
+                  padding: 0,
+                  itemMarkWidth: 8,
+                  itemMarkHeight: 8,
+                  markGap: 4,
+                  itemGap: 8,
+                },
+              }}
             />
           </Box>
         </Grid>

@@ -13,7 +13,6 @@ import {
 import {
   Dashboard as DashboardIcon,
   CloudUpload as CloudUploadIcon,
-  Assignment as AssignmentIcon,
   Settings as SettingsIcon,
   // Settings as SettingsIcon,
 } from '@mui/icons-material';

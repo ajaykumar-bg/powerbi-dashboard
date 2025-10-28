@@ -6,16 +6,15 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Dashboard from './components/Dashboard/Dashboard';
-import Login from './components/Login';
-import DashboardV3 from './components/DashboardV3/DashboardV3';
-import { DashboardV2 } from './components/DashboardV2';
-import SqlOptimizationDetails from './components/SqlOptimizationDetails/SqlOptimizationDetails';
-import VulnerabilityDetails from './components/VulnerabilityDetails/VulnerabilityDetails';
-import Forms from './components/Forms';
-import RoleSettings from './components/RoleSettings';
-import DataUpload from './components/DataUpload/DataUpload';
+import Navbar from './common/components/Navbar';
+import { Dashboard } from './features/dashboard';
+import { Login } from './features/auth';
+import DataUpload from './features/data-upload';
+// Updated imports to use feature-based structure
+import SqlOptimizationDetails from './features/analytics/sql-optimization';
+import VulnerabilityDetails from './features/analytics/vulnerability';
+import Forms from './features/forms';
+import RoleSettings from './features/settings';
 
 function AppRoutes() {
   return (
@@ -31,8 +30,6 @@ function AppRoutes() {
                 <Container maxWidth={false} sx={{ padding: 2 }}>
                   <Routes>
                     <Route path='/' element={<Dashboard />} />
-                    <Route path='/dashboardV3' element={<DashboardV3 />} />
-                    <Route path='/dashboardV2' element={<DashboardV2 />} />
                     <Route
                       path='/sql-analytics'
                       element={<SqlOptimizationDetails />}

@@ -27,7 +27,6 @@ const Sidebar = ({ open, onClose }) => {
 
   const navigationItems = [
     { label: 'Dashboard', path: '/', icon: <DashboardIcon /> },
-    { label: 'Data Upload', path: '/data-upload', icon: <CloudUploadIcon /> },
 
     // {
     //   label: 'SQL Analytics',
@@ -39,20 +38,21 @@ const Sidebar = ({ open, onClose }) => {
     //   path: '/vulnerability-details',
     //   icon: <SecurityIcon />,
     // },
-    {
-      label: 'Forms',
-      path: '/forms',
-      icon: <AssignmentIcon />,
-    },
-    {
-      label: 'Dashboard Config',
-      path: '/dashboard-forms',
-      icon: <SettingsIcon />,
-    },
   ];
 
   // Add admin-only navigation items
   if (user.role === 'admin') {
+    navigationItems.push({
+      label: 'Data Upload',
+      path: '/data-upload',
+      icon: <CloudUploadIcon />,
+    });
+    navigationItems.push({
+      label: 'Dashboard Config',
+      path: '/dashboard-forms',
+      icon: <SettingsIcon />,
+    });
+
     /*
     navigationItems.push({
       label: 'Role Settings',

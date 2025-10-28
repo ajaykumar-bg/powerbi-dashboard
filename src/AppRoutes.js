@@ -15,7 +15,7 @@ import SqlOptimizationDetails from './components/SqlOptimizationDetails/SqlOptim
 import VulnerabilityDetails from './components/VulnerabilityDetails/VulnerabilityDetails';
 import Forms from './components/Forms';
 import RoleSettings from './components/RoleSettings';
-import DataUpload from './components/DataUpload';
+import DataUpload from './components/DataUpload/DataUpload';
 
 function AppRoutes() {
   return (

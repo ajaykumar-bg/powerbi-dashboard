@@ -1,1 +1,3 @@
-export { default } from './DataUpload';
+import DataUpload from './DataUpload';
+
+export default DataUpload;

@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
+import { useDashboard } from '../../dashboard/context/DashboardContext';
+import { formatNumber } from '../../../common/utils/dataGenerator';
 
 const DashboardFormsContext = createContext();
 
@@ -91,6 +93,7 @@ export const DashboardFormsProvider = ({ children }) => {
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { setDashboardData } = useDashboard();
 
   const updateField = (fieldPath, value) => {
     setFormData((prev) => {
@@ -245,6 +248,39 @@ export const DashboardFormsProvider = ({ children }) => {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
       console.log('Dashboard form submitted:', formData);
+
+      // Format the data to match the expected dashboard format
+      const formattedData = {
+        ...formData,
+        appRat: {
+          totalSavings: formatNumber(formData.appRat.totalSavings),
+          sapMobilePlatform: formatNumber(formData.appRat.sapMobilePlatform),
+          sapCE: formatNumber(formData.appRat.sapCE),
+        },
+        sqlOptimization: {
+          ...formData.sqlOptimization,
+          performance: {
+            memoryReduction: {
+              value: formatNumber(
+                formData.sqlOptimization.performance.memoryReduction.value
+              ),
+              unit: formData.sqlOptimization.performance.memoryReduction.unit,
+            },
+            executionTimeReduction: {
+              value: formatNumber(
+                formData.sqlOptimization.performance.executionTimeReduction
+                  .value
+              ),
+              unit: formData.sqlOptimization.performance.executionTimeReduction
+                .unit,
+            },
+          },
+        },
+      };
+
+      // Update the dashboard context with the formatted data
+      setDashboardData(formattedData);
+
       return true;
     } catch (error) {
       console.error('Submission error:', error);

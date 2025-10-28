@@ -39,6 +39,16 @@ export const DashboardProvider = ({ children }) => {
     }
   }, []);
 
+  const setDashboardData = useCallback((newData) => {
+    try {
+      setData(newData);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  }, []);
+
   // Initial data load
   useEffect(() => {
     updateData();
@@ -70,6 +80,7 @@ export const DashboardProvider = ({ children }) => {
         isLive,
         toggleLive,
         updateData,
+        setDashboardData,
       }}
     >
       {children}

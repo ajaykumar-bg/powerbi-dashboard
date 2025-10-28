@@ -18,6 +18,7 @@ import {
   Upload as UploadIcon,
   Dashboard as DashboardIcon,
 } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 // Import all form sections
 import TechDebtSection from './TechDebtSection';
@@ -34,6 +35,7 @@ import { useDashboardForms } from '../context/DashboardFormsContext';
 const DashboardForms = () => {
   const { formData, errors, isSubmitting, resetForm, submitForm } =
     useDashboardForms();
+  const navigate = useNavigate();
 
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -64,6 +66,10 @@ const DashboardForms = () => {
     const success = await submitForm();
     if (success) {
       setShowSuccess(true);
+      // Redirect to dashboard after successful submission
+      setTimeout(() => {
+        navigate('/');
+      }, 2000); // Wait 2 seconds to show success message
     } else {
       setShowError(true);
     }
@@ -292,7 +298,7 @@ const DashboardForms = () => {
           sx={{ width: '100%' }}
         >
           Dashboard configuration saved successfully! All metrics have been
-          updated.
+          updated. Redirecting to dashboard...
         </Alert>
       </Snackbar>
 

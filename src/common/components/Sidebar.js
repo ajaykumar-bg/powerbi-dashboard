@@ -12,8 +12,7 @@ import {
 } from '@mui/material';
 import {
   Dashboard as DashboardIcon,
-  Details as DetailsIcon,
-  Analytics as AnalyticsIcon,
+  CloudUpload as CloudUploadIcon,
   Assignment as AssignmentIcon,
   // Settings as SettingsIcon,
 } from '@mui/icons-material';
@@ -27,8 +26,8 @@ const Sidebar = ({ open, onClose }) => {
 
   const navigationItems = [
     { label: 'Dashboard', path: '/', icon: <DashboardIcon /> },
-    { label: 'Dashboard V2', path: '/dashboardV2', icon: <AnalyticsIcon /> },
-    { label: 'Dashboard V3', path: '/dashboardV3', icon: <DetailsIcon /> },
+    { label: 'Data Upload', path: '/data-upload', icon: <CloudUploadIcon /> },
+
     // {
     //   label: 'SQL Analytics',
     //   path: '/sql-analytics',

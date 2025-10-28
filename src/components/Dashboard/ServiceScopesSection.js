@@ -22,8 +22,51 @@ export const ServiceScopesSection = () => {
       </Typography>
 
       <Grid container spacing={2} alignItems='center'>
+        <Grid
+          container
+          size={{ xs: 6 }}
+          spacing={2}
+          justifyContent={'space-between'}
+        >
+          <Grid size={{ xs: 6 }}>
+            <Typography
+              variant='h4'
+              sx={{ color: serviceScopesData[0]?.color }}
+            >
+              {serviceScopes?.ricefs?.toLocaleString()}
+            </Typography>
+            <Typography variant='body2'>RICEFs</Typography>
+          </Grid>
+          <Grid size={{ xs: 6 }}>
+            <Typography
+              variant='h4'
+              sx={{ color: serviceScopesData[1]?.color }}
+            >
+              {serviceScopes?.retrofits?.toLocaleString()}
+            </Typography>
+            <Typography variant='body2'>Retrofits</Typography>
+          </Grid>
+          <Grid size={{ xs: 6 }}>
+            <Typography
+              variant='h4'
+              sx={{ color: serviceScopesData[2]?.color }}
+            >
+              {serviceScopes?.fioriApps?.toLocaleString()}
+            </Typography>
+            <Typography variant='body2'>Fiori Apps</Typography>
+          </Grid>
+          <Grid size={{ xs: 6 }}>
+            <Typography
+              variant='h4'
+              sx={{ color: serviceScopesData[3]?.color }}
+            >
+              {serviceScopes?.liveCompare?.count?.toLocaleString()}
+            </Typography>
+            <Typography variant='body2'>Live Compare</Typography>
+          </Grid>
+        </Grid>
         {/* Chart Section */}
-        <Grid size={{ xs: 12, md: 6 }}>
+        <Grid size={{ xs: 6 }}>
           <Box display='flex' justifyContent='center'>
             <PieChart
               series={[
@@ -36,76 +79,7 @@ export const ServiceScopesSection = () => {
               ]}
               width={280}
               height={200}
-              slotProps={{
-                legend: {
-                  direction: 'column',
-                  position: { vertical: 'middle', horizontal: 'left' },
-                  padding: 0,
-                  itemMarkWidth: 8,
-                  itemMarkHeight: 8,
-                  markGap: 4,
-                  itemGap: 8,
-                },
-              }}
             />
-          </Box>
-        </Grid>
-
-        {/* Numbers Section - Vertical List */}
-        <Grid size={{ xs: 12, md: 6 }}>
-          <Box display='flex' flexDirection='column' gap={2}>
-            <Box
-              display='flex'
-              justifyContent='space-between'
-              alignItems='center'
-            >
-              <Typography variant='body2'>RICEFs</Typography>
-              <Typography
-                variant='h6'
-                sx={{ color: serviceScopesData[0]?.color }}
-              >
-                {serviceScopes?.ricefs?.toLocaleString()}
-              </Typography>
-            </Box>
-            <Box
-              display='flex'
-              justifyContent='space-between'
-              alignItems='center'
-            >
-              <Typography variant='body2'>Retrofits</Typography>
-              <Typography
-                variant='h6'
-                sx={{ color: serviceScopesData[1]?.color }}
-              >
-                {serviceScopes?.retrofits?.toLocaleString()}
-              </Typography>
-            </Box>
-            <Box
-              display='flex'
-              justifyContent='space-between'
-              alignItems='center'
-            >
-              <Typography variant='body2'>Fiori Apps</Typography>
-              <Typography
-                variant='h6'
-                sx={{ color: serviceScopesData[2]?.color }}
-              >
-                {serviceScopes?.fioriApps?.toLocaleString()}
-              </Typography>
-            </Box>
-            <Box
-              display='flex'
-              justifyContent='space-between'
-              alignItems='center'
-            >
-              <Typography variant='body2'>Live Compare</Typography>
-              <Typography
-                variant='h6'
-                sx={{ color: serviceScopesData[3]?.color }}
-              >
-                {serviceScopes?.liveCompare?.count?.toLocaleString()}
-              </Typography>
-            </Box>
           </Box>
         </Grid>
       </Grid>

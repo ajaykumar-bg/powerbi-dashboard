@@ -1,7 +1,7 @@
 import { CssBaseline } from '@mui/material';
-import { DashboardProvider } from './context/DashboardContext';
-import { ThemeProvider } from './context/ThemeContext';
-import { UserProvider } from './context/UserContext';
+import { DashboardProvider } from './features/dashboard/context/DashboardContext';
+import { ThemeProvider } from './shared/context/ThemeContext';
+import { UserProvider } from './shared/context/UserContext';
 
 import './App.css';
 import AppRoutes from './AppRoutes';

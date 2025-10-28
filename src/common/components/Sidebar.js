@@ -14,6 +14,7 @@ import {
   Dashboard as DashboardIcon,
   CloudUpload as CloudUploadIcon,
   Assignment as AssignmentIcon,
+  Settings as SettingsIcon,
   // Settings as SettingsIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -26,7 +27,6 @@ const Sidebar = ({ open, onClose }) => {
 
   const navigationItems = [
     { label: 'Dashboard', path: '/', icon: <DashboardIcon /> },
-    { label: 'Data Upload', path: '/data-upload', icon: <CloudUploadIcon /> },
 
     // {
     //   label: 'SQL Analytics',
@@ -38,15 +38,21 @@ const Sidebar = ({ open, onClose }) => {
     //   path: '/vulnerability-details',
     //   icon: <SecurityIcon />,
     // },
-    {
-      label: 'Forms',
-      path: '/forms',
-      icon: <AssignmentIcon />,
-    },
   ];
 
   // Add admin-only navigation items
   if (user.role === 'admin') {
+    navigationItems.push({
+      label: 'Data Upload',
+      path: '/data-upload',
+      icon: <CloudUploadIcon />,
+    });
+    navigationItems.push({
+      label: 'Dashboard Config',
+      path: '/dashboard-forms',
+      icon: <SettingsIcon />,
+    });
+
     /*
     navigationItems.push({
       label: 'Role Settings',

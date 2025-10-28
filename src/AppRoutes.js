@@ -10,6 +10,7 @@ import Navbar from './common/components/Navbar';
 import { Dashboard } from './features/dashboard';
 import { Login } from './features/auth';
 import DataUpload from './features/data-upload';
+import DashboardForms from './features/dashboard-forms';
 // Updated imports to use feature-based structure
 import SqlOptimizationDetails from './features/analytics/sql-optimization';
 import VulnerabilityDetails from './features/analytics/vulnerability';
@@ -39,6 +40,10 @@ function AppRoutes() {
                       element={<VulnerabilityDetails />}
                     />
                     <Route path='/forms' element={<Forms />} />
+                    <Route
+                      path='/dashboard-forms'
+                      element={<DashboardForms />}
+                    />
                     <Route path='/role-settings' element={<RoleSettings />} />
                     <Route path='/data-upload' element={<DataUpload />} />
                     <Route path='*' element={<Navigate to='/' replace />} />

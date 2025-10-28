@@ -43,15 +43,15 @@ const DashboardForms = () => {
 
   const formSections = [
     { label: 'Tech Debt', component: TechDebtSection, icon: '🔧' },
-    { label: 'App Rationalization', component: AppRatSection, icon: '📱' },
-    { label: 'AI Index', component: AIIndexSection, icon: '🤖' },
     { label: 'Vulnerabilities', component: VulnerabilitiesSection, icon: '🛡️' },
-    { label: 'Service Scopes', component: ServiceScopesSection, icon: '🎯' },
     {
       label: 'SQL Optimization',
       component: SQLOptimizationSection,
       icon: '🚀',
     },
+    { label: 'App Rationalization', component: AppRatSection, icon: '📱' },
+    { label: 'Service Scopes', component: ServiceScopesSection, icon: '🎯' },
+    { label: 'AI Index', component: AIIndexSection, icon: '🤖' },
     {
       label: 'Operation Metrics',
       component: OperationMetricsSection,

@@ -15,6 +15,7 @@ import SqlOptimizationDetails from './components/SqlOptimizationDetails/SqlOptim
 import VulnerabilityDetails from './components/VulnerabilityDetails/VulnerabilityDetails';
 import Forms from './components/Forms';
 import RoleSettings from './components/RoleSettings';
+import DataUpload from './components/DataUpload';
 
 function AppRoutes() {
   return (
@@ -42,6 +43,7 @@ function AppRoutes() {
                     />
                     <Route path='/forms' element={<Forms />} />
                     <Route path='/role-settings' element={<RoleSettings />} />
+                    <Route path='/data-upload' element={<DataUpload />} />
                     <Route path='*' element={<Navigate to='/' replace />} />
                   </Routes>
                 </Container>

@@ -119,7 +119,7 @@ const OperationMetricsSection = () => {
               <LinearProgress
                 variant='determinate'
                 value={processedPercent}
-                sx={{ height: 8, borderRadius: 1, bgcolor: 'grey.200' }}
+                sx={{ height: 8, borderRadius: 1 }}
               />
             </Box>
 
@@ -133,7 +133,7 @@ const OperationMetricsSection = () => {
                 variant='determinate'
                 value={inProgressPercent}
                 color='warning'
-                sx={{ height: 8, borderRadius: 1, bgcolor: 'grey.200' }}
+                sx={{ height: 8, borderRadius: 1 }}
               />
             </Box>
 
@@ -147,7 +147,7 @@ const OperationMetricsSection = () => {
                 variant='determinate'
                 value={completedPercent}
                 color='success'
-                sx={{ height: 8, borderRadius: 1, bgcolor: 'grey.200' }}
+                sx={{ height: 8, borderRadius: 1 }}
               />
             </Box>
           </Box>

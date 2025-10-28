@@ -83,7 +83,7 @@ const ProductRoadmapSection = () => {
       />
       <CardContent>
         {/* Add New Item Section */}
-        <Box sx={{ mb: 3, p: 2, bgcolor: 'grey.50', borderRadius: 1 }}>
+        <Box sx={{ mb: 3, p: 2, borderRadius: 1 }}>
           <Typography variant='h6' gutterBottom>
             Add New Roadmap Item
           </Typography>
@@ -173,7 +173,6 @@ const ProductRoadmapSection = () => {
                       sx={{
                         p: 2,
                         border: 1,
-                        borderColor: 'grey.300',
                         borderRadius: 1,
                         bgcolor: 'background.paper',
                       }}

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Paper, Typography, Box, Chip, LinearProgress } from '@mui/material';
 import { useDashboard } from '../../context/DashboardContext';
-import { formatNumber } from '../../../../common/utils/dataGenerator';
+import { formatDisplayNumber } from '../../../dashboard-forms/utils/dashboardFormsUtils';
 
 export const AIIndexWidget = () => {
   const { data } = useDashboard();
@@ -11,7 +11,7 @@ export const AIIndexWidget = () => {
   // Calculate progress percentage (assuming max AI Index value is around 500K)
   const maxValue = 500000;
   const displayValue = useMemo(
-    () => formatNumber(aiIndex?.value),
+    () => formatDisplayNumber(aiIndex?.value),
     [aiIndex?.value]
   );
   // const numericValue = parseInt(aiIndex?.value?.replace(/[^\d]/g, '') || 0);

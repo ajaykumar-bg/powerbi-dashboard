@@ -60,10 +60,9 @@ export const generateDashboardData = () => {
       },
     },
     operationMetrics: {
-      processed: getRandomValue(9800, 9900),
-      inProgress: getRandomValue(2500, 1050),
-      completed: getRandomValue(5500, 6000),
-      completionPercentage: getRandomValue(50, 90),
+      created: getRandomValue(13000, 13500),
+      active: getRandomValue(700, 800),
+      closed: getRandomValue(12800, 13300),
     },
     productRoadmap: {
       items: [
@@ -133,16 +132,11 @@ export const generateDashboardData = () => {
 };
 
 export const generateOperationMetricsData = (data) => {
-  const { processed, inProgress, completed } = data;
-  // const percentage = {
-  //   processed: (processed / (processed + inProgress + completed)) * 100,
-  //   inProgress: (inProgress / (processed + inProgress + completed)) * 100,
-  //   completed: (completed / (processed + inProgress + completed)) * 100,
-  // };
+  const { created, active, closed } = data;
   return [
-    { id: 0, value: processed, label: 'Processed', color: '#90caf9' },
-    { id: 1, value: inProgress, label: 'In-Progress', color: '#ffa726' },
-    { id: 2, value: completed, label: 'Completed', color: '#66bb6a' },
+    { id: 0, value: created, label: 'Created', color: '#90caf9' },
+    { id: 1, value: active, label: 'Active', color: '#ffa726' },
+    { id: 2, value: closed, label: 'Closed', color: '#66bb6a' },
   ];
 };
 

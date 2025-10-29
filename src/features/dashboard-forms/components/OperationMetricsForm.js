@@ -19,18 +19,20 @@ const OperationMetricsForm = () => {
     updateField(field, value);
   };
 
-  // Calculate total for completion percentage
-  const total =
-    formData.operationMetrics.processed +
-    formData.operationMetrics.inProgress +
-    formData.operationMetrics.completed;
+  // Calculate completion percentage
+  const completionPercent =
+    formData.operationMetrics.created > 0
+      ? (formData.operationMetrics.closed / formData.operationMetrics.created) *
+        100
+      : 0;
 
-  const processedPercent =
-    total > 0 ? (formData.operationMetrics.processed / total) * 100 : 0;
-  const inProgressPercent =
-    total > 0 ? (formData.operationMetrics.inProgress / total) * 100 : 0;
-  const completedPercent =
-    total > 0 ? (formData.operationMetrics.completed / total) * 100 : 0;
+  const createdPercent = 100; // Created is the base (100%)
+  const activePercent =
+    formData.operationMetrics.created > 0
+      ? (formData.operationMetrics.active / formData.operationMetrics.created) *
+        100
+      : 0;
+  const closedPercent = completionPercent;
 
   return (
     <Card>
@@ -40,98 +42,79 @@ const OperationMetricsForm = () => {
       />
       <CardContent>
         <Grid container spacing={2} sx={{ mb: 3 }}>
-          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <TextField
-              label='Processed'
+              label='Created'
               type='number'
-              value={formData.operationMetrics.processed}
-              onChange={handleInputChange('operationMetrics.processed')}
-              error={!!errors['operationMetrics.processed']}
+              value={formData.operationMetrics.created}
+              onChange={handleInputChange('operationMetrics.created')}
+              error={!!errors['operationMetrics.created']}
               helperText={
-                errors['operationMetrics.processed'] || 'Items processed'
+                errors['operationMetrics.created'] || 'Total items created'
               }
               fullWidth
               inputProps={{ min: 0 }}
             />
           </Grid>
 
-          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <TextField
-              label='In Progress'
+              label='Active'
               type='number'
-              value={formData.operationMetrics.inProgress}
-              onChange={handleInputChange('operationMetrics.inProgress')}
-              error={!!errors['operationMetrics.inProgress']}
+              value={formData.operationMetrics.active}
+              onChange={handleInputChange('operationMetrics.active')}
+              error={!!errors['operationMetrics.active']}
               helperText={
-                errors['operationMetrics.inProgress'] || 'Items in progress'
+                errors['operationMetrics.active'] || 'Currently active items'
               }
               fullWidth
               inputProps={{ min: 0 }}
             />
           </Grid>
 
-          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <TextField
-              label='Completed'
+              label='Closed'
               type='number'
-              value={formData.operationMetrics.completed}
-              onChange={handleInputChange('operationMetrics.completed')}
-              error={!!errors['operationMetrics.completed']}
+              value={formData.operationMetrics.closed}
+              onChange={handleInputChange('operationMetrics.closed')}
+              error={!!errors['operationMetrics.closed']}
               helperText={
-                errors['operationMetrics.completed'] || 'Items completed'
+                errors['operationMetrics.closed'] ||
+                'Items that have been closed'
               }
               fullWidth
               inputProps={{ min: 0 }}
-            />
-          </Grid>
-
-          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
-            <TextField
-              label='Completion Percentage'
-              type='number'
-              value={formData.operationMetrics.completionPercentage}
-              onChange={handleInputChange(
-                'operationMetrics.completionPercentage'
-              )}
-              error={!!errors['operationMetrics.completionPercentage']}
-              helperText={
-                errors['operationMetrics.completionPercentage'] ||
-                'Overall completion %'
-              }
-              fullWidth
-              inputProps={{ min: 0, max: 100 }}
             />
           </Grid>
         </Grid>
 
-        {total > 0 && (
+        {formData.operationMetrics.created > 0 && (
           <Box sx={{ mt: 3 }}>
             <Typography variant='h6' gutterBottom>
-              Distribution Overview (Total: {total.toLocaleString()})
+              Metrics Overview
             </Typography>
 
             <Box sx={{ mb: 2 }}>
               <Typography variant='body2' color='text.secondary' gutterBottom>
-                Processed:{' '}
-                {formData.operationMetrics.processed.toLocaleString()} (
-                {processedPercent.toFixed(1)}%)
+                Created: {formData.operationMetrics.created.toLocaleString()}{' '}
+                (Base)
               </Typography>
               <LinearProgress
                 variant='determinate'
-                value={processedPercent}
+                value={100}
                 sx={{ height: 8, borderRadius: 1 }}
               />
             </Box>
 
             <Box sx={{ mb: 2 }}>
               <Typography variant='body2' color='text.secondary' gutterBottom>
-                In Progress:{' '}
-                {formData.operationMetrics.inProgress.toLocaleString()} (
-                {inProgressPercent.toFixed(1)}%)
+                Active: {formData.operationMetrics.active.toLocaleString()} (
+                {activePercent.toFixed(1)}% of created)
               </Typography>
               <LinearProgress
                 variant='determinate'
-                value={inProgressPercent}
+                value={activePercent}
                 color='warning'
                 sx={{ height: 8, borderRadius: 1 }}
               />
@@ -139,16 +122,26 @@ const OperationMetricsForm = () => {
 
             <Box sx={{ mb: 2 }}>
               <Typography variant='body2' color='text.secondary' gutterBottom>
-                Completed:{' '}
-                {formData.operationMetrics.completed.toLocaleString()} (
-                {completedPercent.toFixed(1)}%)
+                Closed: {formData.operationMetrics.closed.toLocaleString()} (
+                {closedPercent.toFixed(1)}% completion rate)
               </Typography>
               <LinearProgress
                 variant='determinate'
-                value={completedPercent}
+                value={closedPercent}
                 color='success'
                 sx={{ height: 8, borderRadius: 1 }}
               />
+            </Box>
+
+            <Box sx={{ mt: 2, p: 2, borderRadius: 1 }}>
+              <Typography variant='body2' color='text.primary'>
+                <strong>
+                  Completion Rate: {completionPercent.toFixed(1)}%
+                </strong>
+                <br />({formData.operationMetrics.closed.toLocaleString()}{' '}
+                closed out of{' '}
+                {formData.operationMetrics.created.toLocaleString()} created)
+              </Typography>
             </Box>
           </Box>
         )}

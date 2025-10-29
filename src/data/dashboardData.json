@@ -1,6 +1,6 @@
 {
   "techDebt": {
-    "reductionPercentage": 15
+    "reductionPercentage": 17
   },
   "appRat": {
     "totalSavings": 200000,

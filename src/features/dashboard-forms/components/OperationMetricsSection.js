@@ -40,7 +40,7 @@ const OperationMetricsSection = () => {
       />
       <CardContent>
         <Grid container spacing={2} sx={{ mb: 3 }}>
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
             <TextField
               label='Processed'
               type='number'
@@ -55,7 +55,7 @@ const OperationMetricsSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
             <TextField
               label='In Progress'
               type='number'
@@ -70,7 +70,7 @@ const OperationMetricsSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
             <TextField
               label='Completed'
               type='number'
@@ -85,7 +85,7 @@ const OperationMetricsSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
             <TextField
               label='Completion Percentage'
               type='number'

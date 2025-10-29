@@ -88,7 +88,7 @@ const ProductRoadmapSection = () => {
             Add New Roadmap Item
           </Typography>
           <Grid container spacing={2} sx={{ mb: 2 }}>
-            <Grid item xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 label='Item Name'
                 value={newItem.name}
@@ -98,7 +98,7 @@ const ProductRoadmapSection = () => {
               />
             </Grid>
 
-            <Grid item xs={12} md={3}>
+            <Grid size={{ xs: 12, md: 3 }}>
               <FormControl fullWidth>
                 <InputLabel>Year</InputLabel>
                 <Select
@@ -115,7 +115,7 @@ const ProductRoadmapSection = () => {
               </FormControl>
             </Grid>
 
-            <Grid item xs={12} md={3}>
+            <Grid size={{ xs: 12, md: 3 }}>
               <FormControl fullWidth>
                 <InputLabel>Type</InputLabel>
                 <Select
@@ -168,7 +168,7 @@ const ProductRoadmapSection = () => {
 
               <Grid container spacing={2}>
                 {itemsByYear[year].map((item) => (
-                  <Grid item xs={12} key={item.originalIndex}>
+                  <Grid size={{ xs: 12 }} key={item.originalIndex}>
                     <Box
                       sx={{
                         p: 2,
@@ -178,7 +178,7 @@ const ProductRoadmapSection = () => {
                       }}
                     >
                       <Grid container spacing={2} alignItems='center'>
-                        <Grid item xs={12} md={4}>
+                        <Grid size={{ xs: 12, md: 4 }}>
                           <TextField
                             label='Item Name'
                             value={item.name}
@@ -204,7 +204,7 @@ const ProductRoadmapSection = () => {
                           />
                         </Grid>
 
-                        <Grid item xs={12} md={2}>
+                        <Grid size={{ xs: 12, md: 2 }}>
                           <FormControl fullWidth size='small'>
                             <InputLabel>Year</InputLabel>
                             <Select
@@ -227,7 +227,7 @@ const ProductRoadmapSection = () => {
                           </FormControl>
                         </Grid>
 
-                        <Grid item xs={12} md={3}>
+                        <Grid size={{ xs: 12, md: 3 }}>
                           <FormControl fullWidth size='small'>
                             <InputLabel>Type</InputLabel>
                             <Select
@@ -250,7 +250,7 @@ const ProductRoadmapSection = () => {
                           </FormControl>
                         </Grid>
 
-                        <Grid item xs={12} md={2}>
+                        <Grid size={{ xs: 12, md: 2 }}>
                           <Chip
                             label={item.type}
                             color={
@@ -265,7 +265,7 @@ const ProductRoadmapSection = () => {
                           />
                         </Grid>
 
-                        <Grid item xs={12} md={1}>
+                        <Grid size={{ xs: 12, md: 1 }}>
                           <IconButton
                             color='error'
                             onClick={() =>

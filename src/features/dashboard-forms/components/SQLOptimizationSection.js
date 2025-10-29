@@ -38,7 +38,7 @@ const SQLOptimizationSection = () => {
           Query Analysis
         </Typography>
         <Grid container spacing={2} sx={{ mb: 3 }}>
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
             <TextField
               label='Queries Analyzed'
               type='number'
@@ -54,7 +54,7 @@ const SQLOptimizationSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
             <TextField
               label='Queries Dispositioned'
               type='number'
@@ -72,7 +72,7 @@ const SQLOptimizationSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
             <TextField
               label='In Progress'
               type='number'
@@ -88,7 +88,7 @@ const SQLOptimizationSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
             <TextField
               label='Queries Optimized'
               type='number'
@@ -111,12 +111,12 @@ const SQLOptimizationSection = () => {
           Performance Improvements
         </Typography>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Typography variant='subtitle2' gutterBottom>
               Memory Reduction
             </Typography>
             <Grid container spacing={2}>
-              <Grid item xs={8}>
+              <Grid size={{ xs: 8 }}>
                 <TextField
                   label='Memory Reduction Value'
                   type='number'
@@ -138,7 +138,7 @@ const SQLOptimizationSection = () => {
                   inputProps={{ min: 0 }}
                 />
               </Grid>
-              <Grid item xs={4}>
+              <Grid size={{ xs: 4 }}>
                 <FormControl fullWidth>
                   <InputLabel>Unit</InputLabel>
                   <Select
@@ -166,7 +166,7 @@ const SQLOptimizationSection = () => {
               Execution Time Reduction
             </Typography>
             <Grid container spacing={2}>
-              <Grid item xs={8}>
+              <Grid size={{ xs: 8 }}>
                 <TextField
                   label='Execution Time Reduction Value'
                   type='number'
@@ -191,7 +191,7 @@ const SQLOptimizationSection = () => {
                   inputProps={{ min: 0 }}
                 />
               </Grid>
-              <Grid item xs={4}>
+              <Grid size={{ xs: 4 }}>
                 <FormControl fullWidth>
                   <InputLabel>Unit</InputLabel>
                   <Select

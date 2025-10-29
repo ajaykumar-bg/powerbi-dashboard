@@ -35,7 +35,7 @@ const ServiceScopesSection = () => {
       />
       <CardContent>
         <Grid container spacing={2} sx={{ mb: 3 }}>
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
             <TextField
               label='RICEFs'
               type='number'
@@ -48,7 +48,7 @@ const ServiceScopesSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
             <TextField
               label='Fiori Apps'
               type='number'
@@ -63,7 +63,7 @@ const ServiceScopesSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={3}>
+          <Grid size={{ xs: 12, md: 6, lg: 3 }}>
             <TextField
               label='Retrofits'
               type='number'
@@ -83,7 +83,7 @@ const ServiceScopesSection = () => {
           Live Compare Settings
         </Typography>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={8}>
+          <Grid size={{ xs: 12, md: 8 }}>
             <TextField
               label='Live Compare Count'
               type='number'
@@ -99,7 +99,7 @@ const ServiceScopesSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <FormControl fullWidth>
               <InputLabel>Live Compare Type</InputLabel>
               <Select

@@ -5,7 +5,7 @@ import { generateProductRoadmapBarData } from '../../../../common/utils/dataGene
 import { useMemo } from 'react';
 import { getRoadMapChipColor } from '../../../../common/utils/commonUtils';
 
-export const ProductRoadmapSection = () => {
+export const ProductRoadmapWidget = () => {
   const { data } = useDashboard();
   const { productRoadmap } = data;
 

@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { useDashboardForms } from '../context/DashboardFormsContext';
 
-const OperationMetricsSection = () => {
+const OperationMetricsForm = () => {
   const { formData, errors, updateField } = useDashboardForms();
 
   const handleInputChange = (field) => (event) => {
@@ -157,4 +157,4 @@ const OperationMetricsSection = () => {
   );
 };
 
-export default OperationMetricsSection;
+export default OperationMetricsForm;

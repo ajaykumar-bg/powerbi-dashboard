@@ -6,7 +6,7 @@ import {
 } from '../../../../common/utils/commonUtils';
 import { useMemo } from 'react';
 
-export const TechDebtSection = () => {
+export const TechDebtWidget = () => {
   const { data } = useDashboard();
 
   const { techDebt } = data;

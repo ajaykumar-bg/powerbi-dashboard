@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { useDashboardForms } from '../context/DashboardFormsContext';
 
-const VulnerabilitiesSection = () => {
+const VulnerabilitiesForm = () => {
   const { formData, errors, updateField } = useDashboardForms();
 
   const handleInputChange = (field) => (event) => {
@@ -147,4 +147,4 @@ const VulnerabilitiesSection = () => {
   );
 };
 
-export default VulnerabilitiesSection;
+export default VulnerabilitiesForm;

@@ -12,7 +12,7 @@ const chartSettings = {
   height: 120,
 };
 
-export const VulnerabilitiesSection = () => {
+export const VulnerabilitiesWidget = () => {
   const { data } = useDashboard();
   const navigate = useNavigate();
 

@@ -12,7 +12,7 @@ const donutSettings = {
   height: 150,
 };
 
-export const SQLOptimizationSection = () => {
+export const SQLOptimizationWidget = () => {
   const { data } = useDashboard();
   const navigate = useNavigate();
 

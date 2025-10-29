@@ -20,15 +20,15 @@ import {
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
-// Import all form sections
-import TechDebtSection from './TechDebtSection';
-import AppRatSection from './AppRatSection';
-import AIIndexSection from './AIIndexSection';
-import VulnerabilitiesSection from './VulnerabilitiesSection';
-import ServiceScopesSection from './ServiceScopesSection';
-import SQLOptimizationSection from './SQLOptimizationSection';
-import OperationMetricsSection from './OperationMetricsSection';
-import ProductRoadmapSection from './ProductRoadmapSection';
+// Import all form forms
+import TechDebtForm from './TechDebtForm';
+import AppRatForm from './AppRatForm';
+import AIIndexForm from './AIIndexForm';
+import VulnerabilitiesForm from './VulnerabilitiesForm';
+import ServiceScopesForm from './ServiceScopesForm';
+import SQLOptimizationForm from './SQLOptimizationForm';
+import OperationMetricsForm from './OperationMetricsForm';
+import ProductRoadmapForm from './ProductRoadmapForm';
 
 import { useDashboardForms } from '../context/DashboardFormsContext';
 
@@ -42,22 +42,22 @@ const DashboardForms = () => {
   const [currentTab, setCurrentTab] = useState(0);
 
   const formSections = [
-    { label: 'Tech Debt', component: TechDebtSection, icon: '🔧' },
-    { label: 'Vulnerabilities', component: VulnerabilitiesSection, icon: '🛡️' },
+    { label: 'Tech Debt', component: TechDebtForm, icon: '🔧' },
+    { label: 'Vulnerabilities', component: VulnerabilitiesForm, icon: '🛡️' },
     {
       label: 'SQL Optimization',
-      component: SQLOptimizationSection,
+      component: SQLOptimizationForm,
       icon: '🚀',
     },
-    { label: 'App Rationalization', component: AppRatSection, icon: '📱' },
-    { label: 'Service Scopes', component: ServiceScopesSection, icon: '🎯' },
-    { label: 'AI Index', component: AIIndexSection, icon: '🤖' },
+    { label: 'App Rationalization', component: AppRatForm, icon: '📱' },
+    { label: 'Service Scopes', component: ServiceScopesForm, icon: '🎯' },
+    { label: 'AI Index', component: AIIndexForm, icon: '🤖' },
     {
       label: 'Operation Metrics',
-      component: OperationMetricsSection,
+      component: OperationMetricsForm,
       icon: '📊',
     },
-    { label: 'Product Roadmap', component: ProductRoadmapSection, icon: '🗺️' },
+    { label: 'Product Roadmap', component: ProductRoadmapForm, icon: '🗺️' },
   ];
 
   const handleSubmit = async (e) => {
@@ -101,7 +101,7 @@ const DashboardForms = () => {
     URL.revokeObjectURL(url);
   };
 
-  const CurrentSectionComponent = formSections[currentTab].component;
+  const CurrentFormSectionComponent = formSections[currentTab].component;
 
   return (
     <Box
@@ -241,7 +241,7 @@ const DashboardForms = () => {
 
       {/* Current Form Section */}
       <form onSubmit={handleSubmit}>
-        <CurrentSectionComponent />
+        <CurrentFormSectionComponent />
 
         {/* Bottom Actions */}
         <Box

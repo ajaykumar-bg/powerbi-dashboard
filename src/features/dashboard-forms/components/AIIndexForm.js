@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, TextField, Grid } from '@mui/material';
 import { useDashboardForms } from '../context/DashboardFormsContext';
 
-const AIIndexSection = () => {
+const AIIndexForm = () => {
   const { formData, errors, updateField } = useDashboardForms();
 
   const handleAdoptionRateChange = (event) => {
@@ -100,4 +100,4 @@ const AIIndexSection = () => {
   );
 };
 
-export default AIIndexSection;
+export default AIIndexForm;

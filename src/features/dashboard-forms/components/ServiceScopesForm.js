@@ -15,7 +15,7 @@ import {
 import { useDashboardForms } from '../context/DashboardFormsContext';
 import { serviceScopeTypes } from '../utils/dashboardFormsUtils';
 
-const ServiceScopesSection = () => {
+const ServiceScopesForm = () => {
   const { formData, errors, updateField } = useDashboardForms();
 
   const handleInputChange = (field) => (event) => {
@@ -121,4 +121,4 @@ const ServiceScopesSection = () => {
   );
 };
 
-export default ServiceScopesSection;
+export default ServiceScopesForm;

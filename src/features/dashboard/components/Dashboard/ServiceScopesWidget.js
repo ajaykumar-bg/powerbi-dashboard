@@ -6,7 +6,7 @@ import { PieChart } from '@mui/x-charts/PieChart';
 
 import { generateServiceScopesData } from '../../../../common/utils/dataGenerator';
 
-export const ServiceScopesSection = () => {
+export const ServiceScopesWidget = () => {
   const { data } = useDashboard();
 
   const { serviceScopes } = data;

@@ -23,7 +23,7 @@ import {
   generateYearOptions,
 } from '../utils/dashboardFormsUtils';
 
-const ProductRoadmapSection = () => {
+const ProductRoadmapForm = () => {
   const {
     formData,
     errors,
@@ -82,7 +82,7 @@ const ProductRoadmapSection = () => {
         subheader='Manage product roadmap items with timeline and categorization'
       />
       <CardContent>
-        {/* Add New Item Section */}
+        {/* Add New Item Form */}
         <Box sx={{ mb: 3, p: 2, borderRadius: 1 }}>
           <Typography variant='h6' gutterBottom>
             Add New Roadmap Item
@@ -289,4 +289,4 @@ const ProductRoadmapSection = () => {
   );
 };
 
-export default ProductRoadmapSection;
+export default ProductRoadmapForm;

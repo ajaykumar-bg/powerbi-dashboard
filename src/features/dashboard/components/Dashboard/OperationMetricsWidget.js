@@ -16,7 +16,7 @@ import {
   getGaugeColor,
 } from '../../../../common/utils/commonUtils';
 
-export const OperationMetricsSection = () => {
+export const OperationMetricsWidget = () => {
   const { data } = useDashboard();
 
   const { operationMetrics } = data;

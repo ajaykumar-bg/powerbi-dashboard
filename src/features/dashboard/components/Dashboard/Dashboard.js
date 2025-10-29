@@ -1,13 +1,13 @@
 import { Grid } from '@mui/material';
 
-import { TechDebtSection } from './TechDebtSection';
+import { TechDebtWidget } from './TechDebtWidget';
 import { AppRatWidget } from './AppRatWidget';
 import { AIIndexWidget } from './AIIndexWidget';
-import { VulnerabilitiesSection } from './VulnerabilitiesSection';
-import { SQLOptimizationSection } from './SQLOptimizationSection';
-import { ServiceScopesSection } from './ServiceScopesSection';
-import { OperationMetricsSection } from './OperationMetricsSection';
-import { ProductRoadmapSection } from './ProductRoadmapSection';
+import { VulnerabilitiesWidget } from './VulnerabilitiesWidget';
+import { SQLOptimizationWidget } from './SQLOptimizationWidget';
+import { ServiceScopesWidget } from './ServiceScopesWidget';
+import { OperationMetricsWidget } from './OperationMetricsWidget';
+import { ProductRoadmapWidget } from './ProductRoadmapWidget';
 import { useUser } from '../../../../shared/context/UserContext';
 
 function Dashboard() {
@@ -44,7 +44,7 @@ function Dashboard() {
                       : 12,
                 }}
               >
-                <TechDebtSection />
+                <TechDebtWidget />
               </Grid>
             )}
             {permissions.canViewVulnerabilities && (
@@ -61,7 +61,7 @@ function Dashboard() {
                       : 12,
                 }}
               >
-                <VulnerabilitiesSection />
+                <VulnerabilitiesWidget />
               </Grid>
             )}
             {permissions.canViewSQLOptimization && (
@@ -78,7 +78,7 @@ function Dashboard() {
                       : 12,
                 }}
               >
-                <SQLOptimizationSection />
+                <SQLOptimizationWidget />
               </Grid>
             )}
           </Grid>
@@ -116,7 +116,7 @@ function Dashboard() {
                     : 12,
                 }}
               >
-                <ServiceScopesSection />
+                <ServiceScopesWidget />
               </Grid>
             )}
             {permissions.canViewAIIndex && (
@@ -140,7 +140,7 @@ function Dashboard() {
                   md: permissions.canViewOperationMetrics ? 8 : 12,
                 }}
               >
-                <ProductRoadmapSection />
+                <ProductRoadmapWidget />
               </Grid>
             )}
             {permissions.canViewOperationMetrics && (
@@ -150,7 +150,7 @@ function Dashboard() {
                   md: permissions.canViewProductRoadmap ? 4 : 12,
                 }}
               >
-                <OperationMetricsSection />
+                <OperationMetricsWidget />
               </Grid>
             )}
           </Grid>

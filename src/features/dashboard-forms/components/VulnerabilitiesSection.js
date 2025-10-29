@@ -29,7 +29,7 @@ const VulnerabilitiesSection = () => {
           Custom Code Vulnerabilities
         </Typography>
         <Grid container spacing={2} sx={{ mb: 3 }}>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <TextField
               label='Detected'
               type='number'
@@ -47,7 +47,7 @@ const VulnerabilitiesSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <TextField
               label='Remediated'
               type='number'
@@ -65,7 +65,7 @@ const VulnerabilitiesSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <TextField
               label='Remaining'
               type='number'
@@ -90,7 +90,7 @@ const VulnerabilitiesSection = () => {
           SAP Portal Vulnerabilities
         </Typography>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <TextField
               label='Total'
               type='number'
@@ -106,7 +106,7 @@ const VulnerabilitiesSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <TextField
               label='Remediated'
               type='number'
@@ -124,7 +124,7 @@ const VulnerabilitiesSection = () => {
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <TextField
               label='Remaining'
               type='number'

@@ -8,8 +8,10 @@
     "sapCE": 90000
   },
   "aiIndex": {
-    "value": 300000,
-    "type": "Savings"
+    "adoptionRate": 6.32,
+    "hoursSaved": 2000,
+    "dollarsSaved": 0.4,
+    "useCases": 3
   },
   "vulnerabilities": {
     "customCode": {

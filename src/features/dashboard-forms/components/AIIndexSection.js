@@ -1,68 +1,98 @@
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  TextField,
-  Grid,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-} from '@mui/material';
+import { Card, CardContent, CardHeader, TextField, Grid } from '@mui/material';
 import { useDashboardForms } from '../context/DashboardFormsContext';
-import { aiIndexTypes } from '../utils/dashboardFormsUtils';
 
 const AIIndexSection = () => {
   const { formData, errors, updateField } = useDashboardForms();
 
-  const handleValueChange = (event) => {
-    const value = parseInt(event.target.value) || 0;
-    updateField('aiIndex.value', value);
+  const handleAdoptionRateChange = (event) => {
+    const value = parseFloat(event.target.value) || 0;
+    updateField('aiIndex.adoptionRate', value);
   };
 
-  const handleTypeChange = (event) => {
-    updateField('aiIndex.type', event.target.value);
+  const handleHoursSavedChange = (event) => {
+    const value = parseInt(event.target.value) || 0;
+    updateField('aiIndex.hoursSaved', value);
+  };
+
+  const handleDollarsSavedChange = (event) => {
+    const value = parseFloat(event.target.value) || 0;
+    updateField('aiIndex.dollarsSaved', value);
+  };
+
+  const handleUseCasesChange = (event) => {
+    const value = parseInt(event.target.value) || 0;
+    updateField('aiIndex.useCases', value);
   };
 
   return (
     <Card>
       <CardHeader
         title='AI Index'
-        subheader='Configure AI index metrics and type'
+        subheader='Configure AI adoption and impact metrics'
       />
       <CardContent>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={6}>
             <TextField
-              label='AI Index Value'
+              label='Adoption Rate (%)'
               type='number'
-              value={formData.aiIndex.value}
-              onChange={handleValueChange}
-              error={!!errors['aiIndex.value']}
+              value={formData.aiIndex.adoptionRate}
+              onChange={handleAdoptionRateChange}
+              error={!!errors['aiIndex.adoptionRate']}
               helperText={
-                errors['aiIndex.value'] || 'AI index value in dollars'
+                errors['aiIndex.adoptionRate'] ||
+                'AI adoption rate as a percentage'
+              }
+              fullWidth
+              inputProps={{ min: 0, max: 100, step: 0.01 }}
+            />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <TextField
+              label='Hours Saved'
+              type='number'
+              value={formData.aiIndex.hoursSaved}
+              onChange={handleHoursSavedChange}
+              error={!!errors['aiIndex.hoursSaved']}
+              helperText={
+                errors['aiIndex.hoursSaved'] || 'Total hours saved through AI'
               }
               fullWidth
               inputProps={{ min: 0 }}
             />
           </Grid>
 
-          <Grid item xs={12} md={4}>
-            <FormControl fullWidth>
-              <InputLabel>Type</InputLabel>
-              <Select
-                value={formData.aiIndex.type}
-                onChange={handleTypeChange}
-                label='Type'
-              >
-                {aiIndexTypes.map((type) => (
-                  <MenuItem key={type} value={type}>
-                    {type}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+          <Grid item xs={12} md={6}>
+            <TextField
+              label='Dollars Saved (in Millions)'
+              type='number'
+              value={formData.aiIndex.dollarsSaved}
+              onChange={handleDollarsSavedChange}
+              error={!!errors['aiIndex.dollarsSaved']}
+              helperText={
+                errors['aiIndex.dollarsSaved'] || 'Dollar savings in millions'
+              }
+              fullWidth
+              inputProps={{ min: 0, step: 0.1 }}
+            />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <TextField
+              label='Use Cases'
+              type='number'
+              value={formData.aiIndex.useCases}
+              onChange={handleUseCasesChange}
+              error={!!errors['aiIndex.useCases']}
+              helperText={
+                errors['aiIndex.useCases'] ||
+                'Number of AI use cases implemented'
+              }
+              fullWidth
+              inputProps={{ min: 0 }}
+            />
           </Grid>
         </Grid>
       </CardContent>

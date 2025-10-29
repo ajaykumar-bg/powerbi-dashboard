@@ -15,8 +15,10 @@ export const generateDashboardData = () => {
       sapCE: formatNumber(getRandomValue(90000, 110000)),
     },
     aiIndex: {
-      value: getRandomValue(300000, 500000),
-      type: 'Savings',
+      adoptionRate: parseFloat((Math.random() * 10 + 5).toFixed(2)), // 5-15%
+      hoursSaved: getRandomValue(1500, 2500),
+      dollarsSaved: formatNumber(getRandomValue(90000, 110000)),
+      useCases: getRandomValue(2, 5),
     },
     vulnerabilities: {
       customCode: {

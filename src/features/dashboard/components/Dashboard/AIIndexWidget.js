@@ -1,85 +1,118 @@
-import { useMemo } from 'react';
-import { Paper, Typography, Box, Chip, LinearProgress } from '@mui/material';
+import React from 'react';
+import { Paper, Typography, Box, Grid } from '@mui/material';
 import { useDashboard } from '../../context/DashboardContext';
-import { formatDisplayNumber } from '../../../dashboard-forms/utils/dashboardFormsUtils';
 
 export const AIIndexWidget = () => {
   const { data } = useDashboard();
 
   const { aiIndex } = data;
 
-  // Calculate progress percentage (assuming max AI Index value is around 500K)
-  const maxValue = 500000;
-  const displayValue = useMemo(
-    () => formatDisplayNumber(aiIndex?.value),
-    [aiIndex?.value]
-  );
-  // const numericValue = parseInt(aiIndex?.value?.replace(/[^\d]/g, '') || 0);
-  const progressPercentage = Math.min((aiIndex?.value / maxValue) * 100, 100);
-
   return (
     <Paper
-      sx={{ p: 2, height: '100%', display: 'flex', flexDirection: 'column' }}
+      sx={{
+        p: { xs: 1.5, sm: 2 },
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
     >
-      <Typography variant='h6' gutterBottom>
+      <Typography variant='h6' gutterBottom sx={{ mb: 1.5 }}>
         AI Index
       </Typography>
 
-      <Box
-        sx={{
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-        }}
-      >
-        <Box>
-          <Typography
-            variant='h4'
-            sx={{
-              mb: 1,
-              fontWeight: 'bold',
-              fontSize: '2rem',
-              color: 'primary.main',
-            }}
-          >
-            {displayValue}
-          </Typography>
+      <Grid container spacing={2} sx={{ flexGrow: 1 }}>
+        <Grid item xs={6}>
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography
+              variant='h4'
+              sx={{
+                fontWeight: 'bold',
+                fontSize: '1.5rem',
+                color: 'primary.main',
+                lineHeight: 1,
+              }}
+            >
+              {aiIndex?.adoptionRate}%
+            </Typography>
+            <Typography
+              variant='caption'
+              color='text.secondary'
+              sx={{ fontSize: '0.75rem' }}
+            >
+              Adoption Rate
+            </Typography>
+          </Box>
+        </Grid>
 
-          <Chip
-            label={aiIndex?.type}
-            color='success'
-            size='small'
-            sx={{ mb: 2 }}
-          />
+        <Grid item xs={6}>
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography
+              variant='h4'
+              sx={{
+                fontWeight: 'bold',
+                fontSize: '1.5rem',
+                color: 'success.main',
+                lineHeight: 1,
+              }}
+            >
+              {aiIndex?.hoursSaved?.toLocaleString()}
+            </Typography>
+            <Typography
+              variant='caption'
+              color='text.secondary'
+              sx={{ fontSize: '0.75rem' }}
+            >
+              Hours Saved
+            </Typography>
+          </Box>
+        </Grid>
 
-          <Typography variant='body2' color='text.secondary' sx={{ mb: 1 }}>
-            AI Performance Progress
-          </Typography>
+        <Grid item xs={6}>
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography
+              variant='h4'
+              sx={{
+                fontWeight: 'bold',
+                fontSize: '1.5rem',
+                color: 'warning.main',
+                lineHeight: 1,
+              }}
+            >
+              {aiIndex?.dollarsSaved}M
+            </Typography>
+            <Typography
+              variant='caption'
+              color='text.secondary'
+              sx={{ fontSize: '0.75rem' }}
+            >
+              Dollars Saved
+            </Typography>
+          </Box>
+        </Grid>
 
-          <LinearProgress
-            variant='determinate'
-            value={progressPercentage}
-            sx={{
-              height: 8,
-              borderRadius: 4,
-              backgroundColor: 'grey.200',
-              '& .MuiLinearProgress-bar': {
-                borderRadius: 4,
-                backgroundColor: 'success.main',
-              },
-            }}
-          />
-
-          <Typography
-            variant='caption'
-            color='text.secondary'
-            sx={{ mt: 1, display: 'block' }}
-          >
-            {progressPercentage.toFixed(1)}% of target achieved
-          </Typography>
-        </Box>
-      </Box>
+        <Grid item xs={6}>
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography
+              variant='h4'
+              sx={{
+                fontWeight: 'bold',
+                fontSize: '1.5rem',
+                color: 'info.main',
+                lineHeight: 1,
+              }}
+            >
+              {aiIndex?.useCases}
+            </Typography>
+            <Typography
+              variant='caption'
+              color='text.secondary'
+              sx={{ fontSize: '0.75rem' }}
+            >
+              Use Cases
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
     </Paper>
   );
 };

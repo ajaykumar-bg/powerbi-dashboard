@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, TextField, Grid } from '@mui/material';
 import { useDashboardForms } from '../context/DashboardFormsContext';
 
-const AppRatSection = () => {
+const AppRatForm = () => {
   const { formData, errors, updateField } = useDashboardForms();
 
   const handleInputChange = (field) => (event) => {
@@ -67,4 +67,4 @@ const AppRatSection = () => {
   );
 };
 
-export default AppRatSection;
+export default AppRatForm;

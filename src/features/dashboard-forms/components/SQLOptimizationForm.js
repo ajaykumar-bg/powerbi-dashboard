@@ -15,7 +15,7 @@ import {
 import { useDashboardForms } from '../context/DashboardFormsContext';
 import { memoryUnits, timeUnits } from '../utils/dashboardFormsUtils';
 
-const SQLOptimizationSection = () => {
+const SQLOptimizationForm = () => {
   const { formData, errors, updateField } = useDashboardForms();
 
   const handleInputChange = (field) => (event) => {
@@ -220,4 +220,4 @@ const SQLOptimizationSection = () => {
   );
 };
 
-export default SQLOptimizationSection;
+export default SQLOptimizationForm;

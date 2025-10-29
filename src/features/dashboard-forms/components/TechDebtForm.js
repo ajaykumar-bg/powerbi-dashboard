@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { useDashboardForms } from '../context/DashboardFormsContext';
 
-const TechDebtSection = () => {
+const TechDebtForm = () => {
   const { formData, errors, updateField } = useDashboardForms();
 
   const handlePercentageChange = (event, newValue) => {
@@ -68,4 +68,4 @@ const TechDebtSection = () => {
   );
 };
 
-export default TechDebtSection;
+export default TechDebtForm;

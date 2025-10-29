@@ -183,7 +183,7 @@ export const generateServiceScopesData = (data) => {
 };
 
 export const generateProductRoadmapBarData = (items) => {
-  // Prepare data for BarChart
+  // Prepare data for BarChart (grouped by year - original visualization)
   const years = [...new Set(items?.map((item) => item.year))].sort();
   const types = [...new Set(items?.map((item) => item.type))];
 
@@ -191,6 +191,7 @@ export const generateProductRoadmapBarData = (items) => {
   const typeColors = {
     'Re-Platform': '#1976d2', // Blue
     Upgrade: '#2e7d32', // Green
+    Migration: '#ed6c02', // Orange
   };
 
   // Group by year and type for stacked bar with colors
@@ -203,4 +204,28 @@ export const generateProductRoadmapBarData = (items) => {
   }));
 
   return { years, types, barData };
+};
+
+export const generateProductRoadmapByTypeData = (items) => {
+  // Prepare data for BarChart (grouped by type - new visualization)
+  const types = [...new Set(items?.map((item) => item.type))];
+  const years = [...new Set(items?.map((item) => item.year))].sort();
+
+  // Map colors to years
+  const yearColors = {
+    2025: '#4caf50', // Green
+    2026: '#ff9800', // Orange
+    2027: '#f44336', // Red
+  };
+
+  // Group by type and year for stacked bar with colors
+  const barData = years.map((year) => ({
+    data: types.map(
+      (type) =>
+        items.filter((item) => item.type === type && item.year === year).length
+    ),
+    color: yearColors[year],
+  }));
+
+  return { types, years, barData };
 };

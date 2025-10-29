@@ -16,7 +16,7 @@ describe('dataGenerator', () => {
       expect(typeof data.appRat.totalSavings).toBe('string');
       expect(typeof data.aiIndex.value).toBe('string');
       expect(data.aiIndex.type).toBe('Savings');
-      expect(typeof data.vulnerabilities.customCode.analyzed).toBe('number');
+      expect(typeof data.vulnerabilities.customCode.detected).toBe('number');
       expect(typeof data.serviceScopes.ricefs).toBe('number');
       expect(typeof data.sqlOptimization.queries.analyzed).toBe('number');
       expect(typeof data.operationMetrics.processed).toBe('number');
@@ -61,17 +61,19 @@ describe('dataGenerator', () => {
   describe('generateVulnerabilityData', () => {
     it('should generate correct vulnerability data structure', () => {
       const input = {
-        customCode: { analyzed: 100, remediatedCount: 50 },
-        sapPortal: { detected: 10, remaining: 2 },
+        customCode: { detected: 100, remediated: 50, remaining: 50 },
+        sapPortal: { total: 12, remediated: 10, remaining: 2 },
       };
       const result = generateVulnerabilityData(input);
       expect(result.customCode).toEqual([
-        { id: 0, value: 100, label: 'Analyzed' },
-        { id: 0, value: 50, label: 'Disposition/Remediated' },
+        { id: 0, value: 100, label: 'Detected', color: '#1976d2' },
+        { id: 1, value: 50, label: 'Remediated', color: '#2e7d32' },
+        { id: 2, value: 50, label: 'Remaining', color: '#ed6c02' },
       ]);
       expect(result.sapPortal).toEqual([
-        { id: 0, value: 10, label: 'Detected (Critical, High, & Medium)' },
-        { id: 0, value: 2, label: 'Remaining (Low)' },
+        { id: 0, value: 12, label: 'Total', color: '#1976d2' },
+        { id: 1, value: 10, label: 'Remediated', color: '#2e7d32' },
+        { id: 2, value: 2, label: 'Remaining', color: '#ed6c02' },
       ]);
     });
   });

@@ -20,12 +20,14 @@ export const generateDashboardData = () => {
     },
     vulnerabilities: {
       customCode: {
-        analyzed: getRandomValue(10000, 12000),
-        remediatedCount: getRandomValue(1800, 2200),
+        detected: getRandomValue(10000, 12000),
+        remediated: getRandomValue(1800, 2200),
+        remaining: getRandomValue(8000, 10000),
       },
       sapPortal: {
-        detected: getRandomValue(100, 150),
-        remaining: getRandomValue(10, 20),
+        total: getRandomValue(100, 150),
+        remediated: getRandomValue(80, 120),
+        remaining: getRandomValue(10, 30),
       },
     },
     serviceScopes: {
@@ -166,26 +168,38 @@ export const generateVulnerabilityData = (data) => {
     customCode: [
       {
         id: 0,
-        value: customCode.analyzed,
-        label: 'Analyzed',
+        value: customCode.detected,
+        label: 'Detected',
         color: '#1976d2',
       },
       {
         id: 1,
-        value: customCode.remediatedCount,
+        value: customCode.remediated,
         label: 'Remediated',
         color: '#2e7d32',
+      },
+      {
+        id: 2,
+        value: customCode.remaining,
+        label: 'Remaining',
+        color: '#ed6c02',
       },
     ],
     sapPortal: [
       {
         id: 0,
-        value: sapPortal.detected,
-        label: 'Detected',
-        color: '#d32f2f',
+        value: sapPortal.total,
+        label: 'Total',
+        color: '#1976d2',
       },
       {
         id: 1,
+        value: sapPortal.remediated,
+        label: 'Remediated',
+        color: '#2e7d32',
+      },
+      {
+        id: 2,
         value: sapPortal.remaining,
         label: 'Remaining',
         color: '#ed6c02',

@@ -51,10 +51,10 @@ export const VulnerabilitiesSection = () => {
           </Typography>
           <Box sx={{ mb: 1 }}>
             <Typography variant='h4' color='primary' sx={{ lineHeight: 1 }}>
-              {vulnerabilities?.customCode?.analyzed}
+              {vulnerabilities?.customCode?.detected}
             </Typography>
             <Typography variant='caption' color='text.secondary'>
-              Analyzed
+              Detected
             </Typography>
           </Box>
           <Box sx={{ mb: 1 }}>
@@ -63,10 +63,22 @@ export const VulnerabilitiesSection = () => {
               color='success.main'
               sx={{ lineHeight: 1 }}
             >
-              {vulnerabilities?.customCode?.remediatedCount}
+              {vulnerabilities?.customCode?.remediated}
             </Typography>
             <Typography variant='caption' color='text.secondary'>
-              Disposition/Remediated
+              Remediated
+            </Typography>
+          </Box>
+          <Box sx={{ mb: 1 }}>
+            <Typography
+              variant='h4'
+              color='warning.main'
+              sx={{ lineHeight: 1 }}
+            >
+              {vulnerabilities?.customCode?.remaining}
+            </Typography>
+            <Typography variant='caption' color='text.secondary'>
+              Remaining
             </Typography>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>
@@ -94,11 +106,23 @@ export const VulnerabilitiesSection = () => {
             SAP Portal Vulnerabilities
           </Typography>
           <Box sx={{ mb: 1 }}>
-            <Typography variant='h4' color='error.main' sx={{ lineHeight: 1 }}>
-              {vulnerabilities?.sapPortal?.detected}
+            <Typography variant='h4' color='primary' sx={{ lineHeight: 1 }}>
+              {vulnerabilities?.sapPortal?.total}
             </Typography>
             <Typography variant='caption' color='text.secondary'>
-              Detected (Critical, High, & Medium)
+              Total (Critical, High & Medium)
+            </Typography>
+          </Box>
+          <Box sx={{ mb: 1 }}>
+            <Typography
+              variant='h4'
+              color='success.main'
+              sx={{ lineHeight: 1 }}
+            >
+              {vulnerabilities?.sapPortal?.remediated}
+            </Typography>
+            <Typography variant='caption' color='text.secondary'>
+              Remediated
             </Typography>
           </Box>
           <Box sx={{ mb: 1 }}>
@@ -110,7 +134,7 @@ export const VulnerabilitiesSection = () => {
               {vulnerabilities?.sapPortal?.remaining}
             </Typography>
             <Typography variant='caption' color='text.secondary'>
-              Remaining (Low)
+              Remaining
             </Typography>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>

@@ -1,34 +1,36 @@
 {
   "techDebt": {
-    "reductionPercentage": 17
+    "reductionPercentage": 25
   },
   "appRat": {
-    "totalSavings": 200000,
-    "sapMobilePlatform": 100000,
-    "sapCE": 90000
+    "totalSavings": 140000,
+    "sapMobilePlatform": 115000,
+    "sapCE": 25000
   },
   "aiIndex": {
-    "value": 300000,
-    "type": "Savings"
+    "adoptionRate": 6.32,
+    "hoursSaved": 2000,
+    "dollarsSaved": 400000,
+    "useCases": 3
   },
   "vulnerabilities": {
     "customCode": {
-      "detected": 10000,
-      "remediated": 1800,
-      "remaining": 8200
+      "detected": 12004,
+      "remediated": 9983,
+      "remaining": 2021
     },
     "sapPortal": {
-      "total": 110,
-      "remediated": 100,
-      "remaining": 10
+      "total": 142,
+      "remediated": 142,
+      "remaining": 0
     }
   },
   "serviceScopes": {
-    "ricefs": 3800,
-    "fioriApps": 280,
-    "retrofits": 6800,
+    "ricefs": 0,
+    "fioriApps": 236,
+    "retrofits": 4300,
     "liveCompare": {
-      "count": 7800,
+      "count": 6000,
       "type": "Executions"
     }
   },

@@ -6,9 +6,44 @@ import {
   useCallback,
 } from 'react';
 import { generateDashboardData } from '../../../common/utils/dataGenerator';
+import { formatNumber } from '../../../common/utils/commonUtils';
+import initialDashboardData from '../../../data/dashboardData.json';
 
 const DashboardContext = createContext();
 const UPDATE_INTERVAL = 5000; // 5 seconds
+
+// Transform raw JSON data to expected format with formatted numbers
+const transformDashboardData = (rawData) => {
+  return {
+    ...rawData,
+    appRat: {
+      totalSavings: formatNumber(rawData.appRat.totalSavings),
+      sapMobilePlatform: formatNumber(rawData.appRat.sapMobilePlatform),
+      sapCE: formatNumber(rawData.appRat.sapCE),
+    },
+    sqlOptimization: {
+      ...rawData.sqlOptimization,
+      performance: {
+        memoryReduction: {
+          value: formatNumber(
+            rawData.sqlOptimization.performance.memoryReduction.value
+          ),
+          unit: rawData.sqlOptimization.performance.memoryReduction.unit,
+        },
+        executionTimeReduction: {
+          value: formatNumber(
+            rawData.sqlOptimization.performance.executionTimeReduction.value
+          ),
+          unit: rawData.sqlOptimization.performance.executionTimeReduction.unit,
+        },
+      },
+    },
+    aiIndex: {
+      ...rawData.aiIndex,
+      dollarsSaved: formatNumber(rawData.aiIndex.dollarsSaved),
+    },
+  };
+};
 
 export const useDashboard = () => {
   const context = useContext(DashboardContext);
@@ -19,8 +54,10 @@ export const useDashboard = () => {
 };
 
 export const DashboardProvider = ({ children }) => {
-  const [data, setData] = useState(generateDashboardData());
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(() =>
+    transformDashboardData(initialDashboardData)
+  );
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isLive, setIsLive] = useState(false);
 
@@ -30,6 +67,7 @@ export const DashboardProvider = ({ children }) => {
 
   const updateData = useCallback(() => {
     try {
+      // Use data generator for live updates to simulate real-time changes
       const newData = generateDashboardData();
       setData(newData);
       setLoading(false);
@@ -49,10 +87,8 @@ export const DashboardProvider = ({ children }) => {
     }
   }, []);
 
-  // Initial data load
-  useEffect(() => {
-    updateData();
-  }, [updateData]);
+  // Initial data is loaded from JSON file directly
+  // No need for initial data load effect
 
   // Set up real-time updates
   useEffect(() => {

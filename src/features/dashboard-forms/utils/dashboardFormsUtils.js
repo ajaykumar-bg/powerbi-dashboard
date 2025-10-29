@@ -41,7 +41,7 @@ export const productRoadmapTypes = ['Re-Platform', 'Upgrade', 'Migration'];
 export const serviceScopeTypes = ['Executions', 'Operations', 'Analysis'];
 
 // AI Index types
-export const aiIndexTypes = ['Savings', 'Revenue', 'Cost Reduction'];
+// AI Index types removed - now using individual metrics
 
 // Memory unit options
 export const memoryUnits = ['GB', 'TB', 'MB'];
@@ -184,7 +184,10 @@ export const validateDashboardForm = (formData) => {
     'appRat.totalSavings',
     'appRat.sapMobilePlatform',
     'appRat.sapCE',
-    'aiIndex.value',
+    'aiIndex.adoptionRate',
+    'aiIndex.hoursSaved',
+    'aiIndex.dollarsSaved',
+    'aiIndex.useCases',
     'vulnerabilities.customCode.detected',
     'vulnerabilities.customCode.remediated',
     'vulnerabilities.customCode.remaining',

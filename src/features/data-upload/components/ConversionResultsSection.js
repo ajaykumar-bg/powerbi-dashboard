@@ -72,7 +72,6 @@ const ConversionResultsSection = () => {
               borderColor: 'divider',
               borderRadius: 1,
               p: 2,
-              backgroundColor: 'grey.50',
             }}
           >
             <pre

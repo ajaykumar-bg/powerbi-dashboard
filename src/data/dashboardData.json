@@ -53,10 +53,9 @@
     }
   },
   "operationMetrics": {
-    "processed": 9800,
-    "inProgress": 2500,
-    "completed": 5500,
-    "completionPercentage": 50
+    "created": 13287,
+    "active": 779,
+    "closed": 13275
   },
   "productRoadmap": {
     "items": [

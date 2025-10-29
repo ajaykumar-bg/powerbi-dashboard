@@ -13,15 +13,15 @@ The Dashboard Forms feature allows users to configure all dashboard metrics thro
 ```
 src/features/dashboard-forms/
 ├── components/
-│   ├── DashboardForms.js           # Main orchestrating component with tabs
-│   ├── TechDebtSection.js          # Tech debt reduction configuration
-│   ├── AppRatSection.js            # App rationalization metrics
-│   ├── AIIndexSection.js           # AI index configuration
-│   ├── VulnerabilitiesSection.js   # Vulnerability analysis forms
-│   ├── ServiceScopesSection.js     # Service scopes configuration
-│   ├── SQLOptimizationSection.js   # SQL optimization metrics
-│   ├── OperationMetricsSection.js  # Operations metrics tracking
-│   └── ProductRoadmapSection.js    # Dynamic roadmap management
+│   ├── DashboardForms.js        # Main orchestrating component with tabs
+│   ├── TechDebtForm.js          # Tech debt reduction configuration
+│   ├── AppRatForm.js            # App rationalization metrics
+│   ├── AIIndexForm.js           # AI index configuration
+│   ├── VulnerabilitiesForm.js   # Vulnerability analysis forms
+│   ├── ServiceScopesForm.js     # Service scopes configuration
+│   ├── SQLOptimizationForm.js   # SQL optimization metrics
+│   ├── OperationMetricsForm.js  # Operations metrics tracking
+│   └── ProductRoadmapForm.js    # Dynamic roadmap management
 ├── context/
 │   └── DashboardFormsContext.js    # State management & validation
 ├── utils/
@@ -39,7 +39,7 @@ src/features/dashboard-forms/
 
 ## 🎯 Form Sections
 
-### 1. Tech Debt Section
+### 1. Tech Debt Form
 
 **Purpose**: Configure technical debt reduction metrics
 
@@ -47,7 +47,7 @@ src/features/dashboard-forms/
 - **Visual Feedback**: Real-time percentage display
 - **Validation**: Range validation and required field checking
 
-### 2. App Rationalization Section
+### 2. App Rationalization Form
 
 **Purpose**: Configure application rationalization savings
 
@@ -56,7 +56,7 @@ src/features/dashboard-forms/
 - **SAP CE**: SAP Customer Experience savings
 - **Features**: Numeric validation, currency formatting hints
 
-### 3. AI Index Section
+### 3. AI Index Form
 
 **Purpose**: Configure AI-related metrics and categorization
 
@@ -64,7 +64,7 @@ src/features/dashboard-forms/
 - **Type Selection**: Dropdown (Savings, Revenue, Cost Reduction)
 - **Integration**: Direct mapping to dashboard AI widgets
 
-### 4. Vulnerabilities Section
+### 4. Vulnerabilities Form
 
 **Purpose**: Configure security vulnerability tracking
 
@@ -79,7 +79,7 @@ src/features/dashboard-forms/
 - **Remaining**: Outstanding vulnerabilities
 - **Layout**: Organized sections with clear separation
 
-### 5. Service Scopes Section
+### 5. Service Scopes Form
 
 **Purpose**: Configure service scope metrics and live compare settings
 
@@ -92,7 +92,7 @@ src/features/dashboard-forms/
 - **Count**: Number of live compare operations
 - **Type**: Configurable type (Executions, Operations, Analysis)
 
-### 6. SQL Optimization Section
+### 6. SQL Optimization Form
 
 **Purpose**: Configure SQL performance and optimization metrics
 
@@ -109,7 +109,7 @@ src/features/dashboard-forms/
 - **Execution Time Reduction**: Value with unit selection (Seconds, Minutes, Hours)
 - **Flexible Units**: Dropdown selectors for appropriate units
 
-### 7. Operation Metrics Section
+### 7. Operation Metrics Form
 
 **Purpose**: Configure operational tracking and completion metrics
 
@@ -124,7 +124,7 @@ src/features/dashboard-forms/
 - **Automatic Calculations**: Percentage calculations based on totals
 - **Visual Indicators**: Color-coded progress bars
 
-### 8. Product Roadmap Section ⭐
+### 8. Product Roadmap Form ⭐
 
 **Purpose**: Dynamic management of product roadmap items
 

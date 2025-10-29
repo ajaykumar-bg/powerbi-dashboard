@@ -29,19 +29,21 @@ describe('dataGenerator', () => {
       expect(typeof data.vulnerabilities.customCode.detected).toBe('number');
       expect(typeof data.serviceScopes.ricefs).toBe('number');
       expect(typeof data.sqlOptimization.queries.analyzed).toBe('number');
-      expect(typeof data.operationMetrics.processed).toBe('number');
+      expect(typeof data.operationMetrics.created).toBe('number');
+      expect(typeof data.operationMetrics.active).toBe('number');
+      expect(typeof data.operationMetrics.closed).toBe('number');
       expect(Array.isArray(data.productRoadmap.items)).toBe(true);
     });
   });
 
   describe('generateOperationMetricsData', () => {
     it('should generate correct operation metrics data array', () => {
-      const input = { processed: 10, inProgress: 5, completed: 15 };
+      const input = { created: 13287, active: 779, closed: 13275 };
       const result = generateOperationMetricsData(input);
       expect(result).toEqual([
-        { id: 0, value: 10, label: 'Processed' },
-        { id: 1, value: 5, label: 'In-Progress' },
-        { id: 3, value: 15, label: 'Completed' },
+        { id: 0, value: 13287, label: 'Created', color: '#90caf9' },
+        { id: 1, value: 779, label: 'Active', color: '#ffa726' },
+        { id: 2, value: 13275, label: 'Closed', color: '#66bb6a' },
       ]);
     });
   });

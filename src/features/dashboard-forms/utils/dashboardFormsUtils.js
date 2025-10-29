@@ -204,10 +204,9 @@ export const validateDashboardForm = (formData) => {
     'sqlOptimization.queries.optimized',
     'sqlOptimization.performance.memoryReduction.value',
     'sqlOptimization.performance.executionTimeReduction.value',
-    'operationMetrics.processed',
-    'operationMetrics.inProgress',
-    'operationMetrics.completed',
-    'operationMetrics.completionPercentage',
+    'operationMetrics.created',
+    'operationMetrics.active',
+    'operationMetrics.closed',
   ];
 
   // Validate numeric fields

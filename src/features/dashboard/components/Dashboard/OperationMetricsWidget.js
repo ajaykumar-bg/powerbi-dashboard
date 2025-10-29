@@ -26,11 +26,19 @@ export const OperationMetricsWidget = () => {
     [operationMetrics]
   );
 
+  // Calculate completion percentage based on created and closed
+  const completionPercentage = useMemo(() => {
+    if (!operationMetrics?.created || operationMetrics.created === 0) return 0;
+    return Math.round(
+      (operationMetrics.closed / operationMetrics.created) * 100
+    );
+  }, [operationMetrics?.created, operationMetrics?.closed]);
+
   const progressColor = useMemo(() => {
     return getColorFromColorPath(
-      getGaugeColor(operationMetrics?.completionPercentage, 'completion')
+      getGaugeColor(completionPercentage, 'completion')
     );
-  }, [operationMetrics?.completionPercentage]);
+  }, [completionPercentage]);
 
   return (
     <Paper sx={{ p: 2, height: '100%' }}>
@@ -52,21 +60,21 @@ export const OperationMetricsWidget = () => {
       <Grid container spacing={2} justifyContent={'space-between'}>
         <Grid size={{ xs: 4 }}>
           <Typography variant='h4' color='primary'>
-            {operationMetrics?.processed}
+            {operationMetrics?.created?.toLocaleString()}
           </Typography>
-          <Typography variant='body2'>Processed</Typography>
+          <Typography variant='body2'>Created</Typography>
         </Grid>
         <Grid size={{ xs: 4 }}>
           <Typography variant='h4' color='warning'>
-            {operationMetrics?.inProgress}
+            {operationMetrics?.active?.toLocaleString()}
           </Typography>
-          <Typography variant='body2'>In-Progress</Typography>
+          <Typography variant='body2'>Active</Typography>
         </Grid>
         <Grid size={{ xs: 4 }}>
           <Typography variant='h4' color='success'>
-            {operationMetrics?.completed}
+            {operationMetrics?.closed?.toLocaleString()}
           </Typography>
-          <Typography variant='body2'>Completed</Typography>
+          <Typography variant='body2'>Closed</Typography>
         </Grid>
       </Grid>
       <Divider sx={{ my: 2 }} />
@@ -85,7 +93,7 @@ export const OperationMetricsWidget = () => {
         <Box sx={{ position: 'relative', display: 'inline-flex' }}>
           <CircularProgress
             variant='determinate'
-            value={operationMetrics?.completionPercentage || 0}
+            value={completionPercentage}
             size={80}
             thickness={6}
             sx={{
@@ -110,7 +118,7 @@ export const OperationMetricsWidget = () => {
               color='text.secondary'
               sx={{ fontWeight: 'bold' }}
             >
-              {`${Math.round(operationMetrics?.completionPercentage || 0)}%`}
+              {`${completionPercentage}%`}
             </Typography>
           </Box>
         </Box>
@@ -119,7 +127,7 @@ export const OperationMetricsWidget = () => {
           color='text.secondary'
           sx={{ mt: 1, textAlign: 'center' }}
         >
-          Current Progress
+          Closed / Created
         </Typography>
       </Box>
     </Paper>

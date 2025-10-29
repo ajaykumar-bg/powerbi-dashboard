@@ -38,6 +38,10 @@ const transformDashboardData = (rawData) => {
         },
       },
     },
+    aiIndex: {
+      ...rawData.aiIndex,
+      dollarsSaved: formatNumber(rawData.aiIndex.dollarsSaved),
+    },
   };
 };
 

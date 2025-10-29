@@ -21,7 +21,7 @@ export const AIIndexWidget = () => {
       </Typography>
 
       <Grid container spacing={2} sx={{ flexGrow: 1 }}>
-        <Grid item xs={6}>
+        <Grid size={{ xs: 6 }}>
           <Box sx={{ textAlign: 'center' }}>
             <Typography
               variant='h4'
@@ -44,7 +44,7 @@ export const AIIndexWidget = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid size={{ xs: 6 }}>
           <Box sx={{ textAlign: 'center' }}>
             <Typography
               variant='h4'
@@ -67,7 +67,7 @@ export const AIIndexWidget = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid size={{ xs: 6 }}>
           <Box sx={{ textAlign: 'center' }}>
             <Typography
               variant='h4'
@@ -78,7 +78,7 @@ export const AIIndexWidget = () => {
                 lineHeight: 1,
               }}
             >
-              {aiIndex?.dollarsSaved}M
+              {aiIndex?.dollarsSaved}
             </Typography>
             <Typography
               variant='caption'
@@ -90,7 +90,7 @@ export const AIIndexWidget = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid size={{ xs: 6 }}>
           <Box sx={{ textAlign: 'center' }}>
             <Typography
               variant='h4'

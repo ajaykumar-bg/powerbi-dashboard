@@ -133,7 +133,7 @@ src/features/dashboard-forms/
 - **Add New Items**: Form for creating roadmap items
 - **Edit Existing**: Inline editing of roadmap items
 - **Remove Items**: Delete functionality with confirmation
-- **Categorization**: Type selection (Re-Platform, Upgrade, Migration)
+- **Categorization**: Type selection (Re-Platform, Upgrade)
 - **Timeline Management**: Year-based organization (2024-2030)
 
 #### Advanced Functionality

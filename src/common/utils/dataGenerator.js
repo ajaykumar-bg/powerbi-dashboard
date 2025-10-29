@@ -66,66 +66,14 @@ export const generateDashboardData = () => {
     },
     productRoadmap: {
       items: [
-        {
-          name: 'Portal',
-          year: '2027',
-          type: 'Re-Platform',
-        },
-        {
-          name: 'WM',
-          year: '2027',
-          type: 'Re-Platform',
-        },
-        {
-          name: 'SolMan',
-          year: '2027',
-          type: 'Upgrade',
-        },
-        {
-          name: 'Live Compare',
-          year: '2026',
-          type: 'Re-Platform',
-        },
-        {
-          name: 'Data Masking',
-          year: '2026',
-          type: 'Upgrade',
-        },
-        {
-          name: 'Cloud Migration',
-          year: '2025',
-          type: 'Migration',
-        },
-        {
-          name: 'Mobile Apps',
-          year: '2025',
-          type: 'Upgrade',
-        },
-        {
-          name: 'API Management',
-          year: '2026',
-          type: 'Re-Platform',
-        },
-        {
-          name: 'Security Framework',
-          year: '2025',
-          type: 'Upgrade',
-        },
-        {
-          name: 'DevOps Pipeline',
-          year: '2025',
-          type: 'Migration',
-        },
-        {
-          name: 'Data Warehouse',
-          year: '2026',
-          type: 'Migration',
-        },
-        {
-          name: 'AI/ML Platform',
-          year: '2027',
-          type: 'Migration',
-        },
+        { name: 'SSAM', year: '2026', type: 'Upgrade' },
+        { name: 'Live Compare', year: '2026', type: 'Upgrade' },
+        { name: 'Data Masking', year: '2026', type: 'Upgrade' },
+
+        { name: 'Solution Manager', year: '2027', type: 'Re-Platform' },
+        { name: 'Portal', year: '2027', type: 'Re-Platform' },
+        { name: 'Work Manager', year: '2027', type: 'Re-Platform' },
+        { name: 'SAP Gateway/Fiori', year: '2027', type: 'Re-Platform' },
       ],
     },
   };
@@ -243,7 +191,6 @@ export const generateProductRoadmapBarData = (items) => {
   const typeColors = {
     'Re-Platform': '#1976d2', // Blue
     Upgrade: '#2e7d32', // Green
-    Migration: '#ed6c02', // Orange
   };
 
   // Group by year and type for stacked bar with colors

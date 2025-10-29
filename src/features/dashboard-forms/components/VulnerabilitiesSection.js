@@ -29,36 +29,54 @@ const VulnerabilitiesSection = () => {
           Custom Code Vulnerabilities
         </Typography>
         <Grid container spacing={2} sx={{ mb: 3 }}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={4}>
             <TextField
-              label='Lines Analyzed'
+              label='Detected'
               type='number'
-              value={formData.vulnerabilities.customCode.analyzed}
+              value={formData.vulnerabilities.customCode.detected}
               onChange={handleInputChange(
-                'vulnerabilities.customCode.analyzed'
+                'vulnerabilities.customCode.detected'
               )}
-              error={!!errors['vulnerabilities.customCode.analyzed']}
+              error={!!errors['vulnerabilities.customCode.detected']}
               helperText={
-                errors['vulnerabilities.customCode.analyzed'] ||
-                'Lines of code analyzed'
+                errors['vulnerabilities.customCode.detected'] ||
+                'Vulnerabilities detected'
               }
               fullWidth
               inputProps={{ min: 0 }}
             />
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={4}>
             <TextField
-              label='Remediated Count'
+              label='Remediated'
               type='number'
-              value={formData.vulnerabilities.customCode.remediatedCount}
+              value={formData.vulnerabilities.customCode.remediated}
               onChange={handleInputChange(
-                'vulnerabilities.customCode.remediatedCount'
+                'vulnerabilities.customCode.remediated'
               )}
-              error={!!errors['vulnerabilities.customCode.remediatedCount']}
+              error={!!errors['vulnerabilities.customCode.remediated']}
               helperText={
-                errors['vulnerabilities.customCode.remediatedCount'] ||
-                'Number of vulnerabilities remediated'
+                errors['vulnerabilities.customCode.remediated'] ||
+                'Vulnerabilities remediated'
+              }
+              fullWidth
+              inputProps={{ min: 0 }}
+            />
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <TextField
+              label='Remaining'
+              type='number'
+              value={formData.vulnerabilities.customCode.remaining}
+              onChange={handleInputChange(
+                'vulnerabilities.customCode.remaining'
+              )}
+              error={!!errors['vulnerabilities.customCode.remaining']}
+              helperText={
+                errors['vulnerabilities.customCode.remaining'] ||
+                'Vulnerabilities remaining'
               }
               fullWidth
               inputProps={{ min: 0 }}
@@ -72,23 +90,41 @@ const VulnerabilitiesSection = () => {
           SAP Portal Vulnerabilities
         </Typography>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={4}>
             <TextField
-              label='Detected'
+              label='Total'
               type='number'
-              value={formData.vulnerabilities.sapPortal.detected}
-              onChange={handleInputChange('vulnerabilities.sapPortal.detected')}
-              error={!!errors['vulnerabilities.sapPortal.detected']}
+              value={formData.vulnerabilities.sapPortal.total}
+              onChange={handleInputChange('vulnerabilities.sapPortal.total')}
+              error={!!errors['vulnerabilities.sapPortal.total']}
               helperText={
-                errors['vulnerabilities.sapPortal.detected'] ||
-                'Vulnerabilities detected'
+                errors['vulnerabilities.sapPortal.total'] ||
+                'Total vulnerabilities'
               }
               fullWidth
               inputProps={{ min: 0 }}
             />
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={4}>
+            <TextField
+              label='Remediated'
+              type='number'
+              value={formData.vulnerabilities.sapPortal.remediated}
+              onChange={handleInputChange(
+                'vulnerabilities.sapPortal.remediated'
+              )}
+              error={!!errors['vulnerabilities.sapPortal.remediated']}
+              helperText={
+                errors['vulnerabilities.sapPortal.remediated'] ||
+                'Vulnerabilities remediated'
+              }
+              fullWidth
+              inputProps={{ min: 0 }}
+            />
+          </Grid>
+
+          <Grid item xs={12} md={4}>
             <TextField
               label='Remaining'
               type='number'

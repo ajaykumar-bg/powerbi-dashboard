@@ -94,7 +94,7 @@ const ProductRoadmapForm = () => {
                 value={newItem.name}
                 onChange={(e) => handleNewItemChange('name', e.target.value)}
                 fullWidth
-                placeholder='e.g., Cloud Migration'
+                placeholder='e.g., Live Compare'
               />
             </Grid>
 

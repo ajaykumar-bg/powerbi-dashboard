@@ -1,5 +1,5 @@
 import { Grid, Paper, Typography } from '@mui/material';
-import { useDashboard } from '../../context/DashboardContext';
+import { useDashboard } from '../context/DashboardContext';
 
 export const AppRatWidget = () => {
   const { data } = useDashboard();

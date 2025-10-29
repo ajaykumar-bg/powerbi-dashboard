@@ -35,7 +35,7 @@ export const generateYearOptions = (startYear = 2024, endYear = 2030) => {
 };
 
 // Product roadmap type options
-export const productRoadmapTypes = ['Re-Platform', 'Upgrade', 'Migration'];
+export const productRoadmapTypes = ['Re-Platform', 'Upgrade'];
 
 // Service scope types
 export const serviceScopeTypes = ['Executions', 'Operations', 'Analysis'];

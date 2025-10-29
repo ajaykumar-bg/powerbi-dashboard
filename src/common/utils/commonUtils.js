@@ -13,9 +13,6 @@ export const getRoadMapChipColor = (type) => {
     case 'Re-Platform':
       color = 'primary';
       break;
-    case 'Migration':
-      color = 'warning';
-      break;
     default:
       color = 'default';
   }

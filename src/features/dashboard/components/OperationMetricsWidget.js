@@ -7,14 +7,14 @@ import {
   CircularProgress,
 } from '@mui/material';
 
-import { useDashboard } from '../../context/DashboardContext';
+import { useDashboard } from '../context/DashboardContext';
 import { PieChart } from '@mui/x-charts';
 import { useMemo } from 'react';
-import { generateOperationMetricsData } from '../../../../common/utils/dataGenerator';
+import { generateOperationMetricsData } from '../../../common/utils/dataGenerator';
 import {
   getColorFromColorPath,
   getGaugeColor,
-} from '../../../../common/utils/commonUtils';
+} from '../../../common/utils/commonUtils';
 
 export const OperationMetricsWidget = () => {
   const { data } = useDashboard();

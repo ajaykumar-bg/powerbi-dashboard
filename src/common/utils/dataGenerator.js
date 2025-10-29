@@ -66,66 +66,14 @@ export const generateDashboardData = () => {
     },
     productRoadmap: {
       items: [
-        {
-          name: 'Portal',
-          year: '2027',
-          type: 'Re-Platform',
-        },
-        {
-          name: 'WM',
-          year: '2027',
-          type: 'Re-Platform',
-        },
-        {
-          name: 'SolMan',
-          year: '2027',
-          type: 'Upgrade',
-        },
-        {
-          name: 'Live Compare',
-          year: '2026',
-          type: 'Re-Platform',
-        },
-        {
-          name: 'Data Masking',
-          year: '2026',
-          type: 'Upgrade',
-        },
-        {
-          name: 'Cloud Migration',
-          year: '2025',
-          type: 'Migration',
-        },
-        {
-          name: 'Mobile Apps',
-          year: '2025',
-          type: 'Upgrade',
-        },
-        {
-          name: 'API Management',
-          year: '2026',
-          type: 'Re-Platform',
-        },
-        {
-          name: 'Security Framework',
-          year: '2025',
-          type: 'Upgrade',
-        },
-        {
-          name: 'DevOps Pipeline',
-          year: '2025',
-          type: 'Migration',
-        },
-        {
-          name: 'Data Warehouse',
-          year: '2026',
-          type: 'Migration',
-        },
-        {
-          name: 'AI/ML Platform',
-          year: '2027',
-          type: 'Migration',
-        },
+        { name: 'SSAM', year: '2026', type: 'Upgrade' },
+        { name: 'Live Compare', year: '2026', type: 'Upgrade' },
+        { name: 'Data Masking', year: '2026', type: 'Upgrade' },
+
+        { name: 'Solution Manager', year: '2027', type: 'Re-Platform' },
+        { name: 'Portal', year: '2027', type: 'Re-Platform' },
+        { name: 'Work Manager', year: '2027', type: 'Re-Platform' },
+        { name: 'SAP Gateway/Fiori', year: '2027', type: 'Re-Platform' },
       ],
     },
   };
@@ -235,7 +183,7 @@ export const generateServiceScopesData = (data) => {
 };
 
 export const generateProductRoadmapBarData = (items) => {
-  // Prepare data for BarChart
+  // Prepare data for BarChart (grouped by year - original visualization)
   const years = [...new Set(items?.map((item) => item.year))].sort();
   const types = [...new Set(items?.map((item) => item.type))];
 
@@ -256,4 +204,28 @@ export const generateProductRoadmapBarData = (items) => {
   }));
 
   return { years, types, barData };
+};
+
+export const generateProductRoadmapByTypeData = (items) => {
+  // Prepare data for BarChart (grouped by type - new visualization)
+  const types = [...new Set(items?.map((item) => item.type))];
+  const years = [...new Set(items?.map((item) => item.year))].sort();
+
+  // Map colors to years
+  const yearColors = {
+    2025: '#4caf50', // Green
+    2026: '#ff9800', // Orange
+    2027: '#f44336', // Red
+  };
+
+  // Group by type and year for stacked bar with colors
+  const barData = years.map((year) => ({
+    data: types.map(
+      (type) =>
+        items.filter((item) => item.type === type && item.year === year).length
+    ),
+    color: yearColors[year],
+  }));
+
+  return { types, years, barData };
 };

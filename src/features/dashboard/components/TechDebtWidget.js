@@ -1,9 +1,9 @@
 import { Paper, Typography, Box, CircularProgress } from '@mui/material';
-import { useDashboard } from '../../context/DashboardContext';
+import { useDashboard } from '../context/DashboardContext';
 import {
   getColorFromColorPath,
   getGaugeColor,
-} from '../../../../common/utils/commonUtils';
+} from '../../../common/utils/commonUtils';
 import { useMemo } from 'react';
 
 export const TechDebtWidget = () => {

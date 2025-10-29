@@ -1,11 +1,7 @@
+import { formatNumber } from './commonUtils';
+
 const getRandomValue = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-export const formatNumber = (num) => {
-  if (num >= 1000000) return `${(num / 1000000).toFixed(1)} MM`;
-  if (num >= 1000) return `${(num / 1000).toFixed(0)}K`;
-  return num.toString();
 };
 
 export const generateDashboardData = () => {

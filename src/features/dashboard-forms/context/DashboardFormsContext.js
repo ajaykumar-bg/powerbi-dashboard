@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import { useDashboard } from '../../dashboard/context/DashboardContext';
-import { formatNumber } from '../../../common/utils/dataGenerator';
+import initialFormData from '../../../data/dashboardData.json';
+import { getFormattedFormData } from '../utils/dashboardFormsUtils';
 
 const DashboardFormsContext = createContext();
 
@@ -12,81 +13,6 @@ export const useDashboardForms = () => {
     );
   }
   return context;
-};
-
-// Initial form data structure based on generateDashboardData
-const initialFormData = {
-  techDebt: {
-    reductionPercentage: 15,
-  },
-  appRat: {
-    totalSavings: 200000,
-    sapMobilePlatform: 100000,
-    sapCE: 90000,
-  },
-  aiIndex: {
-    value: 300000,
-    type: 'Savings',
-  },
-  vulnerabilities: {
-    customCode: {
-      analyzed: 10000,
-      remediatedCount: 1800,
-    },
-    sapPortal: {
-      detected: 100,
-      remaining: 10,
-    },
-  },
-  serviceScopes: {
-    ricefs: 3800,
-    fioriApps: 280,
-    retrofits: 6800,
-    liveCompare: {
-      count: 7800,
-      type: 'Executions',
-    },
-  },
-  sqlOptimization: {
-    queries: {
-      analyzed: 60,
-      dispositioned: 35,
-      inProgress: 23,
-      optimized: 11,
-    },
-    performance: {
-      memoryReduction: {
-        value: 38000,
-        unit: 'GB',
-      },
-      executionTimeReduction: {
-        value: 780000,
-        unit: 'Seconds',
-      },
-    },
-  },
-  operationMetrics: {
-    processed: 9800,
-    inProgress: 2500,
-    completed: 5500,
-    completionPercentage: 50,
-  },
-  productRoadmap: {
-    items: [
-      { name: 'Portal', year: '2027', type: 'Re-Platform' },
-      { name: 'WM', year: '2027', type: 'Re-Platform' },
-      { name: 'SolMan', year: '2027', type: 'Upgrade' },
-      { name: 'Live Compare', year: '2026', type: 'Re-Platform' },
-      { name: 'Data Masking', year: '2026', type: 'Upgrade' },
-      { name: 'Cloud Migration', year: '2025', type: 'Migration' },
-      { name: 'Mobile Apps', year: '2025', type: 'Upgrade' },
-      { name: 'API Management', year: '2026', type: 'Re-Platform' },
-      { name: 'Security Framework', year: '2025', type: 'Upgrade' },
-      { name: 'DevOps Pipeline', year: '2025', type: 'Migration' },
-      { name: 'Data Warehouse', year: '2026', type: 'Migration' },
-      { name: 'AI/ML Platform', year: '2027', type: 'Migration' },
-    ],
-  },
 };
 
 export const DashboardFormsProvider = ({ children }) => {
@@ -250,33 +176,7 @@ export const DashboardFormsProvider = ({ children }) => {
       console.log('Dashboard form submitted:', formData);
 
       // Format the data to match the expected dashboard format
-      const formattedData = {
-        ...formData,
-        appRat: {
-          totalSavings: formatNumber(formData.appRat.totalSavings),
-          sapMobilePlatform: formatNumber(formData.appRat.sapMobilePlatform),
-          sapCE: formatNumber(formData.appRat.sapCE),
-        },
-        sqlOptimization: {
-          ...formData.sqlOptimization,
-          performance: {
-            memoryReduction: {
-              value: formatNumber(
-                formData.sqlOptimization.performance.memoryReduction.value
-              ),
-              unit: formData.sqlOptimization.performance.memoryReduction.unit,
-            },
-            executionTimeReduction: {
-              value: formatNumber(
-                formData.sqlOptimization.performance.executionTimeReduction
-                  .value
-              ),
-              unit: formData.sqlOptimization.performance.executionTimeReduction
-                .unit,
-            },
-          },
-        },
-      };
+      const formattedData = getFormattedFormData(formData);
 
       // Update the dashboard context with the formatted data
       setDashboardData(formattedData);

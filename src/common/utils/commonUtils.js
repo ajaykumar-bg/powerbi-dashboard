@@ -1,3 +1,9 @@
+export const formatNumber = (num) => {
+  if (num >= 1000000) return `${(num / 1000000).toFixed(1)} MM`;
+  if (num >= 1000) return `${(num / 1000).toFixed(0)}K`;
+  return num.toString();
+};
+
 export const getRoadMapChipColor = (type) => {
   let color = 'default';
   switch (type) {

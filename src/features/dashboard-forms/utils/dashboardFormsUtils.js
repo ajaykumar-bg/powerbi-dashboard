@@ -74,3 +74,33 @@ export const setNestedValue = (obj, path, value) => {
   target[lastKey] = value;
   return obj;
 };
+
+export const getFormattedFormData = (formData) => {
+  const formattedData = {
+    ...formData,
+    appRat: {
+      totalSavings: formatDisplayNumber(formData.appRat.totalSavings),
+      sapMobilePlatform: formatDisplayNumber(formData.appRat.sapMobilePlatform),
+      sapCE: formatDisplayNumber(formData.appRat.sapCE),
+    },
+    sqlOptimization: {
+      ...formData.sqlOptimization,
+      performance: {
+        memoryReduction: {
+          value: formatDisplayNumber(
+            formData.sqlOptimization.performance.memoryReduction.value
+          ),
+          unit: formData.sqlOptimization.performance.memoryReduction.unit,
+        },
+        executionTimeReduction: {
+          value: formatDisplayNumber(
+            formData.sqlOptimization.performance.executionTimeReduction.value
+          ),
+          unit: formData.sqlOptimization.performance.executionTimeReduction
+            .unit,
+        },
+      },
+    },
+  };
+  return formattedData;
+};

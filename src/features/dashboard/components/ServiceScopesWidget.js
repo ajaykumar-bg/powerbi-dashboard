@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { Box, Paper, Typography, Grid } from '@mui/material';
-import { useDashboard } from '../../context/DashboardContext';
+import { useDashboard } from '../context/DashboardContext';
 
 import { PieChart } from '@mui/x-charts/PieChart';
 
-import { generateServiceScopesData } from '../../../../common/utils/dataGenerator';
+import { generateServiceScopesData } from '../../../common/utils/dataGenerator';
 
 export const ServiceScopesWidget = () => {
   const { data } = useDashboard();

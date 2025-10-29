@@ -8,7 +8,7 @@ import { SQLOptimizationWidget } from './SQLOptimizationWidget';
 import { ServiceScopesWidget } from './ServiceScopesWidget';
 import { OperationMetricsWidget } from './OperationMetricsWidget';
 import { ProductRoadmapWidget } from './ProductRoadmapWidget';
-import { useUser } from '../../../../shared/context/UserContext';
+import { useUser } from '../../../shared/context/UserContext';
 
 function Dashboard() {
   const { permissions } = useUser();

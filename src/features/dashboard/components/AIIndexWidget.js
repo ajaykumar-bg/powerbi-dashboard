@@ -1,6 +1,6 @@
 import React from 'react';
 import { Paper, Typography, Box, Grid } from '@mui/material';
-import { useDashboard } from '../../context/DashboardContext';
+import { useDashboard } from '../context/DashboardContext';
 
 export const AIIndexWidget = () => {
   const { data } = useDashboard();

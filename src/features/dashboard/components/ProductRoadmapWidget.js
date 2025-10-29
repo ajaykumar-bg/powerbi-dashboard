@@ -11,13 +11,13 @@ import {
   MenuItem,
 } from '@mui/material';
 import { BarChart } from '@mui/x-charts/BarChart';
-import { useDashboard } from '../../context/DashboardContext';
+import { useDashboard } from '../context/DashboardContext';
 import {
   generateProductRoadmapBarData,
   generateProductRoadmapByTypeData,
-} from '../../../../common/utils/dataGenerator';
+} from '../../../common/utils/dataGenerator';
 import { useMemo, useState } from 'react';
-import { getRoadMapChipColor } from '../../../../common/utils/commonUtils';
+import { getRoadMapChipColor } from '../../../common/utils/commonUtils';
 
 export const ProductRoadmapWidget = () => {
   const { data } = useDashboard();

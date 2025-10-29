@@ -1,11 +1,11 @@
 import { Box, Paper, Typography, Grid } from '@mui/material';
-import { useDashboard } from '../../context/DashboardContext';
+import { useDashboard } from '../context/DashboardContext';
 import { useNavigate } from 'react-router-dom';
 
 import { useMemo } from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
 
-import { generateVulnerabilityData } from '../../../../common/utils/dataGenerator';
+import { generateVulnerabilityData } from '../../../common/utils/dataGenerator';
 
 const chartSettings = {
   width: 180,

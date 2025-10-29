@@ -1,10 +1,10 @@
 import { Box, Divider, Grid, Paper, Typography } from '@mui/material';
-import { useDashboard } from '../../context/DashboardContext';
+import { useDashboard } from '../context/DashboardContext';
 import { useMemo } from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { useNavigate } from 'react-router-dom';
 
-import { generateSQLQueryData } from '../../../../common/utils/dataGenerator';
+import { generateSQLQueryData } from '../../../common/utils/dataGenerator';
 
 const donutSettings = {
   margin: { right: 5 },

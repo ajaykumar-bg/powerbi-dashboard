@@ -85,7 +85,7 @@ export const AIIndexWidget = () => {
               color='text.secondary'
               sx={{ fontSize: '0.75rem' }}
             >
-              Dollars Saved
+              Total Dollars Saved
             </Typography>
           </Box>
         </Grid>

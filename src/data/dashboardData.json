@@ -1,6 +1,6 @@
 {
   "techDebt": {
-    "reductionPercentage": 25
+    "reductionPercentage": 29
   },
   "appRat": {
     "totalSavings": 140000,
@@ -36,18 +36,18 @@
   },
   "sqlOptimization": {
     "queries": {
-      "analyzed": 60,
-      "dispositioned": 35,
-      "inProgress": 23,
-      "optimized": 11
+      "analyzed": 30,
+      "dispositioned": 3,
+      "inProgress": 5,
+      "optimized": 22
     },
     "performance": {
       "memoryReduction": {
-        "value": 38000,
+        "value": 0,
         "unit": "GB"
       },
       "executionTimeReduction": {
-        "value": 780000,
+        "value": 144000,
         "unit": "Seconds"
       }
     }
@@ -59,12 +59,14 @@
   },
   "productRoadmap": {
     "items": [
+		{ "name": "SAP Portal", "year": "2025", "type": "Upgrade" },
+		
 		{ "name": "SSAM", "year": "2026", "type": "Upgrade" },
 		{ "name": "Live Compare", "year": "2026", "type": "Upgrade" },
 		{ "name": "Data Masking", "year": "2026", "type": "Upgrade" },
 
 		{ "name": "Solution Manager", "year": "2027", "type": "Re-Platform" },
-		{ "name": "Portal", "year": "2027", "type": "Re-Platform" },
+		{ "name": "SAP Portal", "year": "2027", "type": "Re-Platform" },
 		{ "name": "Work Manager", "year": "2027", "type": "Re-Platform" },
 		{ "name": "SAP Gateway/Fiori", "year": "2027", "type": "Re-Platform" }
     ]

@@ -49,39 +49,59 @@ export const VulnerabilitiesWidget = () => {
           <Typography variant='body2' color='text.secondary' sx={{ mb: 1 }}>
             Custom Code Vulnerabilities
           </Typography>
-          <Box sx={{ mb: 1 }}>
-            <Typography variant='h4' color='primary' sx={{ lineHeight: 1 }}>
-              {vulnerabilities?.customCode?.detected}
-            </Typography>
-            <Typography variant='caption' color='text.secondary'>
-              Detected
-            </Typography>
+
+          {/* Horizontal layout for metrics */}
+          <Box
+            sx={{
+              display: 'flex',
+              gap: 1,
+              mb: 0.5,
+              justifyContent: 'space-between',
+            }}
+          >
+            <Box>
+              <Typography variant='h4' color='primary' sx={{ lineHeight: 1 }}>
+                {vulnerabilities?.customCode?.detected}
+              </Typography>
+              <Typography variant='caption' color='text.secondary'>
+                Detected
+              </Typography>
+            </Box>
+            <Box>
+              <Typography
+                variant='h4'
+                color='success.main'
+                sx={{ lineHeight: 1 }}
+              >
+                {vulnerabilities?.customCode?.remediated}
+              </Typography>
+              <Typography variant='caption' color='text.secondary'>
+                Remediated
+              </Typography>
+            </Box>
+            <Box>
+              <Typography
+                variant='h4'
+                color='warning.main'
+                sx={{ lineHeight: 1 }}
+              >
+                {vulnerabilities?.customCode?.remaining}
+              </Typography>
+              <Typography variant='caption' color='text.secondary'>
+                Remaining
+              </Typography>
+            </Box>
           </Box>
-          <Box sx={{ mb: 1 }}>
-            <Typography
-              variant='h4'
-              color='success.main'
-              sx={{ lineHeight: 1 }}
-            >
-              {vulnerabilities?.customCode?.remediated}
-            </Typography>
-            <Typography variant='caption' color='text.secondary'>
-              Remediated
-            </Typography>
-          </Box>
-          <Box sx={{ mb: 1 }}>
-            <Typography
-              variant='h4'
-              color='warning.main'
-              sx={{ lineHeight: 1 }}
-            >
-              {vulnerabilities?.customCode?.remaining}
-            </Typography>
-            <Typography variant='caption' color='text.secondary'>
-              Remaining
-            </Typography>
-          </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>
+        </Grid>
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              gap: 1,
+              mb: 0.5,
+              justifyContent: 'space-between',
+            }}
+          >
             <PieChart
               series={[
                 {
@@ -98,46 +118,66 @@ export const VulnerabilitiesWidget = () => {
             />
           </Box>
         </Grid>
+      </Grid>
 
-        {/* <Divider orientation='vertical' flexItem sx={{ mx: 1 }} /> */}
-
+      <Grid container spacing={1} sx={{ flexGrow: 1 }}>
         <Grid size={{ xs: 12, sm: 6 }}>
           <Typography variant='body2' color='text.secondary' sx={{ mb: 1 }}>
             SAP Portal Vulnerabilities
           </Typography>
-          <Box sx={{ mb: 1 }}>
-            <Typography variant='h4' color='primary' sx={{ lineHeight: 1 }}>
-              {vulnerabilities?.sapPortal?.total}
-            </Typography>
-            <Typography variant='caption' color='text.secondary'>
-              Total (Critical, High & Medium)
-            </Typography>
+
+          {/* Horizontal layout for metrics */}
+          <Box
+            sx={{
+              display: 'flex',
+              gap: 1,
+              mb: 0.5,
+              justifyContent: 'space-between',
+            }}
+          >
+            <Box>
+              <Typography variant='h4' color='primary' sx={{ lineHeight: 1 }}>
+                {vulnerabilities?.sapPortal?.total}
+              </Typography>
+              <Typography variant='caption' color='text.secondary'>
+                Total
+              </Typography>
+            </Box>
+            <Box>
+              <Typography
+                variant='h4'
+                color='success.main'
+                sx={{ lineHeight: 1 }}
+              >
+                {vulnerabilities?.sapPortal?.remediated}
+              </Typography>
+              <Typography variant='caption' color='text.secondary'>
+                Remediated
+              </Typography>
+            </Box>
+            <Box>
+              <Typography
+                variant='h4'
+                color='warning.main'
+                sx={{ lineHeight: 1 }}
+              >
+                {vulnerabilities?.sapPortal?.remaining}
+              </Typography>
+              <Typography variant='caption' color='text.secondary'>
+                Remaining
+              </Typography>
+            </Box>
           </Box>
-          <Box sx={{ mb: 1 }}>
-            <Typography
-              variant='h4'
-              color='success.main'
-              sx={{ lineHeight: 1 }}
-            >
-              {vulnerabilities?.sapPortal?.remediated}
-            </Typography>
-            <Typography variant='caption' color='text.secondary'>
-              Remediated
-            </Typography>
-          </Box>
-          <Box sx={{ mb: 1 }}>
-            <Typography
-              variant='h4'
-              color='warning.main'
-              sx={{ lineHeight: 1 }}
-            >
-              {vulnerabilities?.sapPortal?.remaining}
-            </Typography>
-            <Typography variant='caption' color='text.secondary'>
-              Remaining
-            </Typography>
-          </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>
+        </Grid>
+        <Grid size={{ xs: 12, sm: 6 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              gap: 1,
+              mb: 0.5,
+              justifyContent: 'space-between',
+            }}
+          >
             <PieChart
               series={[
                 {

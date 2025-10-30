@@ -59,7 +59,7 @@ export const VulnerabilitiesWidget = () => {
                   justifyContent: 'space-between',
                 }}
               >
-                <Box sx={{ textAlign: 'center' }}>
+                <Box>
                   <Typography
                     variant='h4'
                     color='primary'
@@ -71,7 +71,7 @@ export const VulnerabilitiesWidget = () => {
                     Detected
                   </Typography>
                 </Box>
-                <Box sx={{ textAlign: 'center' }}>
+                <Box>
                   <Typography
                     variant='h4'
                     color='success.main'
@@ -83,7 +83,7 @@ export const VulnerabilitiesWidget = () => {
                     Remediated
                   </Typography>
                 </Box>
-                <Box sx={{ textAlign: 'center' }}>
+                <Box>
                   <Typography
                     variant='h4'
                     color='warning.main'
@@ -132,7 +132,7 @@ export const VulnerabilitiesWidget = () => {
                   justifyContent: 'space-between',
                 }}
               >
-                <Box sx={{ textAlign: 'center' }}>
+                <Box>
                   <Typography
                     variant='h4'
                     color='primary'
@@ -144,7 +144,7 @@ export const VulnerabilitiesWidget = () => {
                     Total
                   </Typography>
                 </Box>
-                <Box sx={{ textAlign: 'center' }}>
+                <Box>
                   <Typography
                     variant='h4'
                     color='success.main'
@@ -156,7 +156,7 @@ export const VulnerabilitiesWidget = () => {
                     Remediated
                   </Typography>
                 </Box>
-                <Box sx={{ textAlign: 'center' }}>
+                <Box>
                   <Typography
                     variant='h4'
                     color='warning.main'

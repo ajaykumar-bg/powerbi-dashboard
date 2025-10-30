@@ -8,8 +8,8 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import { generateVulnerabilityData } from '../../../common/utils/dataGenerator';
 
 const chartSettings = {
-  width: 180,
-  height: 120,
+  width: 160,
+  height: 100,
 };
 
 export const VulnerabilitiesWidget = () => {
@@ -40,161 +40,157 @@ export const VulnerabilitiesWidget = () => {
       }}
       onClick={handleClick}
     >
-      <Typography variant='h6' gutterBottom sx={{ mb: 1 }}>
+      <Typography variant='h6' gutterBottom>
         Vulnerabilities
       </Typography>
 
-      <Grid container spacing={1} sx={{ flexGrow: 1 }}>
-        <Grid size={{ xs: 12, sm: 6 }}>
-          <Typography variant='body2' color='text.secondary' sx={{ mb: 1 }}>
+      <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+        {/* Custom Code Vulnerabilities Row */}
+        <Box>
+          <Typography variant='body2' color='text.secondary'>
             Custom Code Vulnerabilities
           </Typography>
-
-          {/* Horizontal layout for metrics */}
-          <Box
-            sx={{
-              display: 'flex',
-              gap: 1,
-              mb: 0.5,
-              justifyContent: 'space-between',
-            }}
-          >
-            <Box>
-              <Typography variant='h4' color='primary' sx={{ lineHeight: 1 }}>
-                {vulnerabilities?.customCode?.detected}
-              </Typography>
-              <Typography variant='caption' color='text.secondary'>
-                Detected
-              </Typography>
-            </Box>
-            <Box>
-              <Typography
-                variant='h4'
-                color='success.main'
-                sx={{ lineHeight: 1 }}
+          <Grid container spacing={0.5} alignItems='center'>
+            <Grid size={{ xs: 12, sm: 6 }}>
+              {/* Horizontal layout for metrics */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                }}
               >
-                {vulnerabilities?.customCode?.remediated}
-              </Typography>
-              <Typography variant='caption' color='text.secondary'>
-                Remediated
-              </Typography>
-            </Box>
-            <Box>
-              <Typography
-                variant='h4'
-                color='warning.main'
-                sx={{ lineHeight: 1 }}
-              >
-                {vulnerabilities?.customCode?.remaining}
-              </Typography>
-              <Typography variant='caption' color='text.secondary'>
-                Remaining
-              </Typography>
-            </Box>
-          </Box>
-        </Grid>
-        <Grid size={{ xs: 12, sm: 6 }}>
-          <Box
-            sx={{
-              display: 'flex',
-              gap: 1,
-              mb: 0.5,
-              justifyContent: 'space-between',
-            }}
-          >
-            <PieChart
-              series={[
-                {
-                  startAngle: -90,
-                  endAngle: 90,
-                  paddingAngle: 3,
-                  innerRadius: 35,
-                  outerRadius: 55,
-                  cy: '75%',
-                  data: vulnerabilityData.customCode,
-                },
-              ]}
-              {...chartSettings}
-            />
-          </Box>
-        </Grid>
-      </Grid>
+                <Box sx={{ textAlign: 'center' }}>
+                  <Typography
+                    variant='h4'
+                    color='primary'
+                    sx={{ lineHeight: 1 }}
+                  >
+                    {vulnerabilities?.customCode?.detected}
+                  </Typography>
+                  <Typography variant='caption' color='text.secondary'>
+                    Detected
+                  </Typography>
+                </Box>
+                <Box sx={{ textAlign: 'center' }}>
+                  <Typography
+                    variant='h4'
+                    color='success.main'
+                    sx={{ lineHeight: 1 }}
+                  >
+                    {vulnerabilities?.customCode?.remediated}
+                  </Typography>
+                  <Typography variant='caption' color='text.secondary'>
+                    Remediated
+                  </Typography>
+                </Box>
+                <Box sx={{ textAlign: 'center' }}>
+                  <Typography
+                    variant='h4'
+                    color='warning.main'
+                    sx={{ lineHeight: 1 }}
+                  >
+                    {vulnerabilities?.customCode?.remaining}
+                  </Typography>
+                  <Typography variant='caption' color='text.secondary'>
+                    Remaining
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <PieChart
+                  series={[
+                    {
+                      startAngle: -90,
+                      endAngle: 90,
+                      paddingAngle: 3,
+                      innerRadius: 35,
+                      outerRadius: 55,
+                      cy: '75%',
+                      data: vulnerabilityData.customCode,
+                    },
+                  ]}
+                  {...chartSettings}
+                />
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
 
-      <Grid container spacing={1} sx={{ flexGrow: 1 }}>
-        <Grid size={{ xs: 12, sm: 6 }}>
-          <Typography variant='body2' color='text.secondary' sx={{ mb: 1 }}>
+        {/* SAP Portal Vulnerabilities Row */}
+        <Box>
+          <Typography variant='body2' color='text.secondary'>
             SAP Portal Vulnerabilities
           </Typography>
-
-          {/* Horizontal layout for metrics */}
-          <Box
-            sx={{
-              display: 'flex',
-              gap: 1,
-              mb: 0.5,
-              justifyContent: 'space-between',
-            }}
-          >
-            <Box>
-              <Typography variant='h4' color='primary' sx={{ lineHeight: 1 }}>
-                {vulnerabilities?.sapPortal?.total}
-              </Typography>
-              <Typography variant='caption' color='text.secondary'>
-                Total
-              </Typography>
-            </Box>
-            <Box>
-              <Typography
-                variant='h4'
-                color='success.main'
-                sx={{ lineHeight: 1 }}
+          <Grid container spacing={0.5} alignItems='center'>
+            <Grid size={{ xs: 12, sm: 6 }}>
+              {/* Horizontal layout for metrics */}
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                }}
               >
-                {vulnerabilities?.sapPortal?.remediated}
-              </Typography>
-              <Typography variant='caption' color='text.secondary'>
-                Remediated
-              </Typography>
-            </Box>
-            <Box>
-              <Typography
-                variant='h4'
-                color='warning.main'
-                sx={{ lineHeight: 1 }}
-              >
-                {vulnerabilities?.sapPortal?.remaining}
-              </Typography>
-              <Typography variant='caption' color='text.secondary'>
-                Remaining
-              </Typography>
-            </Box>
-          </Box>
-        </Grid>
-        <Grid size={{ xs: 12, sm: 6 }}>
-          <Box
-            sx={{
-              display: 'flex',
-              gap: 1,
-              mb: 0.5,
-              justifyContent: 'space-between',
-            }}
-          >
-            <PieChart
-              series={[
-                {
-                  startAngle: -90,
-                  endAngle: 90,
-                  paddingAngle: 3,
-                  innerRadius: 35,
-                  outerRadius: 55,
-                  cy: '75%',
-                  data: vulnerabilityData.sapPortal,
-                },
-              ]}
-              {...chartSettings}
-            />
-          </Box>
-        </Grid>
-      </Grid>
+                <Box sx={{ textAlign: 'center' }}>
+                  <Typography
+                    variant='h4'
+                    color='primary'
+                    sx={{ lineHeight: 1 }}
+                  >
+                    {vulnerabilities?.sapPortal?.total}
+                  </Typography>
+                  <Typography variant='caption' color='text.secondary'>
+                    Total
+                  </Typography>
+                </Box>
+                <Box sx={{ textAlign: 'center' }}>
+                  <Typography
+                    variant='h4'
+                    color='success.main'
+                    sx={{ lineHeight: 1 }}
+                  >
+                    {vulnerabilities?.sapPortal?.remediated}
+                  </Typography>
+                  <Typography variant='caption' color='text.secondary'>
+                    Remediated
+                  </Typography>
+                </Box>
+                <Box sx={{ textAlign: 'center' }}>
+                  <Typography
+                    variant='h4'
+                    color='warning.main'
+                    sx={{ lineHeight: 1 }}
+                  >
+                    {vulnerabilities?.sapPortal?.remaining}
+                  </Typography>
+                  <Typography variant='caption' color='text.secondary'>
+                    Remaining
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid size={{ xs: 12, sm: 6 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <PieChart
+                  series={[
+                    {
+                      startAngle: -90,
+                      endAngle: 90,
+                      paddingAngle: 3,
+                      innerRadius: 35,
+                      outerRadius: 55,
+                      cy: '75%',
+                      data: vulnerabilityData.sapPortal,
+                    },
+                  ]}
+                  {...chartSettings}
+                />
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
     </Paper>
   );
 };

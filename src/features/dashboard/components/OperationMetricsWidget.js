@@ -15,6 +15,7 @@ import {
   getColorFromColorPath,
   getGaugeColor,
 } from '../../../common/utils/commonUtils';
+import { getCompletionPercentage } from '../utils/dashboardUtils';
 
 export const OperationMetricsWidget = () => {
   const { data } = useDashboard();
@@ -27,12 +28,10 @@ export const OperationMetricsWidget = () => {
   );
 
   // Calculate completion percentage based on created and closed
-  const completionPercentage = useMemo(() => {
-    if (!operationMetrics?.created || operationMetrics.created === 0) return 0;
-    return Math.round(
-      (operationMetrics.closed / operationMetrics.created) * 100
-    );
-  }, [operationMetrics?.created, operationMetrics?.closed]);
+  const completionPercentage = useMemo(
+    () => getCompletionPercentage(operationMetrics),
+    [operationMetrics]
+  );
 
   const progressColor = useMemo(() => {
     return getColorFromColorPath(
@@ -127,7 +126,7 @@ export const OperationMetricsWidget = () => {
           color='text.secondary'
           sx={{ mt: 1, textAlign: 'center' }}
         >
-          Closed / Created
+          Closed
         </Typography>
       </Box>
     </Paper>

@@ -256,6 +256,25 @@ export const updateFormField = (formData, fieldPath, value) => {
 
   // Set the value
   current[keys[keys.length - 1]] = value;
+
+  // Auto-calculate App Rat percentage when maintenance base or yearly maintenance changes
+  if (fieldPath.includes('appRat.sapMobilePlatform')) {
+    const appRat = newData.appRat || {};
+    const sapMobilePlatform = appRat.sapMobilePlatform || {};
+    const base = sapMobilePlatform.maintenanceBase || 0;
+    const yearly = sapMobilePlatform.yearlyMaintenance || 0;
+
+    if (base > 0) {
+      newData.appRat = {
+        ...appRat,
+        sapMobilePlatform: {
+          ...sapMobilePlatform,
+          percentageValue: parseFloat(((yearly / base) * 100).toFixed(2)),
+        },
+      };
+    }
+  }
+
   return newData;
 };
 

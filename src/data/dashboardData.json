@@ -4,8 +4,14 @@
   },
   "appRat": {
     "totalSavings": 140000,
-    "sapMobilePlatform": 115000,
-    "sapCE": 25000
+    "sapMobilePlatform": {
+      "maintenanceBase": 665000,
+      "yearlyMaintenance": 115000,
+      "percentageValue": 17.29
+    },
+    "sapCEPortal": {
+      "computeCost": 25000
+    }
   },
   "aiIndex": {
     "adoptionRate": 6.32,

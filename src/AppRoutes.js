@@ -14,6 +14,7 @@ import DashboardForms from './features/dashboard-forms';
 // Updated imports to use feature-based structure
 import SqlOptimizationDetails from './features/analytics/sql-optimization';
 import VulnerabilityDetails from './features/analytics/vulnerability';
+import { AppRatDetails } from './features/analytics/app-rat';
 import Forms from './features/forms';
 import RoleSettings from './features/settings';
 
@@ -38,6 +39,10 @@ function AppRoutes() {
                     <Route
                       path='/vulnerability-details'
                       element={<VulnerabilityDetails />}
+                    />
+                    <Route
+                      path='/app-rat-details'
+                      element={<AppRatDetails />}
                     />
                     <Route path='/forms' element={<Forms />} />
                     <Route

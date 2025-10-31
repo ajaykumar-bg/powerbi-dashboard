@@ -17,9 +17,15 @@ const transformDashboardData = (rawData) => {
   return {
     ...rawData,
     appRat: {
-      totalSavings: formatNumber(rawData.appRat.totalSavings),
-      sapMobilePlatform: formatNumber(rawData.appRat.sapMobilePlatform),
-      sapCE: formatNumber(rawData.appRat.sapCE),
+      totalSavings: rawData.appRat.totalSavings,
+      sapMobilePlatform: {
+        maintenanceBase: rawData.appRat.sapMobilePlatform.maintenanceBase,
+        yearlyMaintenance: rawData.appRat.sapMobilePlatform.yearlyMaintenance,
+        percentageValue: rawData.appRat.sapMobilePlatform.percentageValue,
+      },
+      sapCEPortal: {
+        computeCost: rawData.appRat.sapCEPortal.computeCost,
+      },
     },
     sqlOptimization: {
       ...rawData.sqlOptimization,

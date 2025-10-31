@@ -18,7 +18,11 @@ const CostAnalysisCard = ({ appRat }) => {
           >
             <Typography variant='body2'>Maintenance Base:</Typography>
             <Typography variant='body2' fontWeight='bold'>
-              ${(appRat.sapMobilePlatform.maintenanceBase / 1000).toFixed(0)}K
+              $
+              {(
+                (appRat?.sapMobilePlatform?.maintenanceBase || 0) / 1000
+              ).toFixed(0)}
+              K
             </Typography>
           </Box>
           <Box
@@ -30,7 +34,11 @@ const CostAnalysisCard = ({ appRat }) => {
           >
             <Typography variant='body2'>Yearly Maintenance:</Typography>
             <Typography variant='body2' fontWeight='bold'>
-              ${(appRat.sapMobilePlatform.yearlyMaintenance / 1000).toFixed(0)}K
+              $
+              {(
+                (appRat?.sapMobilePlatform?.yearlyMaintenance || 0) / 1000
+              ).toFixed(0)}
+              K
             </Typography>
           </Box>
           <Box
@@ -42,7 +50,7 @@ const CostAnalysisCard = ({ appRat }) => {
           >
             <Typography variant='body2'>Percentage (Yearly/Base):</Typography>
             <Typography variant='body2' fontWeight='bold' color='primary.main'>
-              {appRat.sapMobilePlatform.percentageValue}%
+              {appRat?.sapMobilePlatform?.percentageValue || 0}%
             </Typography>
           </Box>
         </CardContent>

@@ -79,9 +79,15 @@ export const getFormattedFormData = (formData) => {
   const formattedData = {
     ...formData,
     appRat: {
-      totalSavings: formatDisplayNumber(formData.appRat.totalSavings),
-      sapMobilePlatform: formatDisplayNumber(formData.appRat.sapMobilePlatform),
-      sapCE: formatDisplayNumber(formData.appRat.sapCE),
+      totalSavings: formData.appRat.totalSavings,
+      sapMobilePlatform: {
+        maintenanceBase: formData.appRat.sapMobilePlatform?.maintenanceBase,
+        yearlyMaintenance: formData.appRat.sapMobilePlatform?.yearlyMaintenance,
+        percentageValue: formData.appRat.sapMobilePlatform?.percentageValue,
+      },
+      sapCEPortal: {
+        computeCost: formData.appRat.sapCEPortal?.computeCost,
+      },
     },
     sqlOptimization: {
       ...formData.sqlOptimization,
@@ -182,8 +188,9 @@ export const validateDashboardForm = (formData) => {
   const numericFields = [
     'techDebt.reductionPercentage',
     'appRat.totalSavings',
-    'appRat.sapMobilePlatform',
-    'appRat.sapCE',
+    'appRat.sapMobilePlatform.maintenanceBase',
+    'appRat.sapMobilePlatform.yearlyMaintenance',
+    'appRat.sapCEPortal.computeCost',
     'aiIndex.adoptionRate',
     'aiIndex.hoursSaved',
     'aiIndex.dollarsSaved',

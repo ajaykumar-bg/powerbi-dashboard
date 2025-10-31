@@ -30,19 +30,23 @@ export const AppRatWidget = () => {
       <Grid container spacing={2} direction='column'>
         <Grid>
           <Typography variant='h2' color='success'>
-            ${(appRat?.totalSavings / 1000).toFixed(0)}K
+            ${((appRat?.totalSavings || 0) / 1000).toFixed(0)}K
           </Typography>
           <Typography variant='body2'>Total Dollars Savings</Typography>
         </Grid>
         <Grid>
           <Typography variant='h2' color='warning'>
-            ${(appRat?.sapMobilePlatform?.yearlyMaintenance / 1000).toFixed(0)}K
+            $
+            {(
+              (appRat?.sapMobilePlatform?.yearlyMaintenance || 0) / 1000
+            ).toFixed(0)}
+            K
           </Typography>
           <Typography variant='body2'>SAP Mobile Platform</Typography>
         </Grid>
         <Grid>
           <Typography variant='h2' color='info'>
-            ${(appRat?.sapCEPortal?.computeCost / 1000).toFixed(0)}K
+            ${((appRat?.sapCEPortal?.computeCost || 0) / 1000).toFixed(0)}K
           </Typography>
           <Typography variant='body2'>SAP CE Portal</Typography>
         </Grid>

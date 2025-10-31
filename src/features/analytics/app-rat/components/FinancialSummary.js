@@ -5,21 +5,21 @@ import { SUMMARY_COLORS } from '../constants';
 const FinancialSummary = ({ appRat }) => {
   const summaryMetrics = [
     {
-      value: `$${(appRat.totalSavings / 1000).toFixed(0)}K`,
+      value: `$${((appRat?.totalSavings || 0) / 1000).toFixed(0)}K`,
       label: 'Total Annual Savings',
       bgColor: SUMMARY_COLORS.successLight,
       textColor: SUMMARY_COLORS.successDark,
     },
     {
-      value: `${appRat.sapMobilePlatform.percentageValue}%`,
+      value: `${appRat?.sapMobilePlatform?.percentageValue || 0}%`,
       label: 'Yearly/Base Maintenance Ratio',
       bgColor: SUMMARY_COLORS.primaryLight,
       textColor: SUMMARY_COLORS.primaryDark,
     },
     {
       value: `$${(
-        (appRat.sapMobilePlatform.yearlyMaintenance +
-          appRat.sapCEPortal.computeCost) /
+        ((appRat?.sapMobilePlatform?.yearlyMaintenance || 0) +
+          (appRat?.sapCEPortal?.computeCost || 0)) /
         1000
       ).toFixed(0)}K`,
       label: 'Total Annual Costs',

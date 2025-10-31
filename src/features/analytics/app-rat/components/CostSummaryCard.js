@@ -18,7 +18,7 @@ const CostSummaryCard = ({ appRat }) => {
           >
             <Typography variant='body2'>Total Savings:</Typography>
             <Typography variant='body2' fontWeight='bold' color='success.main'>
-              ${(appRat.totalSavings / 1000).toFixed(0)}K
+              ${((appRat?.totalSavings || 0) / 1000).toFixed(0)}K
             </Typography>
           </Box>
           <Box
@@ -30,7 +30,11 @@ const CostSummaryCard = ({ appRat }) => {
           >
             <Typography variant='body2'>SAP Mobile (Yearly):</Typography>
             <Typography variant='body2' fontWeight='bold'>
-              ${(appRat.sapMobilePlatform.yearlyMaintenance / 1000).toFixed(0)}K
+              $
+              {(
+                (appRat?.sapMobilePlatform?.yearlyMaintenance || 0) / 1000
+              ).toFixed(0)}
+              K
             </Typography>
           </Box>
           <Box
@@ -42,7 +46,7 @@ const CostSummaryCard = ({ appRat }) => {
           >
             <Typography variant='body2'>SAP CE Portal:</Typography>
             <Typography variant='body2' fontWeight='bold'>
-              ${(appRat.sapCEPortal.computeCost / 1000).toFixed(0)}K
+              ${((appRat?.sapCEPortal?.computeCost || 0) / 1000).toFixed(0)}K
             </Typography>
           </Box>
         </CardContent>
